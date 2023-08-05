@@ -1,0 +1,32 @@
+{
+	"TransTime": "2017-01-03 15:44:27.353",
+	"BeginDate": "",
+	"_LocalProcessFlag": "false",
+	"ServicePacket": "1",
+	"AcctNo": "6231970506712738183",
+	"_ChannelId": "WAP",
+	"_MCSJnlNo": "0",
+	"AcctType": "0",
+	"MobileNo": "18500000022",
+	"_locale": "zh_CN",
+	"LoginType": "P",
+	"json": {
+		"RelationState": "N",
+		"AcctNo": "6231970506712738183",
+		"MobileNo": "18500000022"
+	},
+	"_AuthenticateType": "000000",
+	"_TransactionId": "per.MCMessageNotify",
+	"_RejCode": "000000",
+	"TransDate": "20170103",
+	"_MCHJnlNo": "000000",
+	"_MCHTimestamp": "2017-01-03 15:44:27.353",
+	"_ResponseSystemId": "MCA",
+	"ChangeState": "",
+	"RelationState": "N",
+	"ChannelId": "web",
+	"_RejMsg": "",
+	"EndDate": "",
+	"BankId": "9999",
+	"_ProcessState": ""
+}

@@ -1,0 +1,67 @@
+<div>
+	<form name="form2">
+		<!-- <div class="top_ele_bar"><img src="images/ele_bar.png">
+		</div> -->
+		<div class="top02">
+			{{BusiType.BUSI_NAME}} <span class="back_btn01"> <img src="images/back.png" v-click="vPageBackoneFn();"> </span>
+		</div>
+		<div class="jf_infor02">
+			<h1><span>应缴金额</span></br><span><em>{{PAYAMT|number:2}}</em>&nbsp;元</span></h1>
+		</div>
+		<div class="jf_infor02" style="border-top:none;">
+			<p>
+				<span>缴费金额</span>
+				<span>{{PAYAMOUNT|number:2}}</span>
+			</p>
+		</div>
+		<div class="jf_infor02 margintop">
+			<p>
+				<span>缴费单位</span>
+				<span>{{PayProjObj.ITERM_NAME}}</span>
+			</p>
+			<p>
+				<span>缴费号码</span>
+				<span>{{BILLKEY}}</span>
+			</p>
+			<p v-show="CUSTNAME">
+				<span>缴费户名</span>
+				<span>{{CUSTNAME}}</span>
+			</p>
+		</div>
+		<div class="btn02_box">
+			<input type="button" class="btn02" value="确认缴费"v-click="doIt2();">
+		</div>
+	</form>
+</div>
+<!---------------- 交易密码输入提示框  -------------------------->
+<div class="tangkuang_box" v-show="pwdbox">
+	<div class="tangkuang_bg"></div>
+	<div class="tangkuang03" id="tangkuang03" style=" padding-top:0;">
+		<div class="tk_title">
+			交易密码提醒
+		</div>
+		<p class="mima_input">
+			<span>交易密码：</span>
+			<span>
+				<input type="text" id="trsPwd" placeholder="请输入6位交易密码" v-model="trsPassword" v-click="alertPwd({skType:2,type:1,elem:'#trsPwd',maxLength:6})">
+			</span>
+		</p>
+		<div>
+			<input type="button" class="btn_09" value="取消" v-click="closeBox()">
+			<input type="button" class="btn_10" value="确定" v-click="doIt4()">
+		</div>
+	</div>
+</div>
+<!---------------- js 弹框居中  -------------------------->
+<script language="javascript" type="text/javascript" >
+	var tk02_height = document.getElementById("tangkuang03").offsetHeight;
+	var marginl = tk02_height / 2;
+	document.getElementById("tangkuang03").style.marginTop = -(marginl) + 'px'; 
+</script>
+<style>
+	@media (max-width: 320px) {
+		.b_bottom span:first-child {
+			width: 30%;
+		}
+	}
+</style>

@@ -1,0 +1,36 @@
+{
+	"_LocalProcessFlag": "false",
+	"_ChannelId": "WAP",
+	"_MCSJnlNo": "0",
+	"TotalShare": "30624.53",
+	"DyAmount": 0.050060,
+	"_locale": "zh_CN",
+	"LoginType": "P",
+	"_AuthenticateType": "000000",
+	"AccountNo": "6231970506712760435",
+	"_TransactionId": "per.MCJuliBaoShareQry",
+	"IsSign": "Yes",
+	"List": [
+		{
+			"ProdId": "0001",
+			"AcctNo": "6231970506712760435",
+			"TotalShare": "30624.53",
+			"ProdSubId": "000726",
+			"AcctStatus": "03",
+			"ChannelMerId": "1000000001"
+		}
+	],
+	"_RejCode": "000000",
+	"AppointShare": "0.00",
+	"_MCHJnlNo": "000000",
+	"ProfitPerAcct": "0.999700",
+	"_MCHTimestamp": "2016-12-26 11:53:09.191",
+	"_ResponseSystemId": "MCA",
+	"LastProfit": "1.04",
+	"ChannelId": "web",
+	"_RejMsg": "",
+	"BankId": "9999",
+	"CoreTag": "000",
+	"TotalAllProfits": "38.43",
+	"_ProcessState": ""
+}

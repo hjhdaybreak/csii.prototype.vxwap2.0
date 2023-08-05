@@ -1,0 +1,10 @@
+<div>
+    <strong>isolatedScope</strong>
+    <div>
+        {{message}}
+    </div>
+    <div v-repeat="row in list">
+        <div v-click="fn({param:row})">{{row}}</div>
+
+    </div>
+</div>

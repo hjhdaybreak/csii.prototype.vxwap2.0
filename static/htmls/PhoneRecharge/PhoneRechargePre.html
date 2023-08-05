@@ -1,0 +1,91 @@
+<div class="top02 fixTop wealthTop">
+	手机充值 <span class="back_btn01"> <img src="images/back.png" v-click="backPrePageFn();"> </span>
+	<span class="trad_btn01" v-click="goto('appOther.PhoneChargeRecord')">充值记录</span>
+</div>
+<form name="form1" novalidate v-submit="doNext()">
+	<div class="tab03">
+		<ul>
+			<li v-class="{'tab03_cur':menuflag =='phone'}" v-click="changeMenu('phone')">
+				话费充值
+			</li>
+			<li v-class="{'tab03_cur':menuflag =='data'}" v-click="changeMenu('data')">
+				流量充值
+			</li>
+		</ul>
+	</div>
+	<div class="phone_box" v-show="menuflag =='phone'">
+		<div class="phone_num">
+			<input type="text" placeholder="请输入充值手机号..." name="phoneNum" v-model="phoneNum" required>
+			<!-- v-mousedown="changeStyle()" -->
+			<div>
+				&nbsp;<span v-class="{'liantong':OperatorInfo.Operator_Name =='中国联通','yidong':OperatorInfo.Operator_Name =='中国移动','dianxin':OperatorInfo.Operator_Name =='中国电信'}"
+				v-bind="OperatorInfo.Operator_Name"></span>&nbsp;
+			</div>
+		</div>
+		<div class="money_num" v-show="menuflag=='phone' && !fixedFlag">
+			<ul>
+				<li v-class="{'money_num_cur':numFlag['50']=='1','money_num_li02':numFlag['50']=='0'}" v-click="doChoose('50')">
+					50元
+				</li>
+				<li v-class="{'money_num_cur':numFlag['100']=='1','money_num_li02':numFlag['100']=='0'}" v-click="doChoose('100')">
+					100元
+				</li>
+				<li v-class="{'money_num_cur':numFlag['300']=='1','money_num_li02':numFlag['300']=='0'}" v-click="doChoose('300')">
+					300元
+				</li>
+				<li v-class="{'money_num_cur':numFlag['500']=='1','money_num_li02':numFlag['500']=='0'}" v-click="doChoose('500')">
+					500元
+				</li>
+			</ul>
+		</div>
+		<div class="money_num" v-show="menuflag=='phone' && fixedFlag">
+			<ul>
+				<li>
+					50元
+				</li>
+				<li>
+					100元
+				</li>
+				<li>
+					300元
+				</li>
+				<li>
+					500元
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="phone_box" v-show="menuflag =='data'">
+		<div class="phone_num">
+			<input type="text" placeholder="请输入充值手机号..." v-model="phoneNum"
+			v-blur="changePayerPhone()" required>
+			<!-- aa -->
+			<div>
+				&nbsp;<span v-class="{'liantong':OperatorInfo.Operator_Name =='中国联通','yidong':OperatorInfo.Operator_Name =='中国移动','dianxin':OperatorInfo.Operator_Name =='中国电信'}"
+				v-bind="OperatorInfo.Operator_Name"></span>&nbsp;
+			</div>
+		</div>
+		<div class="money_num"  v-show="menuflag =='data' && PayItemQryList!=null">
+			<!-- && phoneNum.length == 13 -->
+			<ul>
+				<!-- <li v-class='{"money_num_cur":$index==currentIndex,"money_num_li02":$index!=currentIndex}' v-click="selectAmount('10')" class="lineH25">
+				<span>100M</span><br><span>售价99.8元</li> -->
+				<li v-repeat="item in PayItemQryList"  id="a{{$index}}"  v-click="selectAmount(item,$index)" class="lineH25 money_num_li02">
+					<span>{{item.filed1}}M</span>
+					<br>
+					<span>售价{{item.payamount|number:2}}元</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="btn02_box">
+		<input type="submit" class="btn02" value="立即充值" v-show="toConfFlag"/>
+	</div>
+</form>
+<div class="tips">
+	<ol>
+		<li>
+			充值服务时间{{startTime}}-{{endTime}}实时充值到账，充值高峰期可能会延迟，可联系运营商核实到账情况。
+		</li>
+	</ol>
+</div>

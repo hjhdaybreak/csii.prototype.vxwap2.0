@@ -1,0 +1,14 @@
+<form name="preForm" v-submit="doPre();" novalidate style="margin: 0 200px">
+    <div>
+        <label>金额: </label>
+        <div>
+            <input type="text" name="Amount" v-model="Amount" required/>
+        </div>
+    </div>
+    {{$msg('Currency').AUD}}
+    <div>
+        <label>
+            <input type="submit" value="提交"/>
+        </label>
+    </div>
+</form>

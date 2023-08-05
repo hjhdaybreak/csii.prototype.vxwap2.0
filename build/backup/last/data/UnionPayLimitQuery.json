@@ -1,0 +1,11 @@
+{
+    "limitPerDay": 1000000,
+    "ChannelId": "WAP",
+    "_locale": "zh_CN",
+    "limitPerTrs": 300000,
+    "LoginType": "P",
+    "BankId": "9999",
+    "LimitFlag": "Y",
+    "_ChannelId": "WAP",
+    "CardNo": "6214850107962232"
+}

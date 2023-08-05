@@ -1,0 +1,58 @@
+<div oc-lazy-load="htmls/HistoryRate/HistoryRate.js">
+	<div style="padding-top: 44px;" v-controller="HistoryRateCtrl"  v-init="init()">
+		<div class="top02 fixTop wealthTop">
+			历史收益率<span class="back_btn01"> <img src="images/back.png" v-click="goback()"> </span>
+		</div>
+		<div>
+			<div class="transList-all" id="transList-all" style="margin-top:44px;" >
+				<div class="transList" id="transList">
+					<div id="pullDown" class="pullDown">
+						<span class="pullDownIcon"></span>
+						<span class="pullDownLabel">下拉刷新</span>
+					</div>
+					<div class="history_rate_btn">
+						<ul>
+							<li style="width:25%">
+								日期
+							</li>
+							<li style="width:42%">
+								七日年化收益率(%)
+							</li>
+							<li style="width:29%">
+								万份收益(元)
+							</li>
+						</ul>
+					</div>
+					<div class="con_box01">
+						<div class="history_rate" v-repeat="row in List">
+							<ul>
+								<li style="width:25%">
+									{{row.NavDate}}
+								</li>
+								<li style="width:42%">
+									{{row.AnnualReturnBy7|percent}}
+								</li>
+								<li style="width:29%">
+									{{row.ProfitPerAcc|number:4}}
+								</li>
+							</ul>
+						</div>
+						<div id="pullUp" class="pullUp"  v-show="recordNumber>0">
+							<span class="pullUpIcon"></span>
+							<span class="pullUpLabel">上拉加载更多</span>
+						</div>
+					</div>
+					<!--暂无信息-->
+					<div v-show="recordNumber==0" style="position: relative;">
+						<div class="l_norecord">
+							<ul style="padding: 30px 0;">
+								<p><img src="images/icon9.png" width="25" height="25">暂无记录!
+								</p>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

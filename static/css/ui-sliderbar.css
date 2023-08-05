@@ -1,0 +1,221 @@
+
+/*!
+ * Slider for Bootstrap
+ *
+ * Copyright 2012 Stefan Petre
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+.slider {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  margin: 10px 0 10px 0;
+}
+.slider.slider-horizontal {
+  width: 210px;
+  height: 20px;
+}
+.slider.slider-horizontal .slider-track {
+  height: 10px;
+  width: 100%;
+  top: 0px;
+  left: 0;
+  margin-top: 5px;
+}
+.slider.slider-horizontal .slider-selection {
+  height: 100%;
+  top: 0;
+  bottom: 0;
+}
+.slider.slider-horizontal .slider-handle {
+  margin-left: -5px;
+  margin-top: -2px;
+}
+.slider.slider-horizontal .slider-handle.triangle {
+  border-width: 0 6px 15px 6px;
+  width: 0;
+  height: 0;
+  border-bottom-color: #0480be;
+  margin-top: -5px;
+}
+.slider.slider-vertical {
+  height: 210px;
+  width: 20px;
+}
+.slider.slider-vertical .slider-track {
+  width: 10px;
+  height: 100%;
+  margin-left: -5px;
+  left: 50%;
+  top: 0;
+}
+.slider.slider-vertical .slider-selection {
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+.slider.slider-vertical .slider-handle {
+  margin-left: -5px;
+  margin-top: -10px;
+}
+.slider.slider-vertical .slider-handle.triangle {
+  border-width: 10px 0 10px 10px;
+  width: 1px;
+  height: 1px;
+  border-left-color: #0480be;
+  margin-left: 0;
+}
+.slider input {
+  display: none;
+}
+.slider .tooltip-inner {
+  white-space: nowrap;
+}
+.slider-track {
+  position: absolute;
+  cursor: pointer;
+  background-color: #f7f7f7;
+  background-image: -moz-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#f9f9f9));
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -o-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: linear-gradient(to bottom, #f5f5f5, #f9f9f9);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#fff9f9f9', GradientType=0);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  border-bottom-left-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+}
+.slider-selection {
+  position: absolute;
+  background-color: #99E9F2;
+  background-image: -moz-linear-gradient(top, #99e9f2, #6bccf2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#99e9f2), to(#6bccf2));
+  background-image: -webkit-linear-gradient(top, #99e9f2, #6bccf2);
+  background-image: -o-linear-gradient(top, #99e9f2, #6bccf2);
+  background-image: linear-gradient(to bottom, #99e9f2, #6bccf2);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff99E9F2', endColorstr='#ff6BCCF2', GradientType=0);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.slider-handle {
+  position: absolute;
+  width: 10px;
+  margin-top: 2px;
+  height: 15px;
+  background-color: #99E9F2;
+  background-image: -moz-linear-gradient(top, #99e9f2, #6bccf2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#99e9f2), to(#6bccf2));
+  background-image: -webkit-linear-gradient(top, #99e9f2, #6bccf2);
+  background-image: -o-linear-gradient(top, #99e9f2, #6bccf2);
+  background-image: linear-gradient(to bottom, #99e9f2, #6bccf2);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff99E9F2', endColorstr='#ff6BCCF2', GradientType=0);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  opacity: 1;
+  border: 0px solid transparent;
+}
+.slider-handle.round {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.slider-handle.triangle {
+  background: transparent none;
+}
+.slider .tooltip .tooltip-arrow {
+  border-top-color: #0e90d2;
+}
+.slider .tooltip .tooltip-inner {
+  background-color: #0e90d2;
+}
+.slider-backgrund {
+  background: #F2F2F2;
+  background-image: -moz-linear-gradient(top, #f2f2f2, #d9d9d9);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2f2f2), to(#d9d9d9));
+  background-image: -webkit-linear-gradient(top, #f2f2f2, #d9d9d9);
+  background-image: -o-linear-gradient(top, #f2f2f2, #d9d9d9);
+  background-image: linear-gradient(to bottom, #f2f2f2, #d9d9d9);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffF2F2F2', endColorstr='#ffD9D9D9', GradientType=0);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  position: absolute;
+  height: 10px;
+  width: 100%;
+  margin-top: 5px;
+}
+.slider-bar {
+  position: absolute;
+  height: 10px;
+}
+.slider-limit {
+  position: relative;
+  color: #B7CBE0;
+  top: 60px;
+}
+.slider-max {
+  position: absolute;
+  margin: 10px 0 0 10px;
+  color: #B7CBE0;
+  top:10px;
+}
+.slider-mark {
+  border-bottom: 1px solid #B7CBE0;
+  width: 100%;
+  height: 5px;
+  list-style: none;
+  margin: 35px 0 0 0;
+}
+.slider-mark li {
+  border-right: 1px solid #B7CBE0;
+  width: 0;
+  height: 5px;
+  list-style: none;
+  display: inline-block;
+  float: left;
+}
+.slider-mark li.first {
+  border-right: 1px solid #B7CBE0;
+  width: 0;
+  height: 5px;
+  list-style: none;
+  float: left;
+}
+.slider-mark li.last {
+  border-right: 1px solid #B7CBE0;
+  width: 0;
+  height: 5px;
+  list-style: none;
+  float: right;
+}
+/***项目新加样式**/
+.slider-handle.hide{
+  display: none;
+}
+.tooltip.top{
+  display:none;
+}

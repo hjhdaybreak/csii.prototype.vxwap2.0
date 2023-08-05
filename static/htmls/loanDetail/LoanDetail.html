@@ -1,0 +1,157 @@
+<div oc-lazy-load="htmls/loanDetail/LoanDetail.js">
+	<div v-controller="LoanDetailCtrl" v-init="init()">
+		<div class="top02"style="position: fixed;z-index: 10;top: 0px;">
+			贷款详情 <span class="back_btn01" v-click="goto('app.My')"> <img src="images/back.png"> </span>
+		</div>
+		<div style="position: relative;top: 40px;">
+			<div class="fuzhai_box">
+				<div class="fuzhai_con_title">
+					<h1><span v-show="RepayData.BussinessSubType=='其他'||RepayData.BussinessSubType==''">{{RepayData.BusinessType}}</span><span v-show="RepayData.BussinessSubType!='其他'&&RepayData.BussinessSubType!=''">{{RepayData.BussinessSubType}}</span></h1>
+					<h2>{{RepayData.AccountNo|encryptNewAcNo}}</h2>
+					<span class="dk_icon"><img src="images/daikuan.png"></span>
+					<!--<span class="dk_zhang"><img src="images/fz_jq.png"></span>
+					<span class="fz_d"><img src="images/next.png"></span>-->
+				</div>
+			</div>
+			<div class="con_box01">
+				<div class="b_bottom">
+					<em class="name">可用余额</em>
+					<span class="field_right">{{EcacctAvailBal|number:2}}元</span>
+				</div>
+				<div class="b_bottom">
+					<em class="name" v-click="OpenBenQiHKWEnXinTiShiFn();">本期应还&nbsp;&nbsp;&nbsp;<img src="images/my_icon05.png" style="width:14px; vertical-align:middle;"></em>
+					<span class="field_right">{{RepayData.CurrentRepay|number:2}}元</span>
+				</div>
+				<div class="con_tip2" v-show="Type=='1'&&PlanList[0].PayDate!=undefined&&PlanList[0].PayDate!=null"><img src="images/con_tip_bg.png">账户余额充足，系统将于{{PlanList[0].PayDate|dateConvertCharNew}}自动扣款，在此之前请确保电子账户可用余额资金充足。
+				</div>
+				<!-- 资金不足，按期还款资金转入  -->
+				<div class="con_tip2" v-show="Type=='2'" ><img src="images/shuom_icon.png"><span style="color: #4A90E2;">余额不足，请进行&nbsp;&nbsp;</span><a href="javascript:void(0)" v-click="TransferIn()" class="text_line" style="font-size:12px;    color: #F22D43;text-decoration: underline;">资金转入</a>
+				</div>
+			</div>
+			<div style="background:#fff;">
+				<ul class="ul_btn">
+					<li v-click="AutoQry()">
+						自动还款
+					</li>
+					<li style="color: #999;;" v-show="RepayData.IsAheadBack=='2'">
+						提前还款
+					</li>
+					<li v-show="RepayData.IsAheadBack=='1'" v-click="PreRepaymentFn()">
+						提前还款
+					</li>
+				</ul>
+
+			</div>
+			<div class="refund_infor_box">
+				<ul>
+					<li v-class='{"table_cur":liFlag=="hkPlan"}' v-click="changeType('hkPlan')">
+						还款计划表
+					</li>
+					<li v-class='{"table_cur":liFlag=="hkState"}' v-click="changeType('hkState')">
+						还款状态
+					</li>
+					<li v-class='{"table_cur":liFlag=="hkHistory"}' v-click="changeType('hkHistory')">
+						还款历史
+					</li>
+				</ul>
+				<!-- 还款计划 -->
+				<div class="plantable" v-show="liFlag=='hkPlan'">
+					<div v-show="PlanList && PlanList.length > 0">
+						<div class="oneinfor">
+							<span>期次</span>
+							<span>计划还款日期</span>
+							<span>还款金额</span>
+						</div>
+						<div v-repeat="item in PlanList">
+							<div class="oneinfor" style="position: relative;">
+								<span>{{item.PayTimes}}</span>
+								<span>{{item.PayDate|dateConvertChar}}</span>
+								<span v-click="show(item.PayTimes,$event)"style="width: 38%;background: url(images/rightarrow.png) no-repeat;    background-position: 100% 100%;    background-size: 15%;">{{item.SumCorpusInt|number:2}}元</span>
+								<div class="fd yy"  id="p{{item.PayTimes}}"style="display:none;">
+									<div class="arrowfd"></div>
+									<a  class="f12">本金：{{item.Corpus|number:2}}元</a>
+									<br/>
+									<a   class="f12">利息：{{item.Interest|number:2}}元</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="l_norecord"  v-show="PlanList.length == 0">
+						<ul style="padding: 30px 0;">
+							<p><img src="images/icon9.png" width="25" height="25">暂无记录！
+							</p>
+						</ul>
+					</div>
+				</div>
+				<!-- 还款状态 -->
+				<div class="refund_state"  v-show="liFlag=='hkState'">
+					<div class="twoinfor">
+						<span>还款账号</span>
+						<span>{{RepayData.AccountNo}}</span>
+					</div>
+					<div class="twoinfor">
+						<span>开户行</span>
+						<span>科蓝银行</span>
+					</div>
+					<div class="twoinfor">
+						<span>贷款状态</span>
+						<span>{{RepayData.LoanStatus}}</span>
+					</div>
+					<div class="twoinfor" id="OverDueSum">
+						<span>逾期金额</span>
+						<span>{{RepayData.OverDueSum|number:2}}元</span>
+					</div>
+				</div>
+				<!-- 还款历史 -->
+				<div class="refund_history"  v-show="liFlag=='hkHistory'">
+					<div v-show="HisList && HisList.length > 0">
+						<div class="threeinfor">
+							<span>期次</span>
+							<span>还款日期</span>
+							<span>还款类型</span>
+							<span>已还金额</span>
+						</div>
+						<div v-repeat="item in HisList" >
+							<div class="threeinfor" style="position: relative;">
+								<span>{{item.RepayTerms}}</span>
+								<span>{{item.ActualDate|dateConvertNew}}</span>
+								<span>{{item.OccurType}}</span>
+								<span v-click="showHis(item.PageNo,$event)"style="width: 27%;background: url(images/rightarrow.png) no-repeat;    background-position: 100% 100%;    background-size: 15%;">{{item.SumActual|number:2}}元 </span>
+								<div class="fd yy"  id="p{{item.PageNo}}"style="display:none;">
+									<div class="arrowfd"></div>
+									<a  class="f12">本金：{{item.SumActualCap|number:2}}元</a>
+									<br/>
+									<a  class="f12">利息：{{item.SumActualInt|number:2}}元</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tips" style="margin-top: 25px;" v-show="HisList.length == 0">
+						<div class="daikuanloal">
+							尊敬的小草用户，您尚未产生还款历史信息，请您及时关注还款计划表的还款信息，以免造成逾期。
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--温馨提示框  -->
+		<div class="tangkuang_box" id="BenQiWenXinTiShi_id" style="display: none;" v-click="CloseBenQiHKWEnXinTiShiFn();">
+			<div class="tangkuang_bg"></div>
+			<div class="tangkuang02" id="tangkuang02" style=" padding-top:-80px;top: 30%;">
+				<span class="error_icon02"></span>
+				<div class="question">
+					<p class="b_b">
+						<span>本期应还为当期次计划还款金额；若逾期，则应包含逾期金额，逾期金额可在贷款状态中查看。逾期之后，从还款日次日起，每日日终后系统自动从您的电子账户中扣划逾期金额，直至结清逾期金额。</span>
+					</p>
+				</div>
+				<input type="button" value="朕知道了">
+			</div>
+		</div>
+		<!---------------- 不能删除js 弹框居中  -------------------------->
+		<script language="javascript" type="text/javascript" >
+			var tk02_height = document.getElementById("tangkuang03").offsetHeight;
+			var marginl = tk02_height / 2;
+			document.getElementById("tangkuang03").style.marginTop = -(marginl) + 'px';
+		</script>
+	</div>
+</div>

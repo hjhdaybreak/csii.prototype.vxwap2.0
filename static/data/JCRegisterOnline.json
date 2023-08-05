@@ -1,0 +1,22 @@
+{
+    "_LocalProcessFlag": "false",
+    "_MCHJnlNo": "800017209",
+    "_JnlNo": 800017209,
+    "CifSeq": 800017208,
+    "_ChannelId": "WAP",
+    "_MCSJnlNo": "41724",
+    "_MCHTimestamp": "2017-01-05 16:20:10.542",
+    "_ResponseSystemId": "MCA",
+    "ChannelId": "WAP",
+    "_locale": "zh_CN",
+    "_RejMsg": "",
+    "LoginType": "P",
+    "IdNo": "140602198910308032",
+    "BankId": "9999",
+    "_AuthenticateType": "000000",
+    "_TransactionId": "setting.MCJCRegisterOnline",
+    "_ProcessState": "OK",
+    "_RejCode": "000000",
+    "MobilePhone": "15515060991",
+    "CifName": "萨顶顶"
+}

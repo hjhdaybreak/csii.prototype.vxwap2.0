@@ -1,0 +1,145 @@
+<div>
+
+<ul class='navList'>
+	<a class='menuArrowL' style='visibility:hidden;cursor: pointer;'><img src='images/zuo.png' style=' margin-top:7px; float:left;margin-right: 10px;' /></a>
+	<li class='on' id='首页' v-click='goTo("index", "首页");'>
+		<a href='#'>首页</a>
+	</li>
+	<div style='width:712px;height:38px;overflow:hidden;display:inline-block;position:relative'>
+		<div class='slideMenuDiv' style='position:absolute'>
+			<li id='查询服务' v-click='goTo("cxfw","查询服务");'>查询服务</li>
+			<li  v-repeat="row in MENU" id='查询服务' >查询服务</li>
+		</div>
+	</div>
+	<li class='menuB menuBA' id='quickMenu'></li>
+	<a class='menuArrowR' style='cursor: pointer;'><img src='images/you.png' style=' margin-top:7px; margin-right:30px; float:right;' /></a>
+</ul> 
+
+						<div class="new_info">
+							<b style="float: left;">最新公告：</b>
+							<marquee direction="left" scrolldelay="150" style="float: right; width: 960px;" onMouseOver="this.stop();" onMouseOut="this.start();">
+								<span v-repeat="row in userInfo.bankList | limitTo:5"><a
+								href="#" v-click="gongGaoDetail('{{row.Code}}')">{{row.Title}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							</marquee>
+						</div>
+
+<div class="content_main" style="position:relative">
+			<div class="zuo" style="visibility:hidden;">
+				<a> <img src="images/zuojt.png" /></a>
+			</div>
+			<div class="you">
+				<a> <img src="images/youjt.png" /></a>
+			</div>
+			<div class="left" id="twocontent">
+				
+				<div class='two'>
+	<!--二级菜单 开始-->
+	<div id='首页Div'>
+		<h2>查询服务</h2>
+		<ul class='menuA'>
+			<li  style='background:red ' class='twoGroup' >
+	<a href='#' v-click='goTo("cxfw/jhyecx","账户余额查询")'>账户余额查询</a>
+	        <li style='background:red' class='twoGroup'>
+		<a href='#' v-click='goTo("cxfw/drmxcx","当日明细查询")'>当日明细查询</a>
+		<li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/lsmxcx","历史明细查询")'>历史明细查询</a>
+		<li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/dhyzhcx","定活易账户查询")'>定活易账户查询</a>
+		<li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/ydskzhcx","约定收款账户查询")'>约定收款账户查询</a>
+	    <li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/dqckcx","定期存款查询")'>定期存款查询</a>
+		<li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/tzckcx","通知存款查询")'>通知存款查询</a>
+		<li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/bytcx","渤赢通查询")'>渤赢通查询</a>
+	    <li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/byfcx","渤赢丰查询")'>渤赢丰查询</a>
+		<li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/dkxxcx","贷款信息查询")'>贷款信息查询</a>
+	    <li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/bzzckcx","保证金存款查询")'>保证金存款查询</a>
+		</ul>					
+	</div>
+	<div v-repeat="ron in MENU[0].children"   id='查询服务Div'>
+		<h2>查询服务</h2>
+		<ul class='menuA'>
+			<li  style='background:red ' class='twoGroup' >
+	<a href='#' v-click='goTo("cxfw/jhyecx","账户余额查询")'>账户余额查询</a>
+	        <li style='background:red' class='twoGroup'>
+		<a href='#' v-click='goTo("cxfw/drmxcx","当日明细查询")'>当日明细查询</a>
+		<li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/lsmxcx","历史明细查询")'>历史明细查询</a>
+		<li style='background:red' class='twoGroup'>
+	<a href='#' v-click='goTo("cxfw/dhyzhcx","定活易账户查询")'>定活易账户查询</a>
+		<li style='background:red' class='twoGroup'>
+	
+		</ul>					
+	</div>
+	<div id='付款服务Div'>
+		<h2>付款服务</h2>
+		<ul class='menuA'>
+			<li class='twoGroup'>
+				<a href='#'>行内转账服务 ></a>
+				<ul class='showOrHide'>
+					<li class='third' v-click='goTo("fkfw/hnzzfw/qynbzz","付款服务")'>
+						<a href='#'> > 企业内部转账</a>
+					</li>
+					<li class='third' v-click='goTo("fkfw/hnzzfw/bhyhnbzz","付款服务")'>
+						<a href='#'> > 转渤海其他账户</a>
+					</li>
+					<li class='third' v-click='goTo("fkfw/hnzzfw/xyhnbzhzz","付款服务")'>
+						<a href='#'> > 向银行内部账户转账</a>
+					</li>
+				</ul>
+			</li>
+			<li class='twoGroup'>
+				<a href='#'>汇款到其他银行 ></a>
+				<ul class='showOrHide'>
+					<li class='third' v-click='goTo("fkfw/hkdqtyh/tcpthk","付款服务")'>
+						<a href='#'> > 同城普通汇款</a>
+					</li>
+					<li class='third' v-click='goTo("fkfw/hkdqtyh/bydxehk","付款服务")'>
+						<a href='#'> > 本/异地小额汇款</a>
+					</li>
+					<li class='third' v-click='goTo("fkfw/hkdqtyh/bydkshk","付款服务")'>
+						<a href='#'> > 本/异地大额汇款</a>
+					</li>
+				</ul>
+			</li>
+			<li class='twoGroup'>
+				<a href='#' v-click='goTo("fkfw/plfk","批量付款")'>批量付款</a>
+				<li class='twoGroup'>
+					<a href='#' v-click='goTo("fkfw/plfkjgcx","批量付款结果查询")'>批量付款结果查询</a>
+					<li class='twoGroup'>
+						<a href='#' v-click='goTo("fkfw/thjycx","退回交易查询")'>退回交易查询</a>
+						<li class='twoGroup'>
+							<a href='#' v-click='goTo("fkfw/skrxx","收款人信息")'>收款人信息</a>
+							<li class='twoGroup'>
+								<a href='#' v-click='goTo("fkfw/yyzzcx","预约转账撤销")'>预约转账撤销</a>
+								<li class='twoGroup'>
+									<a href='#' v-click='goTo("fkfw/dzplfk","定制批量付款")'>定制批量付款</a>
+									<li class='twoGroup'>
+										<a href='#' v-click='goTo("fkfw/tjplskr","批量添加收款人")'>批量添加收款人</a>
+		</ul>
+	</div>
+	<div id='交易审核Div'>
+		<h2>交易审核</h2>
+		<ul class='menuA'>
+			<li class='twoGroup'>
+				<a href='#' v-click='goTo("jysh/zzljysh","转账类交易审核")'>转账类交易审核</a>
+				<li class='twoGroup'>
+					<a href='#' v-click='goTo("jysh/qtjysh","其他交易审核")'>其他交易审核</a>
+		</ul>
+	</div>
+	</div>
+	
+	
+	<!--二级菜单 结束-->
+</div>
+  	</div>
+			<div class="right height530">
+				<div v-viewport="mainRight" href="htmls/index/mod.html" apply="true" history="true"></div>
+				<div class="clear"></div>
+			</div>
+  </div>

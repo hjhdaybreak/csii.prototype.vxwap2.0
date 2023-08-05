@@ -1,0 +1,45 @@
+<div oc-lazy-load="htmls/RepayAutoMaintain/RepayAutoMaintain.js">
+	<div v-controller="RepayAutoMaintainCtrl" v-init="init()">
+		<div class="top02 fixTop wealthTop">
+			自动还款维护 <span class="back_btn01"> <img src="images/back.png" v-click="goto('appOther.LoanDetail')"> </span>
+		</div>
+		<form name="RepayAutoForm" novalidate style="margin-top: 44px;">
+			<div>
+				<div class="bg_white " style="padding:0;margin-bottom: 20px;" v-repeat="item in List">
+					<div class="b_bottom">
+						<em class="name">转入账号：</em>
+						<span style="float: right;">{{item.bankname}}（尾号{{item.cardNoNew}}）</span>
+					</div>
+					<div class="b_bottom">
+						<em class="name">转入日期：</em>
+						<span style="float: right;" v-show="item.collPeriod =='2'"> 
+							<span v-show="item.collTime =='32'" style="width: inherit;">每月最后一天</span> 
+							<span v-show="item.collTime !='32'" style="width: inherit;">每月{{item.collTime}}日</span> 
+						</span>
+						<span style="float: right;"  v-show="item.collPeriod =='1'" style="width: inherit;">每周{{item.collTime|CardAgrToDeposit}}</span>
+						<span style="float: right;"  v-show="item.collPeriod =='0'" style="width: inherit;">每日</span>
+					</div>
+					<div class="b_bottom">
+						<em class="name">金额：</em>
+						<span style="float: right;">{{item.amount|number:2}}元</span>
+					</div>
+					<div class="b_bottom" style="text-align: right;height: 40px;padding-top: 7px;box-sizing: border-box;">
+						<span style="width: 25px;height: 25px;margin-right: 3%" v-click="repayUpDateFn(item);"><img style="width: 100%;" src="images/rp-edit.png" alt=""></span>
+						<span style="width: 25px;height: 25px;display: inline-block;line-height: 40px;" v-click="repayDeleteFn(item);"><img style="width: 100%;" src="images/rp-delete.png" alt=""></span>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- <div class="tips" >
+			<ol>
+				<li>
+					每张银行卡只能设置一笔定期转入。
+				</li>
+				<li>
+					您可通过定期转入功能设置第二笔自动还款。
+				</li>
+			</ol>
+		</div> -->
+	</div>
+</div>
+

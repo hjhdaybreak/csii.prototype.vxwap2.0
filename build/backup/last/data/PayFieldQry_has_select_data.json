@@ -1,0 +1,48 @@
+{
+	"PayFieldBean": {
+		"payFieldQryList": [
+			{
+				"in_LABEL": "缴费号码",
+				"in_LABEL_TYPE": "0",
+				"in_LABEL_MIN": "1",
+				"in_LABEL_MAX": "20",
+				"in_LABEL_LIST": "",
+				"in_LABEL_LIST_VALUE": "",
+				"in_LABEL_REMARK": "请输入缴费号码"
+			}, {
+				"in_LABEL": "缴费号码类型",
+				"in_LABEL_TYPE": "2",
+				"in_LABEL_MIN": "",
+				"in_LABEL_MAX": "",
+				"in_LABEL_LIST": "2",
+				"in_LABEL_LIST_VALUE": "1-缴费号码,2-身份证号",
+				"in_LABEL_REMARK": ""
+			}
+		],
+		"auto_FLAG": "0",
+		"switch": "1",
+		"busi_TYPE": "4",
+		"area_CODE": "571",
+		"city_CODE": "571",
+		"iterm_CODE": "068294",
+		"iterm_NAME": "杭州华数数字电视费",
+		"in_COUNT": "2",
+		"owing_RELATION": ">=",
+		"is_ALLOW_PAY": "1",
+		"fixed_AMT_NUM": "",
+		"fixed_AMT_VALUE": "",
+		"pay_MIN": "",
+		"pay_MAX": "",
+		"start_TIME": "00:00",
+		"end_TIME": "24:00",
+		"special_INSTRUCTIONS": "",
+		"see_CODE": "5660",
+		"pay_CODE": "5661",
+		"is_HAND_INPUT": "",
+		"cust_NAME_CONTROL": "3",
+		"pay_PERIOD": "0",
+		"fee_TYPE": "1",
+		"fee_RATE": 0.3,
+		"fee_MAX": null
+	}
+}

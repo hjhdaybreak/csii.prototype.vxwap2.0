@@ -1,0 +1,47 @@
+{
+  "currentIndex": "0",
+  "recordNumber": 0,
+  "pageSize": "100",
+  "RegiestType": "1",
+  "_ChannelId": "WAP",
+  "ChannelId": "web",
+  "_locale": "zh_CN",
+  "LoginType": "P",
+  "BankId": "9999",
+  "Msg": "主人，我是您在直销银行的财富管家—小草，您的朋友X000666344召唤您来注册直销银行啦！您怎么还不点击下载我呢？我等的花儿都要谢了！点我！点我！点我！让财富飞起来！(https://www.xiaocaobank.com/portal/DownloadApp.do)",
+  "RecommendType": "1",
+  "List": [
+    {
+      "recommendPhone": "11111111111",
+      "recommendName": "张三"
+    },
+    {
+      "recommendPhone": "11111111111",
+      "recommendName": "张三"
+    },
+    {
+      "recommendPhone": "11111111111",
+      "recommendName": "张三"
+    },
+    {
+      "recommendPhone": "11111111111",
+      "recommendName": "张三"
+    },
+    {
+      "recommendPhone": "11111111111",
+      "recommendName": "张三"
+    },
+    {
+      "recommendPhone": "11111111111",
+      "recommendName": "张三"
+    },
+    {
+      "recommendPhone": "11111111111",
+      "recommendName": "张三"
+    },
+    {
+      "recommendPhone": "11111111111",
+      "recommendName": "张三"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+<div v-lazy-load="htmls/RepayInfoQry/RepayInfoQry.js">
+	<div v-controller="RepayInfoQryCtrl" v-init="init();">
+		<div class="top02" style="position: fixed;z-index: 10;top: 0px;">
+			我的贷款 <span class="back_btn01"> <img src="images/back.png"  v-click="goto('app.Life')"> </span>
+			<span class="trad_btn01" style="top: 0px;"><span>
+		</div>
+		<div  style="position: relative;top: 40px;">
+			<div v-show="((RePayList && RePayList.length>0)|| (FinishList&& FinishList.length>0))">
+				<!-- 贷款状态切换 -->
+				<div class="tab03">
+					<ul>
+						<li v-class='{"tab03_cur":liFlag=="NotJieQing"}' v-click="repayChangeTypeFn('NotJieQing')" >
+							未结清
+						</li>
+						<li v-class='{"tab03_cur":liFlag=="YiJIeQing"}' v-click="repayChangeTypeFn('YiJIeQing')">
+							已结清
+						</li>
+					</ul>
+				</div>
+				<!-- 未结清部分 -->
+				<div v-show="liFlag=='NotJieQing'">
+					<div v-show="RePayList">
+						<div  v-repeat="item in RePayList" v-click="turnToDetail(item)" style="    margin-bottom: 5px;">
+							<div class="fuzhai_box">
+								<div class="fuzhai_con_title">
+									<h1><span v-show="item.BussinessSubType=='其他'||item.BussinessSubType==''">{{item.BusinessType}}</span><span v-show="item.BussinessSubType!='其他'&&item.BussinessSubType!=''">{{item.BussinessSubType}}</span></h1>
+									<h2>{{item.AccountNo|dimAcNoFilter}}</h2>
+									<span class="dk_icon"><img src="images/daikuan.png"></span>
+									<!-- <span class="dk_zhang"><img src="images/fz_jq.png"></span>
+									<span class="fz_d"><img src="images/next.png"></span> -->
+								</div>
+								<div>
+									<div>
+										<span>贷款本金：</span>
+										<span>{{item.BussinessSum|number:2}}</span>
+									</div>
+									<div>
+										<span>贷款利率：</span>
+										<span v-show="item.BussinessSubType!='车位贷'">{{item.ActualBusinessRate}}%/年</span>
+										<span v-show="item.BussinessSubType=='车位贷'">--</span>
+									</div>
+								</div>
+								<div>
+									<div>
+										<span>未还本金：</span>
+										<span>{{item.UnRepay|number:2}}</span>
+									</div>
+									<div>
+										<span>还款方式：</span>
+										<span  v-show="item.BussinessSubType!='车位贷'">{{item.ReturnType}}</span>
+										<span   v-show="item.BussinessSubType=='车位贷'">--</span>
+									</div>
+								</div>
+								<div>
+									<div>
+										<span>到&nbsp;&nbsp;期&nbsp;&nbsp;日：</span>
+										<span>{{item.Maturity}}</span>
+									</div>
+									<div>
+										<span>贷款期限：</span>
+										<span v-show="item.ActualTermYear!='0'&&item.ActualTermYear!=''&&item.ActualTermYear!=null">{{item.ActualTermYear}}年</span>
+										<span v-show="item.ActualTermMonth!='0'&&item.ActualTermMonth!=''&&item.ActualTermMonth!=null">{{item.ActualTermMonth}}月</span>
+										<span v-show="item.ActualTermDay!='0'&&item.ActualTermDay!=''&&item.ActualTermDay!=null">零{{item.ActualTermDay}}日</span>
+									</div>
+								</div>
+								<p>
+									本期应还：<span>{{item.CurrentRepay|number:2}}元</span>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- 您暂无未结清贷款 -->
+					<div v-show="RePayList.length == 0">
+						<div class="l_norecord">
+							<ul style="padding: 30px 0;">
+								<p><img src="images/icon9.png" width="25" height="25">您暂无未结清贷款
+								</p>
+							</ul>
+						</div>
+						<div class="tips" style="margin-top: 25px;">
+							<ul>
+								<li>
+									尊敬的小草用户您好，直销银行仅提供还款账号为电子账户的贷款信息查询，若还款账号为银行卡或其他类账户，请详询各营业网点或客户经理，感谢您对直销银行的支持！
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- 已结清部分 -->
+				<div v-show="liFlag=='YiJIeQing'">
+					<div v-show="FinishList"  v-repeat="item in FinishList" v-click="HisQry(item)" style="    margin-bottom: 5px;">
+						<div class="fuzhai_box">
+							<div class="fuzhai_con_title">
+								<h1><span v-show="item.BussinessSubType=='其他'||item.BussinessSubType==''">{{item.BusinessType}}</span><span v-show="item.BussinessSubType!='其他'&&item.BussinessSubType!=''">{{item.BussinessSubType}}</span></h1>
+								<h2>{{item.AccountNo}}</h2>
+								<span class="dk_icon"><img src="images/daikuan.png"></span>
+								<span class="dk_zhang"><img src="images/fz_jq.png"></span>
+								<!-- <span class="fz_d"><img src="images/next.png"></span> -->
+							</div>
+							<div>
+								<div>
+									<span>贷款本金：</span>
+									<span>{{item.BussinessSum|number:2}}</span>
+								</div>
+								<div>
+									<span>贷款利率：</span>
+									<span v-show="item.BussinessSubType!='车位贷'">{{item.ActualBusinessRate}}%/年</span>
+									<span v-show="item.BussinessSubType=='车位贷'">--</span>
+								</div>
+							</div>
+							<div>
+								<div>
+									<span>到&nbsp;&nbsp;期&nbsp;&nbsp;日：</span>
+									<span>{{item.Maturity}}</span>
+								</div>
+								<div>
+									<span>还款方式：</span>
+									<span  v-show="item.BussinessSubType!='车位贷'">{{item.ReturnType}}</span>
+									<span   v-show="item.BussinessSubType=='车位贷'">--</span>
+								</div>
+							</div>
+							<div>
+								<div>
+									<span>结&nbsp;&nbsp;清&nbsp;&nbsp;日：</span>
+									<span>{{item.FinishDate}}</span>
+								</div>
+								<div>
+									<span>贷款期限：</span>
+									<span v-show="item.ActualTermYear!='0'&&item.ActualTermYear!=''&&item.ActualTermYear!=null">{{item.ActualTermYear}}年</span>
+									<span v-show="item.ActualTermMonth!='0'&&item.ActualTermMonth!=''&&item.ActualTermMonth!=null">{{item.ActualTermMonth}}月</span>
+									<span v-show="item.ActualTermDay!='0'&&item.ActualTermDay!=''&&item.ActualTermDay!=null">零{{item.ActualTermDay}}日</span>
+								</div>
+							</div>
+							<p>
+								<span>还款历史></span>
+							</p>
+						</div>
+					</div>
+					<!-- 您暂无已结清贷款 -->
+					<div v-show="FinishList.length == 0">
+						<div class="l_norecord">
+							<ul style="padding: 30px 0;">
+								<p><img src="images/icon9.png" width="25" height="25">您暂无已结清贷款
+								</p>
+							</ul>
+						</div>
+						<div class="tips" style="margin-top: 25px;">
+							<ul>
+								<li>
+									尊敬的小草用户您好，直销银行仅提供还款账号为电子账户的贷款信息查询，若还款账号为银行卡或其他类账户，请详询各营业网点或客户经理，感谢您对直销银行的支持！
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--我的负债为空-->
+			<div class="con_none" style=" padding:40px 0;" v-show="((RePayList.length==0) && (FinishList.length==0))">
+				<img src="images/none.png">
+				<p>
+					您名下暂无直销银行的贷款信息
+				</p>
+				<div>
+					如需办理或有疑问请垂询客服热线&nbsp;
+					<br>
+					<a style="padding-left:20px; background:url(images/phone_icon2.png) left center no-repeat; background-size:20%;">9510-5757</a>
+				</div>
+				<div class="tips" style="margin-top: 25px;">
+					<ul>
+						<li>
+							尊敬的小草用户您好，直销银行仅提供还款账号为电子账户的贷款信息查询，若还款账号为银行卡或其他类账户，请详询各营业网点或客户经理，感谢您对直销银行的支持！
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

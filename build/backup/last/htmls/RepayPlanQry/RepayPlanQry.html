@@ -1,0 +1,58 @@
+<div oc-lazy-load="htmls/RepayPlanQry/RepayPlanQry.js">
+	<div v-controller="RepayPlanQryCtrl" v-init="init();">
+		<div class="top02"style="position: fixed;z-index: 10;top: 0px;">
+			还款计划 <span class="back_btn01" v-click="repayPlanBackPrePageFn();"> <img src="images/back.png"> </span>
+		</div>
+		<div  style="position: relative;top: 40px;">
+			<form name="form1" novalidate >
+				<div>
+					<div class="con_box01 " style="padding-bottom:0;padding-top: 0;">
+						<div class="b_bottom">
+							<em class="name">贷款业务：</em>
+							<span style="float: right;" v-show="RepayData.BussinessSubType=='其他'||RepayData.BussinessSubType==''">{{RepayData.BusinessType}}</span>
+							<span style="float: right;" v-show="RepayData.BussinessSubType!='其他'&&RepayData.BussinessSubType!=''">{{RepayData.BussinessSubType}}</span>
+						</div>
+						<div class="b_bottom">
+							<em class="name">还款账号：</em>
+							<span style="float: right;">{{RepayData.AccountNo}}</span>
+						</div>
+						<div class="b_bottom">
+							<em class="name">贷款本金：</em>
+							<span style="float: right;">{{RepayData.BussinessSum|number:2}}元</span>
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+					<!-- 还款计划 -->
+					<div class="plantable">
+						<div v-show="PlanList && PlanList.length > 0">
+							<div class="oneinfor">
+								<span>期次</span>
+								<span>计划还款日期</span>
+								<span>还款金额</span>
+							</div>
+							<div v-repeat="item in PlanList">
+								<div class="oneinfor" style="position: relative;">
+									<span>{{item.PayTimes}}</span>
+									<span>{{item.PayDate|dateConvertChar}}</span>
+									<span v-click="show(item.PayTimes,$event)"style="width: 38%;background: url(images/rightarrow.png) no-repeat;    background-position: 100% 100%;    background-size: 15%;">{{item.SumCorpusInt|number:2}}元</span>
+									<div class="fd yy"  id="p{{item.PayTimes}}"style="display:none;">
+										<div class="arrowfd"></div>
+										<a class="f12">本金：{{item.Corpus|number:2}}元</a>
+										<br/>
+										<a class="f12">利息：{{item.Interest|number:2}}元</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+					<div>
+						<div class="btn02_box">
+							<input type="button" class="btn02" value="返     回" v-click="gobackPrePageFn()"/>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

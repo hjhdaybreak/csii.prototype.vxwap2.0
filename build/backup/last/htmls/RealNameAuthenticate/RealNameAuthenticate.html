@@ -1,0 +1,96 @@
+<div v-init="init()">
+        <form name="SMRZ" v-submit="doSubmit()" novalidate>
+        <div>
+            <!--认证卡号    cardNo-->
+            认证卡号：
+            <input type="text" name="cardNo" v-model="cardNo"  readonly />
+        </div>
+        <div>
+            <!--证件类型    certType-->
+            证件类型：
+            <input type="text" name="certType" v-model="certType"readonly />
+        </div>
+        <div>
+            <!--证件号 certNo-->
+            证件号：
+            <input type="text" name="certNo" v-model="certNo" readonly />
+        </div>
+        <div>
+            <!--证件姓名    usrName-->
+            证件姓名：
+            <input type="text" name="usrName" v-model="usrName" readonly />
+        </div>
+        <div>
+            <!--手机号 cardPhone-->
+            手机号:
+            <input type="text" name="cardPhone" v-model="cardPhone" readonly />
+        </div>
+        <input type="submit"  value="提交" />
+    </form>
+    <form style="display:none;" action="http://140.206.112.245/CPPayWeb/trans!certification.ac" method="post" accept-charset="utf-8" id="authenticateF">
+        <div>
+            系统编号：
+            <input type="text" name="appSysId" value="90000" readonly />
+        </div>
+        <div>
+        	<!--认证卡号	cardNo-->
+        	认证卡号：
+            <input type="text" name="cardNo" value="6217711300173307" readonly />
+        </div>
+        <div>
+            <!--签名方法	signMethod-->
+            签名方法：
+            <input type="text" name="signMethod" value="MD5" readonly />
+        </div>
+        <div>
+        	<!--证件类型	certType-->
+        	证件类型：
+            <input type="text" name="certType" value="01" readonly />
+        </div>
+        <div>
+        	<!--证件号	certNo-->
+        	证件号：
+            <input type="text" name="certNo" value="340102198212062039" readonly />
+        </div>
+        <div>
+        	<!--证件姓名	usrName-->
+        	证件姓名：
+            <input type="text" name="usrName" value="张三" readonly />
+        </div>
+        <div>
+        	<!--手机号	cardPhone-->
+        	手机号:
+            <input type="text" name="cardPhone" value="18515067890" readonly />
+        </div>
+        <div>
+        	<!--前台接收地址	pgRetUrl-->
+        	前台接收地址:
+            <input type="text" name="pgRetUrl" value="http://192.168.5.121:8999/Main" readonly />
+        </div>
+        <div>
+        	<!--后台接收地址	bgRetUrl-->
+        	后台接收地址:
+            <input type="text" name="bgRetUrl" value="http://192.168.5.121:8999/Main" readonly />
+        </div>
+        <div>
+        	<!--订单号	ordSeqId-->
+        	订单号:
+            <input type="text" name="ordSeqId" value="1234567890xy12345678901234567890" readonly />
+        </div>
+        <div>
+        	<!--CP保留域	cpResvered-->
+        	CP保留域:
+            <input type="text" name="cpResvered" value="" readonly />
+        </div>
+        <div>
+        	<!--订单日期	ordDate-->
+        	订单日期:
+            <input type="text" name="ordDate" value="20161205" readonly />
+        </div>
+        <div>
+        	<!--签名	signature-->
+        	签名:
+            <input type="text" name="signature" value="" id="signature" readonly />
+        </div>
+    </form>
+</div>

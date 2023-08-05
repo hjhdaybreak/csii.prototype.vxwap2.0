@@ -1,0 +1,67 @@
+<div v-lazy-load="htmls/MoneyIn/MoneyIn.js">
+    <div v-controller="MoneyInCtrl" v-init="init()">
+        <div v-page href="htmls/MoneyIn/MoneyInPre.html"></div>
+        <div v-page href="htmls/MoneyIn/MoneyInConf.html"></div>
+        <div v-page href="htmls/MoneyIn/MoneyInRst.html"></div>
+        <div v-page href="htmls/MoneyIn/CardList.html"></div>
+        <div v-page href="htmls/MoneyIn/BankLimit.html"></div>
+        <div class="tangkuang_box" v-show="tips" v-click="tipShow()">
+            <div class="tangkuang_bg"></div>
+            <div class="tangkuang02" id="tangkuang02" style="margin-top: -144px;">
+                <span class="error_icon02"></span>
+                <div class="question">
+                    <h1><em>Q：</em>资金转入限额</h1>
+                    <p class="b_b">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;绑定本行卡进行资金转入时，无限额；通过他行卡资金转入时，具体请参照各行卡资金转入限额。</p>
+                </div>
+                <div class="question">
+                    <h1><em>Q：</em>资金转入方式</h1>
+                    <p class="b_b">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以通过直销银行资金转入交易直接转入；通过绑定卡或支付卡发卡行的网上银行、手机银行、柜面等渠道向直销银行电子账户直接进行转账汇款。</p>
+                </div>
+                <input type="button" value="朕知道了">
+            </div>
+        </div>
+        <!--反欺诈提示1 -->
+        <div class="tangkuang_box" v-show="tranfInPreAlertSF" id="tranfInPreAlert">
+            <div class="tangkuang_bg"></div>
+            <div class="tangkuang03" id="tangkuang03" style=" padding-top:0;margin-top: -80px;">
+                <div class="tk_title">温馨提示</div>
+                <p class="mima_input">
+                    您尾号{{PayerAcNo}}账户为可疑账户，谨防诈骗，请确认是否继续交易
+                </p>
+                <div>
+                    <input type="button" class="btn_09" value="取消" v-click="closeBox('box1')">
+                    <input type="button" class="btn_10" value="确定" v-click="tranfInPreAlert2Show()">
+                </div>
+            </div>
+        </div>
+        <!--反欺诈提示2 -->
+        <div class="tangkuang_box" v-show="tranfInPreAlert2SF" id="tranfInPreAlert2">
+            <div class="tangkuang_bg"></div>
+            <div class="tangkuang03" id="tangkuang03" style=" padding-top:0;margin-top: -80px;">
+                <div class="tk_title">温馨提示</div>
+                <p class="mima_input">
+                    您尾号{{PayeeAcNo}}账户为可疑账户，谨防诈骗，请确认是否继续交易
+                </p>
+                <div>
+                    <input type="button" class="btn_09" value="取消" v-click="closeBox('box2')">
+                    <input type="button" class="btn_10" value="确定" v-click="doConf()">
+                </div>
+            </div>
+        </div>
+        <!---------------- 交易密码输入提示框  -------------------------->
+        <div class="tangkuang_box" id="pwd_tangkuang_box" style="display: none;">
+            <div class="tangkuang_bg"></div>
+            <div class="tangkuang03" id="tangkuang03" style=" padding-top:0;margin-top: -80px;">
+                <div class="tk_title" style="padding-left: 47px;">交易密码</div>
+                <p class="mima_input">
+                    <!-- <span>交易密码：</span> -->
+                    <span><input class="pwdCommon" type="text" id="pwdCommon" placeholder="请输入6位交易密码" v-model="trsPassword" v-click="alertPwd({skType:1,type:1,elem:'#pwdCommon',maxLength:6})" readonly="readonly"></span>
+                </p>
+                <div>
+                    <input type="button" class="btn_09" value="取消" v-click="closePwd()">
+                    <input type="button" class="btn_10" value="确定" v-click="doIt()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

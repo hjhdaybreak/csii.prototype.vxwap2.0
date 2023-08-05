@@ -1,0 +1,70 @@
+<form name="moneyOutPreForm" v-submit="antiFraud()" novalidate>
+    <div class="top02 fixTop wealthTop">资金转出
+    	<span class="back_btn01">
+        	<img src="images/back.png" v-click="goback()">
+        </span>
+        <span class="pro_btn01">
+        	<img src="images/problem01.png" v-click="goto('#5')">
+        </span>
+    </div>
+    <div class="fkcard_box">
+		<p class="card_title"><img src="images/shk_card.png" width="6%">收款账号</p>
+        <div v-show="PayeeAccount.length>2">
+            <div class="fkcard card_cur" id="b{{selectAccount.no}}" >
+                <div>
+                    <span>{{selectAccount.openBankName}}</span>
+                    <em>{{selectAccount.bdState == "C" ? "支付卡" : "绑定卡"}}</em>
+                </div>
+                <div>{{selectAccount.no|accountNoFilter}}</div>
+            </div>
+            <div class="cardxiane">
+                <img src="images/con_tip_bg.png" width="4%">当前最多可转出至该银行卡<em>{{LimitAmount|number:2}}</em>&nbsp;元
+            </div>
+        </div>
+        <div v-repeat="row in PayeeAccount track by $index" v-hide="PayeeAccount.length>2">
+            <div class="fkcard "  id="a{{row.no}}" v-click="select(row.no,$index)">
+                <div><span>{{row.openBankName}}</span><em>{{row.bdState == "C" ? "支付卡" : "绑定卡"}}</em>
+                </div>
+                <div>{{row.no}}</div>
+            </div>
+            <div class="cardxiane" v-show="index==$index">
+                <img src="images/con_tip_bg.png" width="4%">当前最多可转出至该银行卡<em>{{LimitAmount|number:2}}</em>&nbsp;元
+            </div>
+        </div>
+    </div>
+    <div class="xelink">
+        <!-- 可支持的银行及银行卡限额 -->
+        <a class="inline_left" v-click="goto('#4')" style="text-decoration: underline;" v-show="PayeeAccount && PayeeAccount.length >2">选择更多银行卡</a>
+    </div>
+    <div class="con_box01 b_top">
+            <div class="b_bottom" >
+            	<em class="name">转出金额</em>
+                <input type="text" class="text02" v-model="amount" title="金额" pattern="[0-9]+(\.[0-9]{0,2})?" ui-number='{"float":true,"dotLength":2,"addZero":false}'  placeholder="输入转出金额" maxlength="12" pattern-message="格式不符合要求" required>
+                <input type="button" value="全部转出" class="btn05" v-click="buyAll()" v-hide="bottonflag==1">
+                <input type="button" value="取消" class="btn05" v-click="buycancel()"  v-show="bottonflag==1">
+            </div>
+            <div class="b_bottom b_none" v-show="amount" style="width:86%;overflow:hidden">
+                <em class="name" style="float:left">金额大写</em>
+                <span class="field_right"style="float:right;width:70%">{{amount|amountFilter}}</span>
+            </div>
+           <!--  <div class="b_bottom b_none" v-show="amount>49999">
+                <em class="name">预留手机号</em>
+                <span class="field_right">{{CardMobilePhone}}</span>
+                <p style="line-height:24px; text-align:right; color:#d2d2d2; margin-top:-10px;">(发卡行预留手机号)</p>
+            </div> -->
+    </div>
+    <div class="btn02_box"><input type="submit" class="btn02" value="下一步" ></div>
+    <!-- <div class="tips">
+        <ol>
+            <li> 
+                您可使用任意银行卡通过他行网银、手机银行、支付宝等渠道向您的电子账户转账。电子账户账号为：{{EAcct.Id}}；开户机构为：{{EAcct.DeptName}}；
+            </li>
+            <li>
+                以上资金转入限额仅供参考，实际以您付款账户开户行的转账限额设置为准。
+            </li>
+            <li>
+                为了您的资金安全，向每张支付卡转出的金额不可超出原该卡转至电子账户的金额，利息等其他类资金可从绑定卡转出；
+            </li>
+        </ol>
+    </div> -->
+</form>

@@ -1,0 +1,39 @@
+<form name="form1" novalidate v-init="init()" class="titleFixTopDef">
+    <div class="top01 fixTop  wealthTopNoPic">精彩活动
+        <span class="back_btn01" v-click="goback()">
+            <img src="images/back.png">
+        </span>
+    </div>
+    <div class="container">
+        <div class="main activity_bg">
+            <div class="activity_01"><img src="images/activityicons/title01.png" width="80%"></div>
+            <div class="activity_02">
+                <img src="images/activityicons/fubiaoti.png" width="70%" style=" margin-top:-20px;">
+                <img src="images/activityicons/jiangpin.png" width="60%" style=" margin-top:20px;">
+                <div class="txt_01">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;满足以下任意一种条件可抽奖：1、生活缴费单笔满200元；2、手机缴费单笔满100元；3、加油卡充值单笔满500元。&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" v-click="goto('#2')">活动规则</a></div>
+                <div class="active_link_box">
+                    <img src="images/activityicons/canyu_btn.png" width="40%" style=" margin-top:-40px;">
+                    <ul>
+                        <a href="javascript:void(0)" v-click="TurnTo('appOther.LifeMain')">
+                            <li class="shenghuojf">生活缴费</li>
+                        </a>
+                        <a href="javascript:void(0)" v-click="TurnTo('appOther.PhoneRecharge')">
+                            <li class="shoujichzh">手机充值</li>
+                        </a>
+                        <a href="javascript:void(0)" v-click="TurnTo('appOther.GasCardCharge')">
+                            <li class="jiayouka">加油卡充值</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="active_btn_box">
+                    <a href="javascript:void(0)" v-click="TurnTo('appOther.Lottery')"><img src="images/activityicons/lijichouji.png" width="30%"></a>
+                    <a href="javascript:void(0)" v-click="TurnTo('appOther.MyAward')" style=" margin-left:35px;"><img src="images/activityicons/zhongjiangchaxun.png" width="30%"></a>
+                </div>
+                <div v-show="isIos">
+                    <p style="padding-top: 1%;"></p>
+                    <p class="hd_bg4_text" id="IOS">【本活动及奖品与苹果公司无关】</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

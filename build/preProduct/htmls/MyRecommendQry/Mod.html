@@ -1,0 +1,223 @@
+<div v-lazy-load="[_iscroll,'htmls/MyRecommendQry/MyRecommendQry.js']">
+    <div v-controller="MyRecommendQryCtrl" v-init="init()">
+        <!--选择框开始-->
+        <form name="MyRecommendQryForm" id="MyRecommendQryForm" class="fixSelect" v-submit="doQuery()" v-click="closeSelectBox($event,'MyRecommendQryForm')" novalidate style="display:none;">
+            <div class="con_box01 paddingtop02" style="padding-bottom:50px;">
+                <div>
+                    <ul class="select_box">
+                        <li v-class='{"select_cur":recommendType=="1"}' v-click="queryRecommend($event,'1')">
+                            我的推荐
+                        </li>
+                        <li v-class='{"select_cur":recommendType=="2"}' v-if="result && result.IsStaffAgent!='0'"  v-click="queryRecommend($event,'2')">
+                            代理人推荐
+                        </li>
+                        <li v-class='{"select_cur":recommendType=="3"}' v-if="result && result.DeptCount!='0'" v-click="queryRecommend($event,'3')">
+                            机构推荐
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn02_box">
+                    <input type="submit" class="btn02" value="查询" />
+                </div>
+            </div>
+        </form>
+        <!--选择框结束-->
+        <div class="top01 fixTop fixTop wealthTopNoPic">
+            我的推荐 <span class="back_btn01" v-click="goLife()"> <img src="images/back.png"> </span>
+        </div>
+        <div class="transList-all" id="transList-all" style="margin-top:44px;">
+            <div class="transList" id="transList">
+                <div id="pullDown" class="pullDown">
+                    <span class="pullDownIcon"></span>
+                    <span class="pullDownLabel">下拉刷新</span>
+                </div>
+                <div class="select_btn header">
+                    <ul>
+                        <li style="width:14%" v-click="showSelect()"><img src="images/select_btn.png" width="30%">
+                        </li>
+                        <li style="width:42%" v-bind="recommendTypeMap[recommendType]"></li>
+                    </ul>
+                </div>
+                <div class="tab04">
+                    <ul>
+                        <li v-class='{"tab04_cur":regiestType == "0"}' v-click="query('0')">
+                            未绑卡
+                        </li>
+                        <li v-class='{"tab05_cur":regiestType == "1"}' v-click="query('1')">
+                            已绑卡
+                        </li>
+                    </ul>
+                </div>
+                <div class="con_box01">
+                    <!--未绑卡-->
+                    <div class="record_box" v-repeat="row in list" v-if="regiestType == '0'">
+                        <div>
+                            <div class="item">
+                                <span v-bind="row.recommendPhone"></span>
+                            </div>
+                            <div class="item" v-click="smsWei()">
+                                <div class="thanks"></div>
+                                <span class="thanks">召唤Ta</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--已绑卡-->
+                    <div class="record_box" v-repeat="row in list" v-if="regiestType == '1'">
+                        <div>
+                            <div class="item card-info">
+                                <div v-bind="row.recommendPhone"></div>
+                                <div v-bind="row.recommendName"></div>
+                            </div>
+                            <div class="item" v-click="smsWei1()">
+                                <div class="crlf"></div>
+                                <span class="thanks">谢谢Ta</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="errormsg" v-hide="list.length > 0">
+                        <span>没有符合查询条件的信息</span>
+                    </div>
+                    <div id="pullUp" class="pullUp">
+                        <span class="pullUpIcon"></span>
+                        <span class="pullUpLabel">上拉加载更多</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn04_box">
+            <input type="button" class="btn" value="推荐达人榜" v-click="goto('appOther.Daren')">
+            <input type="button" class="btn" value="我要当达人" v-click="gotoRecFri()">
+        </div>
+        <!--召唤TA 提示框  -->
+        <div class="tangkuang_box" v-show="dialog">
+            <div class="tangkuang_bg"></div>
+            <div class="tangkuang03" id="tangkuang03" style=" padding-top:0;">
+                <div class="tk_title">
+                    温馨提示
+                </div>
+                <p> <a>亲爱的小草用户，网页版暂不支持召唤TA哦！请</a><a v-click="goto('appOther.DownApp')" style="color: red;">下载直销银行APP</a><a>，登录以后再狠狠召唤TA吧！</a></p>
+                <div>
+                    <input type="button" class="btn_10" value="确定" v-click="closeDialog()">
+                </div>
+            </div>
+        </div>
+         <!--谢谢TA 提示框  -->
+        <div class="tangkuang_box" v-show="dialog1">
+            <div class="tangkuang_bg"></div>
+            <div class="tangkuang03" id="tangkuang04" style=" padding-top:0;">
+                <div class="tk_title">
+                    温馨提示
+                </div>
+                <p> <a>亲爱的小草用户，虽然您有很多话要说，但是网页版暂不支持感谢TA哦！请</a><a v-click="goto('appOther.DownApp')" style="color: red;">下载直销银行APP</a><a>，登录以后再唠吧！</a></p>
+                <div>
+                    <input type="button" class="btn_10" value="确定" v-click="closeDialog1()">
+                </div>
+            </div>
+        </div>
+        <!-- js 弹框居中  -->
+        <script language="javascript" type="text/javascript">
+        var tk02_height = document.getElementById("tangkuang03").offsetHeight;
+        var marginl = tk02_height / 2;
+        document.getElementById("tangkuang03").style.marginTop = -(marginl) + 'px';
+        var tk04_height = document.getElementById("tangkuang03").offsetHeight;
+        var margin4 = tk04_height / 2;
+        document.getElementById("tangkuang04").style.marginTop = -(margin4) + 'px';
+        </script>
+    </div>
+</div>
+<style>
+.errormsg {
+    text-align: center;
+    font-size: 14px;
+    padding: 20px;
+}
+
+.tab05_cur {
+    background: #e64036;
+    color: #fff;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.tab04 ul .tab05_cur {
+    background: #e64036;
+    color: #fff;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+div.header.select_btn li {
+    float: right;
+    text-align: left;
+}
+
+div.header li:first-child {
+    text-align: right;
+    padding-right: 6%;
+}
+
+div.tab04 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+div.record_box .item {
+    display: inline-block;
+}
+
+div.record_box .item:first-child {
+    padding-top: 13px;
+}
+
+div.record_box .item:last-child {
+    float: right;
+}
+
+div.thanks {
+    height: 25px;
+    background: url(images/myrecommend/icon_01.png) no-repeat center;
+    background-size: 25px;
+}
+
+div.crlf {
+    height: 25px;
+    background: url(images/myrecommend/icon_02.png) no-repeat center;
+    background-size: 25px;
+}
+
+div.item > span.thanks {
+    font-size: 12px;
+    color: gray;
+}
+
+div.card-info > div:first-child {
+    margin-bottom: 5px;
+}
+
+div.btn04_box > .btn {
+    width: 50%;
+    color: #fff;
+    background: #e64036;
+    font-size: 14px;
+    line-height: 40px;
+    border: none;
+    border-top: 1px solid #e64036;
+}
+
+div.btn04_box {
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+div.btn04_box > .btn:first-child {
+    border: none;
+    background-color: white;
+    color: #e64036;
+}
+
+div.btn04_box > .btn:last-child {
+    float: right;
+}
+</style>

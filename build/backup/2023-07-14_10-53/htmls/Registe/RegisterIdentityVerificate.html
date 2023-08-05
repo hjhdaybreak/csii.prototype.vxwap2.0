@@ -1,0 +1,41 @@
+<form name="RegisteAuthenticateForm" class="titleFixTopDef" v-submit="netVerif()" novalidate v-init="authInit()">
+	<div class="top02 fixTop wealthTop">
+		身份认证 <span class="back_btn01" v-click="goto('#1')"> <img src="images/back.png"> </span>
+	</div>
+	<div class="con">
+		<div class="con_box01">
+			<div class="b_bottom" style="padding-top: 15px;">
+				<input type="text" class="text01 btn_zjh" placeholder="请输入您的证件号" name="idCard" v-model="idCard" pattern="\d{17}\d|x|X" title="证件号码" maxlength="18" required-message="格式不正确" required/>
+			</div>
+			<div class="b_bottom">
+				<input type="text" class="text01 btn_name" placeholder="请输入您的姓名" name="name" v-model="name"  title="姓名" pattern="[a-zA-Z0-9\u4e00-\u9fa5]*" required-message="格式不正确" required/>
+			</div>
+			<div  class="b_bottom b_none">
+				<span style="width:100%;">请点击录入身份证正反面照片:</span>
+			</div>
+			<div class="b_bottom b_none" style="padding-bottom: 20px;">
+				<div class="idPicBox marginB15p">
+					<img src="images/photo1.png" alt="" id="positiveImgBox"/>
+					<input class="takephoto fake-camera" accept="image/*"  id="positiveImg"  name="positiveImg" type="file" title="身份证正面" required/>
+				</div>
+				<div class="idPicBox marginL4 marginB15p">
+					<img src="images/photo2.png" alt="" id="oppositeImgBox"/>
+					<input class="takephoto fake-camera" accept="image/*"  id="oppositeImg" name="oppositeImg" type="file" title="身份证反面" required/>
+				</div>
+				<div class="idPicBox">
+					<img src="images/photo3.png" id="handImgBox" alt=""/>
+					<input class="takephoto fake-camera" accept="image/*"  id="handImg" name="handImg" type="file" title="手持身份证" required/>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+		<div class="xy_check">
+			<span  v-click="doAgree()"> <img   v-show="!agreement" src="images/checked01.png"/> <img   v-show="agreement"  src="images/checked02.png"/> </span>
+			<span >我已阅读并同意<a class="a_01" v-click="scanServiceProtocolFn();">《科蓝银行电子账户服务协议》</a></span>			
+		</div>
+		<div class="btn02_box" style="margin-top: 0;">
+			<input type="submit" class="btn02"  value="下一步" />
+		</div>
+
+	</div>
+</form>

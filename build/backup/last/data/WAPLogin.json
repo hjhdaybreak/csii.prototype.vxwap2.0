@@ -1,0 +1,90 @@
+{
+    "ChannelId": "WAP",
+    "_locale": "zh_CN",
+    "LoginType": "P",
+    "BankId": "9999",
+    "Role": [
+        [{
+            "ZHNAME": "登录",
+            "URL": "appOther.Login",
+            "WEBTYPE": "0",
+            "CLASSNAME": "third_Login"
+        }, {
+            "ZHNAME": "忘记密码",
+            "URL": "appOther.ForgetPwd",
+            "WEBTYPE": "1",
+            "CLASSNAME": "third_ForgetPwd"
+        }],
+        [{
+            "ZHNAME": "正常注册",
+            "URL": "appOther.Registe",
+            "WEBTYPE": "0",
+            "CLASSNAME": "third_Registe"
+        }],
+        [{
+            "ZHNAME": "设置",
+            "URL": "appOther.Set",
+            "WEBTYPE": "0",
+            "CLASSNAME": "third_Set"
+        }, {
+            "ZHNAME": "个人信息变更",
+            "URL": "appOther.MyInformation",
+            "WEBTYPE": "1",
+            "CLASSNAME": "third_MyInformation"
+        }, {
+            "ZHNAME": "短信提醒设置",
+            "URL": "appOther.MyInformation",
+            "WEBTYPE": "1",
+            "CLASSNAME": "third_MyInformation"
+        }, {
+            "ZHNAME": "我的消息",
+            "URL": "appOther.MyNews",
+            "WEBTYPE": "1",
+            "CLASSNAME": "third_MyNews"
+        }, {
+            "ZHNAME": "我的奖品",
+            "URL": "appOther.MyAward",
+            "WEBTYPE": "1",
+            "CLASSNAME": "third_MyAward"
+        }, {
+            "ZHNAME": "常见问题",
+            "URL": "appOther.ComQuestion",
+            "WEBTYPE": "1",
+            "CLASSNAME": "third_ComQuestion"
+        }, {
+            "ZHNAME": "关于我们",
+            "URL": "appOther.AboutUs",
+            "WEBTYPE": "1",
+            "CLASSNAME": "third_AboutUs"
+        }],
+        [{
+            "ZHNAME": "我的银行卡",
+            "URL": "appOther.MyBankCard",
+            "WEBTYPE": "0",
+            "CLASSNAME": "third_MyBankCard"
+        }],
+        [{
+            "ZHNAME": "我的资产",
+            "URL": "app.My",
+            "WEBTYPE": "0",
+            "CLASSNAME": "third_My"
+        }, {
+            "ZHNAME": "资金转入",
+            "URL": "appOther.MoneyIn",
+            "WEBTYPE": "1",
+            "CLASSNAME": "third_MoneyIn"
+        }, {
+            "ZHNAME": "资金转出",
+            "URL": "appOther.MoneyOut",
+            "WEBTYPE": "1",
+            "CLASSNAME": "third_MoneyOut"
+        }, {
+            "ZHNAME": "交易明细",
+            "URL": "appOther.InvestmentDetail",
+            "WEBTYPE": "1",
+            "CLASSNAME": "third_InvestmentDetail"
+        }]
+    ],
+    "_ChannelId": "WAP",
+    "SB": "kBq0CJOEWKc="
+}

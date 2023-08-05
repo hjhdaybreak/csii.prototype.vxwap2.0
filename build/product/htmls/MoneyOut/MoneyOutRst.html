@@ -1,0 +1,27 @@
+<div class="top02 fixTop wealthTop">资金转出结果
+    <span class="back_btn01" v-click="doMoreOne()">
+            <img src="images/back.png">
+        </span>
+</div>
+<div class="con">
+    <div class="result_box01">资金转出成功</div>
+    <!-- <div class="con_box01">
+        <div class="b_bottom b_none">
+            <p style="margin-bottom: 20px;">是不是转账转的手酸了，体验直销银行<a style="color:#e64036;" v-click="goto('appOther.RegularShiftTo')"> 定期转入设置 </a>功能吧</p>
+        </div>
+    </div> -->
+    <div class="con_box01">
+            <div class="b_bottom">
+                <span>收款账号</span>
+                <span>{{selectAccount.no|accountNoFilter}}</span>
+            </div>
+            <div class="b_bottom">
+                <span>转账金额</span>
+                <span>{{amount|number:2}}</span>
+            </div>
+        </div>
+    <div class="btn02_box">
+        <input type="button" class="btn06" value="完成" v-click="goMyWDZC()">
+        <input type="button" class="btn07" value="再转一笔" v-click="doMoreOne()">
+    </div>
+</div>

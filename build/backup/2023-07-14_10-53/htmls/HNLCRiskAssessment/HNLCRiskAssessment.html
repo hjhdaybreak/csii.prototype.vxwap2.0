@@ -1,0 +1,178 @@
+<div oc-lazy-load="htmls/HNLCRiskAssessment/HNLCRiskAssessment.js">
+	<div v-controller="HNLCRiskAssessmentCtrl" >
+	    <div class="top02">风险评估
+	    	<span class="back_btn01">
+	        	<img src="images/back.png" v-click="goback()">
+	        </span>
+	    </div>
+    	<div>
+        <div class="evaluat_top">
+            <div class="evaluat_top_con">
+                正确评估您的风险承受能力是明确您投资目标和可投资资产的前提，我们将根据评估结果为您更好的配置资产。
+            </div>
+            <div class="test_page"><span>{{questionIndex}}</span>/<em>11</em></div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==1">
+            <p>您的年龄是？</p>
+            <ul id="questionNum-1" >
+                <li id="questionNum-1-A" class="slqriskclass" v-click="choose('1','A')">A．18-25</li>
+				<li id="questionNum-1-B" class="slqriskclass" v-click="choose('1','B')">B．26-50</li>
+				<li id="questionNum-1-C" class="slqriskclass" v-click="choose('1','C')">C．51-60</li>
+				<li id="questionNum-1-D" class="slqriskclass" v-click="choose('1','D')">D．61-65</li>
+				<li id="questionNum-1-E" class="slqriskclass" v-click="choose('1','E')">E．高于65岁</li>
+            </ul>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag">
+            	<input class="next_btn" type="button" value="下一题" v-click="nextQuestion()" v-click="nextQuestion()">
+            </div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==2">
+            <p>您的家庭总资产净值为(折合人民币)？(不包括自用住宅和私营企业等实业投资，包括储蓄、保险、金融投资、实物投资，并需扣除未结清贷款、信用卡账单等债务）？</p>
+            <ul id="questionNum-2">
+               	<li id="questionNum-2-A" class="slqriskclass" v-click="choose('2','A')">A．15万元及以下</li>
+				<li id="questionNum-2-B" class="slqriskclass" v-click="choose('2','B')">B．15万元(不含)-50万元(含)</li>
+				<li id="questionNum-2-C" class="slqriskclass" v-click="choose('2','C')">C．50万元(不含)-100万元(含)</li>
+				<li id="questionNum-2-D" class="slqriskclass" v-click="choose('2','D')">D．100万元(不含)-1000万元(含)</li>
+				<li id="questionNum-2-E" class="slqriskclass" v-click="choose('2','E')">E．1000万元(不含)以上</li>
+            </ul>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag"><input class="next_btn" type="button" value="下一题" v-click="nextQuestion()"></div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==3">
+            <p>在您的家庭总资产净值中，可用于金融投资(储蓄存款除外)的比例为？</p>
+            <ul id="questionNum-3">
+            	<li id="questionNum-3-A" class="slqriskclass" v-click="choose('3','A')">A．1小于10%</li>
+				<li id="questionNum-3-B" class="slqriskclass" v-click="choose('3','B')">B．10%至25%</li>
+				<li id="questionNum-3-C" class="slqriskclass" v-click="choose('3','C')">C．25%至50%</li>
+				<li id="questionNum-3-D" class="slqriskclass" v-click="choose('3','D')">D．大于50%</li>
+            </ul>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag"><input class="next_btn" type="button" value="下一题" v-click="nextQuestion()"></div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==4">
+            <p>以下哪项最能说明您的投资经验？</p>
+            <ul id="questionNum-4">
+                <li id="questionNum-4-A" class="slqriskclass" v-click="choose('4','A')">A．除存款、国债外，我几乎不投资其他金融产品</li>
+				<li id="questionNum-4-B" class="slqriskclass" v-click="choose('4','B')">B．大部分投资于存款、国债等，较少投资于股票、基金等风险产品</li>
+				<li id="questionNum-4-C" class="slqriskclass" v-click="choose('4','C')">C．资产均衡地分布于存款、国债、银行理财产品、信托产品、股票、基金等</li>
+				<li id="questionNum-4-D" class="slqriskclass" v-click="choose('4','D')">D．大部分投资于股票、基金、外汇等高风险产品，较少投资于存款、国债</li>
+            </ul>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag"><input class="next_btn" type="button" value="下一题" v-click="nextQuestion()"></div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==5">
+            <p>您有多少年投资股票、基金、外汇、金融衍生产品等风险投资品的经验？</p>
+            <ul id="questionNum-5">
+                <li id="questionNum-5-A" class="slqriskclass" v-click="choose('5','A')">A．没有经验</li>
+				<li id="questionNum-5-B" class="slqriskclass" v-click="choose('5','B')">B．有经验，但少于2年</li>
+				<li id="questionNum-5-C" class="slqriskclass" v-click="choose('5','C')">C．2至5年</li>
+				<li id="questionNum-5-D" class="slqriskclass" v-click="choose('5','D')">D．5至8年</li>
+				<li id="questionNum-5-E" class="slqriskclass" v-click="choose('5','E')">E．8年以上</li>
+            </ul>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag"><input class="next_btn" type="button" value="下一题" v-click="nextQuestion()"></div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==6">
+            <p>以下哪项描述最符合您的投资态度？</p>
+            <ul id="questionNum-6">
+              	<li id="questionNum-6-A" class="slqriskclass" v-click="choose('6','A')">A．厌恶风险，不希望本金损失，希望获得稳定回报</li>
+				<li id="questionNum-6-B" class="slqriskclass" v-click="choose('6','B')">B．保守投资，不希望本金损失，愿意承担一定幅度的收益波动</li>
+				<li id="questionNum-6-C" class="slqriskclass" v-click="choose('6','C')">C．寻求资金的较高收益和成长性，愿意为此承担有限本金损失</li>
+				<li id="questionNum-6-D" class="slqriskclass" v-click="choose('6','D')">D．希望赚取高回报，愿意为此承担较大本金损失</li>
+            </ul>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag"><input class="next_btn" type="button" value="下一题" v-click="nextQuestion()"></div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==7">
+            <p>本金100万元，不提供保本承诺的情况下，您会选择哪一种投资机会？</p>
+            <ul id="questionNum-7">
+               	<li id="questionNum-7-A" class="slqriskclass" v-click="choose('7','A')">A．有100%的机会赢取1000元现金，并保证归还</li>
+				<li id="questionNum-7-B" class="slqriskclass" v-click="choose('7','B')">B．有50%的机会赢取5万元现金，并有较高可能性归还本金</li>
+				<li id="questionNum-7-C" class="slqriskclass" v-click="choose('7','C')">C．有25%的机会赢取50万元现金，并有一定的可能性损失本金</li>
+				<li id="questionNum-7-D" class="slqriskclass" v-click="choose('7','D')">D．有10%的机会赢取100万元现金，并有较高可能性损失本金</li>
+            </ul>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag"><input class="next_btn" type="button" value="下一题" v-click="nextQuestion()"></div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==8">
+            <p>投资于理财、股票、基金等金融投资品(不含存款和国债)时，您可接受的最长投资期限是多久？</p>
+            <ul id="questionNum-8">
+               	<li id="questionNum-8-A" class="slqriskclass" v-click="choose('8','A')">A．1年以下</li>
+				<li id="questionNum-8-B" class="slqriskclass" v-click="choose('8','B')">B．3－5年</li>
+				<li id="questionNum-8-C" class="slqriskclass" v-click="choose('8','C')">C．3－5年</li>
+				<li id="questionNum-8-D" class="slqriskclass" v-click="choose('8','D')">D．5年以上</li>
+            </ul>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag"><input class="next_btn" type="button" value="下一题" v-click="nextQuestion()"></div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==9">
+            <p>您的投资目的是？</p>
+            <ul id="questionNum-9">
+               	<li id="questionNum-9-A" class="slqriskclass" v-click="choose('9','A')">A．资产保值</li>
+				<li id="questionNum-9-B" class="slqriskclass" v-click="choose('9','B')">B．资产稳健增值</li>
+				<li id="questionNum-9-C" class="slqriskclass" v-click="choose('9','C')">C．资产迅速增值</li>
+            </ul>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag"><input class="next_btn" type="button" value="下一题" v-click="nextQuestion()"></div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==10">
+            <p>您的投资出现何种程度的波动时，您会呈现明显的焦虑？</p>
+            <ul id="questionNum-10">
+                <li id="questionNum-10-A"class="slqriskclass" v-click="choose('10','A')">A．本金无损失，但收益未达预期</li>
+				<li id="questionNum-10-B"class="slqriskclass" v-click="choose('10','B')">B．出现轻微本金损失</li>
+				<li id="questionNum-10-C"class="slqriskclass" v-click="choose('10','C')">C．本金10％以内的损失</li>
+				<li id="questionNum-10-D"class="slqriskclass" v-click="choose('10','D')">
+				D．本金20-50％的损失</li>
+				<li id="questionNum-10-E"class="slqriskclass" v-click="choose('10','E')">E．本金50％以上损失</li>
+            </ul>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag"><input class="next_btn" type="button" value="下一题" v-click="nextQuestion()"></div>
+        </div>
+        <div class="evaluat_con" v-show="questionIndex==11">
+            <p>对您而言，保本比高收益更为重要？</p>
+            <ul id="questionNum-11">
+                <li id="questionNum-11-A"class="slqriskclass" v-click="choose('11','A')">A．非常同意</li>
+				<li id="questionNum-11-B"class="slqriskclass" v-click="choose('11','B')">B．同意</li>
+				<li id="questionNum-11-C"class="slqriskclass" v-click="choose('11','C')">C．无所谓</li>
+				<li id="questionNum-11-D"class="slqriskclass" v-click="choose('11','D')">D．不同意</li>
+				<li id="questionNum-11-E"class="slqriskclass" v-click="choose('11','E')">E．非常不同意</li>
+            </ul>
+            <div  style="margin: 10px 7%;text-indent:24px; line-height: 16px;">
+            	<span id="selected" class="check01" style="background-size:100%;display: inline-block; width:14px;height: 14px;margin-bottom: -3px;" v-click="remoberUser()"></span>本人声明，本人完全依据自己的判断作出上述答案，并完全明白本问卷且接纳所界定本人的投资者类型。如因本人的实际情况与上述选择有些不符，本人仍希望银行执行本人的根据上述判断所做的选择。这种情况下，本人接纳任何因此差异所涉及的风险，并接纳所界定本人之投资者类别
+            </div>
+            <div class="next_btn_box" v-show="questionIndex==questionFlag"><input class="next_btn" type="button" value="提交" v-click="tijiao()"></div>
+        </div>
+        <div class="evaluat_shadow"></div>
+    </div>
+    <div class="test_tips" v-show="tipsFlag">
+    	<span class="close_btn"><img src="images/evaluation/close.png" width="50%" v-click="closeTips()"></span>
+    	本问卷共计11题，预计占用您3-5分钟时间，请您认真作答，感谢您的配合！如影响您风险承受能力的因素发生变化，请您购买理财产品时主动要求我行重新进行风险承受能力评估。
+    </div>
+		<!---------------- 提示框  -------------------------->
+		<div class="tangkuang_box" v-show="pwdbox" >
+			<div class="tangkuang_bg"></div>
+			<div class="tangkuang03" id="tangkuang03" style="margin-top: -80px;">
+				<div class="tk_title" v-show="!IfTurnTo">温馨提示</div>
+				<div class="tk_title" v-show="IfTurnTo">评估结果</div>
+				<div id="text-content" style="text-align:center;font-size:14px;line-height:30px;color:#666;overflow: hidden;">
+				</div>
+				<div v-show="IfTurnTo" style="text-align:center;font-size:14px;line-height:30px;color:#666;overflow: hidden;">
+				</div>
+				<div>
+					<input type="button" class="btn_10" value="确定" v-click="closeBox()">
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!---------------- js 弹框居中  -------------------------->
+<style>
+	@media (max-width: 320px) {
+		.b_bottom span:first-child {
+			width: 30%;
+		}
+	}
+	li{
+		list-style:none;
+	}
+</style>
+<script language="javascript" type="text/javascript" >
+		function start(){
+			var obj = window.screen.availHeight + "px";
+			var obj02 = document.body.clientHeight + "px";
+			if( obj > obj02){
+				document.getElementById("bodyy").style.height = obj;
+			}
+		}
+</script>

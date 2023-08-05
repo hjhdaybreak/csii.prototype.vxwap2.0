@@ -1,0 +1,83 @@
+<div class="top02 fixTop wealthTop">手机充值
+    	<span class="back_btn01" v-click="goto('#1')">
+        	<img src="images/back.png">
+        </span>
+    </div>
+<form name="RechargeConf" v-submit="toCharge()" novalidate>
+    <div class="tab03">
+        <ul>
+            <li v-class="{'tab03_cur':menuflag =='phone'}">话费充值</li>
+            <li v-class="{'tab03_cur':menuflag =='data'}">流量充值</li>
+        </ul>
+    </div>
+    <div class="phone_box">
+    	<div class="phone_num">
+        	<p>{{phoneNum}}</p>
+            <div>
+                <!-- （&nbsp;<span class="liantong">{{OperatorInfo.Operator_Name}}</span>&nbsp;） -->
+                &nbsp;<span v-class="{'liantong':OperatorInfo.Operator_Name =='中国联通','yidong':OperatorInfo.Operator_Name =='中国移动','dianxin':OperatorInfo.Operator_Name =='中国电信'}" 
+                v-bind="OperatorInfo.Operator_Name"></span>&nbsp;
+            </div>
+        </div>
+        <div class="jf_infor" style="margin-top:0; border-top:none;">
+    		<p v-show="menuflag =='phone'">
+                <span>充值金额</span>
+                <span>{{FILED0|number:2}}元</span>
+        	</p>
+            <p v-show="menuflag =='data'">
+                <span>充值流量</span>
+                <span>{{filed1}}M</span>
+            </p>
+
+            <p>
+                <span>售价</span>
+                <span>{{payAmount|number:2}}元</span>
+        	</p>
+        	<p>
+                <span>短信验证码</span>
+                <input type="text" placeholder="请输入验证码" class="text02"maxlength="6"  v-model="_pTokenName">
+           <input type="button" ui-timebtn='{"time":60}' v-click="sendMsg()" value="获取验证码" class="btn01" />
+        	</p>
+    	</div>
+    </div>
+    <div class="btn02_box">
+        <input type="submit" class="btn02" value="确认充值"/>
+    </div>
+    <!-- 交易密码输入提示框  -->
+    <div class="tangkuang_box" v-show="pwdbox">
+        <div class="tangkuang_bg"></div>
+        <div class="tangkuang03" id="tangkuang03" style="top: 30%;"> 
+              <div class="tk_title">付费详情</div> 
+               <p>
+                <span>缴费项目：</span>
+                <span>{{PAYPROJ_NAME}}</span>
+              </p>
+              <p>
+                <span>缴费金额：</span>
+                <span>{{payAmount|number:2}}元</span>
+              </p>
+              <p class="mima_input">
+                <span>交易密码：</span>
+                <span><input type="password"  placeholder="请输入6位交易密码" v-model="trsPassword"></span>
+              </p> 
+              <div>
+                <input type="button" class="btn_09" value="取消" v-click="closeBox()">
+                <input type="button" class="btn_10" value="确定" v-click="doIt4()">
+              </div>
+        </div>
+    </div>
+<!--- 提示框 -->
+    <div class="tangkuang_box" v-show="facebox">
+        <div class="tangkuang_bg"></div>
+        <div class="tangkuang01" id="tangkuang01" style=" padding-top:0;;margin-top: -80px;">
+                <span class="error_icon"></span>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{popup_text}}</p>
+                <input type="button" value="朕知道了" v-click="facebox=false">
+        </div>
+    </div>
+</form>
+    <div class="tips">
+    <ol>
+        <li>充值服务时间{{startTime}}-{{endTime}}实时充值到账，充值高峰期可能会延迟，可联系运营商核实到账情况。</li>
+    </ol>
+</div>

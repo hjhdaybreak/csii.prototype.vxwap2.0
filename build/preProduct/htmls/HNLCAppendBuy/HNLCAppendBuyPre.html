@@ -1,0 +1,63 @@
+<div class="top02">行内理财追加购买
+    <span class="back_btn01">
+        <img src="images/back.png" v-click="goto('appOther.MyBankProduct')">
+    </span>
+</div>
+<form name="HNLCAppendBuyForm" v-submit="confirm()" novalidate>
+    <div class="con">
+        <div class="con_box01">
+            <div class="b_bottom b_none paddingtop"><em class="name">产品名称</em>
+                <span class="field_right">{{ProductName}}</span>
+            </div>
+            <div class="b_bottom"><em class="name">追加金额</em>
+                <input type="text" class="text02 noright" name="TrsAmount" v-model="TrsAmount" title="金额" ui-number='{"float":true,"dotLength":2,"addZero":false}'  pattern="[0-9]+(\.[0-9]{0,2})?" maxlength="12" pattern-message="请输入正确金额" placeholder="最小追加金额{{PerAppendApplyPrice|number:2}}元"required/>
+                <input type="button" value="全部购买" class="btn05" id="buyAll" v-click="buyAll()" v-hide="buyAllFlag==1">
+                <input type="button" value="取消" class="btn05" id="cancel" v-click="cancel()" v-show="buyAllFlag==1">
+                <div class="con_tip"><img src="images/con_tip_bg.png" width="5%">可用余额&nbsp;<em>{{AvailBal|number:2}}</em>&nbsp;元</div>
+            </div>
+            <div class="b_bottom b_none" v-show="TrsAmount"><em class="name">金额大写</em>
+                <span class="field_right">{{TrsAmount|amountFilter}}</span>
+            </div>
+            <div class="b_bottom b_none"><em class="name">已购买金额</em>
+                <span class="field_right">{{TotalAmount|number:2}}元</span>
+            </div>
+            <div class="b_bottom b_none" v-show="TrsAmount"><em class="name">预期收益</em>
+                <span class="field_right">{{TrsAmount*YieldMin*10000/1000000*ProductDay/365|number:2}}元</span>
+            </div>
+        </div>
+        <div class="xy_check" id="BBXY" style="text-align:left">
+            <span><img v-src="{{checkpic}}" v-click="doCheck()"></span>
+
+            <span>我已阅读并同意<a class="a_01" href="" v-click="openAgreement('licai')">《理财产品协议书》</a>、<a class="a_01" href="" v-click="openAgreement('chanpin')">《产品说明书》</a>和<a class="a_01" href="" v-click="openAgreement('fengxian')">《风险揭示书》</a>。</span>
+        </div>
+        <div class="btn02_box">
+            <input type="submit" class="btn02" value="立即购买" />
+        </div>
+    </div>
+</form>
+<!---------------- 交易密码输入提示框  -------------------------->
+<div class="tangkuang_box" id="pwd_tangkuang_box" style="display:none;">
+    <div class="tangkuang_bg"></div>
+    <div class="tangkuang03" id="tangkuang03" style=" padding-top:-80px;">
+        <div class="tk_title" style="padding-left: 47px;">
+            交易密码
+        </div>
+        <p class="mima_input">
+            <span>
+                <input type="text" class="pwdCommon" id="pwdCommon" placeholder="请输入6位交易密码" v-model="trsPassword" v-click="alertPwd({skType:1,type:1,elem:'#pwdCommon',maxLength:6})" readonly="readonly">
+            </span>
+        </p>
+        <div>
+            <input type="button" class="btn_09" value="取消" v-click="closePwd()">
+            <input type="button" class="btn_10" value="确定" v-click="submitBuy()">
+        </div>
+    </div>
+</div>
+<!---------------- js 弹框居中  -------------------------->
+<style>
+@media (max-width: 320px) {
+    .b_bottom span:first-child {
+        width: 30%;
+    }
+}
+</style>

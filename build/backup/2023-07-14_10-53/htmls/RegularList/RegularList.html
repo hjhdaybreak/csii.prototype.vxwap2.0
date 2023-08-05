@@ -1,0 +1,79 @@
+<div class="top02 plist_top_title fixTop wealthTopNoPic">
+	定期类产品列表 <span class="back_btn01"> <img v-click="goBack()" src="images/back.png"> </span>
+</div>
+
+<div class="bannerbox01">
+	<img src="images/banner01.png" width="100%">
+</div>
+<div  v-repeat="item in itemList" v-click="gotoDetail(item)">
+	<!-- 月月赢 产品-->
+	<div class="pro_dingqi" v-if="item.FundType == 'A'">
+		<p>
+			<span>{{item.ProdSubName}}</span><span class="dq_type">债券型</span></br>
+		</p>
+		<div class="dingqi_con">
+			<ul>
+				<li>
+					{{item.AnnualReturnBy7*100|number:3}}%</em>
+				</li>
+				<li>
+					七日年化收益率
+				</li>
+			</ul>
+			<ul>
+				<li>
+					{{item.PMinAmt|number:2}}
+				</li>
+				<li>
+					起购金额(元)
+				</li>
+			</ul>
+			<ul>
+				<li>
+					{{item.HoldDay}}
+				</li>
+				<li>
+					产品期限(天)
+				</li>
+			</ul>
+		</div>
+		<div class="pro_bottom">
+			<span><em>短期理财&nbsp;收益稳定</em></span>
+		</div>
+	</div>
+	<!-- 招商 -->
+	<div class="regularproduct_investment" v-if="item.FundType == 'B'">
+		<p>
+			<span>{{item.FundName}}</span><span class="dq_type">债券型</span></br>
+		</p>
+		<div class="dingqi_con">
+			<ul>
+				<li>
+					{{item.Nav|number:3}}
+				</li>
+				<li>
+					最新基金净值
+				</li>
+			</ul>
+			<ul>
+				<li>
+					{{item.PMinAmt|number:2}}
+				</li>
+				<li>
+					起购金额(元)
+				</li>
+			</ul>
+			<ul>
+				<li>
+					{{item.HoldDay}}
+				</li>
+				<li>
+					产品期限(天)
+				</li>
+			</ul>
+		</div>
+		<div class="pro_bottom">
+			<span>认购期限： <em>{{item.IpoStartDate}}</em> 至 <em>{{item.IpoEndDate}}</em></span>
+		</div>
+	</div>
+</div>

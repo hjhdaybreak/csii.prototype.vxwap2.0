@@ -1,0 +1,63 @@
+<div class="top02 fixTop wealthTop">
+	手机充值记录详情 <span class="back_btn01" v-click="goto('#1')"> <img src="images/back.png"> </span>
+</div>
+<div class="main">
+	<div class="main-jiaofei-confirm-top">
+		<div class="icon-textX">
+			<span class="phoneIcon"></span><span class="titleX">{{payHisItemDetail.BUSI_TYPE | PayBusiType}}</span>
+		</div>
+		<div class="numX">
+			<span>{{payHisItemDetail.PAYAMOUNT | changeFloat}}</span>元
+		</div>
+	</div>
+	<div class="main-jiaofei-confirm-list">
+		<ul>
+			<li class="leftX">
+				充值号码
+			</li>
+			<li class="rightX gray">
+				{{payHisItemDetail.BILLKEY}}
+			</li>
+			<div style="clear: both;"></div>
+		</ul>
+		<ul>
+			<li class="leftX">
+				充值时间
+			</li>
+			<li class="rightX gray">
+				{{payHisItemDetail.PAYDATE}}
+			</li>
+			<div style="clear: both;"></div>
+		</ul>
+		<ul>
+			<li class="leftX">
+				充值账号
+			</li>
+			<li class="rightX gray">
+				科蓝银行尾号{{payHisItemDetail.PAYACCOUNT.substring(payHisItemDetail.PAYACCOUNT.length - 4)}}
+			</li>
+			<div style="clear: both;"></div>
+		</ul>
+		<ul>
+			<li class="leftX">
+				充值结果
+			</li>
+			<li class="rightX gray">
+				{{$msg('chargeStatus')[payHisItemDetail.STATUS]}}
+			</li>
+			<div style="clear: both;"></div>
+		</ul>
+		<ul>
+			<li class="leftX">
+				交易流水
+			</li>
+			<li class="rightX gray">
+				{{payHisItemDetail.BILLNO}}
+			</li>
+			<div style="clear: both;"></div>
+		</ul>
+	</div>
+</div>
+<div class="jiaofei-buttonX jiaofei-buttonX-confirmfixed" v-click="PhoneRecordToChargeFn(payHisItemDetail);">
+	立即充值
+</div>

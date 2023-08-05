@@ -1,0 +1,43 @@
+<div class="top02 fixTop wealthTop">
+	加油卡充值 <span class="back_btn01"> <img src="images/back.png"> </span>
+
+</div>
+<div class="con">
+	<div class="result_box01">
+		支付成功！
+	</div>
+	<div class="gcc_ok_info">
+		充值金额通常为实时到账，部分交易可能出现延迟，已实际到账时间为准
+	</div>
+	<div class="jiaofei_result_main_text" style="background-color: white;" v-show="StateActivity == 'Y'">
+		恭喜您获得1次抽奖机会。<a class="href" v-click="goto('appOther.Lottery');">立即抽奖</a>
+	</div>
+	<div class="btn02_box">
+		<input type="button" class="btn02" value="完成" v-click="goBack()">
+	</div>
+	<div class="gcc_more_title">
+		您是否还需要
+	</div>
+	<div class="gcc_more_up">
+		<div class="left" v-click="goto('appOther.GasCardChargeRecord')">
+			<div  class="img_div">
+				<img  class="img" src="images/menu01/jfjg_jilu.png">
+			</div>
+			<div class="text">
+				充值记录查询
+			</div>
+		</div>
+		<div class="right" v-click="goto('appOther.LifePaymentReminder')">
+			<div class="img_div">
+				<img  class="img" src="images/menu01/jfjg_tixing.png">
+			</div>
+			<div class="text">
+				设置缴费提醒
+			</div>
+		</div>
+	</div>
+	<div>
+		<img src="images/menu01/life_jf/win_message.png" style="margin-top: 20px;width: 100%;" v-click="goto('appOther.ActiveMain');">
+	</div>
+</div>
+

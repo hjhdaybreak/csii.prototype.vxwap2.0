@@ -1,0 +1,67 @@
+<div>
+	<!-- <div class="top_ele_bar"><img src="images/ele_bar.png">
+	</div> -->
+	<div class="top02">
+		{{BusiType.BUSI_NAME}} <span class="back_btn01"></span>
+	</div>
+	<!--    <div class="jf_city">
+	<span class="city_cur">太原</span>
+	<span class="yuyue_btn">预约缴费</span>
+	</div>-->
+	<div>
+		<div class="jiaofei_result_main">
+			<div>
+				<div class="result_box01">
+					支付成功！
+				</div>
+			</div>
+			<div class="jiaofei_result_main_text" style="background-color: white;">
+				缴费金额通常为实时到账，部分交易可能出现延迟，以实际到账时间为准。
+			</div>
+			<div class="jiaofei_result_main_text" style="background-color: white;"v-show="StateActivity == 'Y'">
+				恭喜您获得1次抽奖机会。<a class="href" v-click="goto('appOther.Lottery');">立即抽奖</a>
+			</div>
+			<div class="jiaofei-buttonX jiaofei-buttonX-confirmfixed" v-click="goto('appOther.LifeMain')">
+				完成
+			</div>
+			<div class="jiaofei_result_main_require">
+				<div class="textX">
+					您是否需要
+				</div>
+				<div class="whiteX">
+					<ul>
+						<!-- <li>
+						<a class="weixin" v-click="goto_url('PaymentShare');"></a><span>微信通知Ta</span>
+						</li> -->
+						<li  style="width: 50%;">
+							<a class="jilu" v-click="goto('appOther.LifePaymentHistQry');"></a><span>缴费记录查询</span>
+						</li>
+						<li style="width: 50%;">
+							<a class="tixing" v-click="goto('appOther.LifePaymentReminder');"></a><span>设置缴费提醒</span>
+						</li>
+						<div style="clear: both;"></div>
+					</ul>
+				</div>
+			</div>
+			<div class="jiaofei_result_main_bottom" v-show="!WithinActivity">
+				<div class="imgX"></div>
+				<div>
+					<li class="text1x" v-click="orderPay();">
+						预约缴费
+					</li>
+					<li class="text2x">
+						一次设置，<span>从此无忧</span>
+					</li>
+					<li class="text3x">
+						每个月终于不用再惦记各种缴费啦！
+					</li>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<div>
+				<img src="images/menu01/life_jf/win_message.png" style="margin-top: 20px;width: 100%;" v-click="goto('appOther.ActiveMain');" v-show="WithinActivity">
+			</div>
+		</div>
+	</div>
+</div>
+

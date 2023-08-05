@@ -1,0 +1,79 @@
+<!--<div class="top_ele_bar"><img src="images/ele_bar.png"></div>-->
+<div class="top02 fixTop wealthTop">个人信息
+  <span class="back_btn01" v-click="goback()">
+    <img src="images/back.png">
+  </span>
+</div>
+<div class="per_infor">
+  <div class="touxiang"><img style="border-radius: 50%;" src="{{userInfo.IdImgBase?('data:image/jpeg;base64,' + userInfo.IdImgBase) : 'images/touxiang.png'}}" alt="头像" width="20%"></div>
+  <div class="b_bottom">
+    <span>昵称</span>
+    <span v-bind="userInfo.NickName"></span>
+  </div>
+  <div class="b_bottom">
+    <span>姓名</span>
+    <span v-bind="userInfo.UserName"></span>
+  </div>
+  <div class="b_bottom">
+    <span>绑定手机号</span>
+    <span v-bind="userInfo.MobilePhone"></span>
+  </div>
+  <div class="b_bottom on_off01" v-click="changeState()" v-show="msgInfo.RelationState == 'Y'">
+    <span>短信提醒状态</span>
+    <span style="margin-left: 4.5px">已开启</span>
+  </div>
+   <div class="b_bottom on_off02" v-click="changeState()" v-show="msgInfo.RelationState == 'N'">
+    <span>短信提醒状态</span>
+    <span style="margin-left: 4.5px">已关闭</span>
+  </div>
+  <div class="b_bottom">
+    <span>常住地址</span>
+    <span v-bind="userInfo.Addr"></span>
+  </div>
+  <div class="b_bottom">
+    <span>邮编</span>
+    <span v-bind="userInfo.Post"></span>
+  </div>
+  <div class="b_bottom">
+    <span>邮箱</span>
+    <span v-bind="userInfo.Email"></span>
+  </div>
+  <div class="b_bottom">
+    <span>固定电话</span>
+    <span v-bind="userInfo.Phone"></span>
+  </div>
+  <div class="b_bottom">
+    <span>职业</span>
+    <span v-bind="userInfo.UserDuty"></span>
+  </div>
+</div>
+<div class="tips" style="margin-top:20px;">
+  <ol>
+    <li>网页版暂不支持个人信息的变更，如需变更请登录直销银行官网或&nbsp;&nbsp;
+      <a v-click="downloadApp()" class="a_01" style="text-decoration:underline">下载直销银行APP</a>&nbsp;&nbsp;进行操作
+    </li>
+  </ol>
+</div>
+<!---------------- 交易密码输入提示框  -------------------------->
+<div class="tangkuang_box" v-show="pwdbox" >
+        <div class="tangkuang_bg"></div>
+        <div class="tangkuang03" id="tangkuang03" style=" padding-top:0;margin-top: -80px;"> 
+              <div class="tk_title">修改短信提醒</div> 
+              <p class="mima_input">
+                <span>交易密码：</span>
+                <span><input type="password" id="trsPwd" placeholder="请输入6位交易密码" v-model="trsPassword"></span>
+              </p> 
+              <div>
+                <input type="button" class="btn_09" value="取消" v-click="closeBox()">
+                <input type="button" class="btn_10" value="确定" v-click="doChange()">
+              </div>
+        </div>
+    </div>
+<!---------------- js 弹框居中  -------------------------->    
+<style>
+  @media (max-width: 320px) {
+    .b_bottom span:first-child {
+      width: 30%;
+    }
+  }
+</style>

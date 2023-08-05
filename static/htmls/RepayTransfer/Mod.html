@@ -1,0 +1,42 @@
+<div oc-lazy-load="htmls/RepayTransfer/RepayTransfer.js">
+	<div v-controller="RepayTransferCtrl" v-init="init()">
+		<div v-viewport="content">
+			<div v-page href="htmls/RepayTransfer/RepayTransferPre.html"></div>
+			<div v-page href="htmls/RepayTransfer/RepayTransferCof.html"></div>
+			<div v-page href="htmls/RepayTransfer/RepayTransferRes.html"></div>
+			<div v-page href="htmls/RepayTransfer/RepayTransferCardList.html"></div>
+		</div>
+		<!--温馨提示框  -->
+		<div class="tangkuang_box" v-show="WenXinTiShiFlag">
+			<div class="tangkuang_bg"></div>
+			<div class="tangkuang03" id="tangkuang03" style=" padding-top:-80px;">
+				<div class="tk_title">
+					温馨提示
+				</div>
+				<p class="mima_input">
+					<span>您尾号账户为可疑账户，谨防诈骗，请确认是否继续交易</span>
+				</p>
+				<div>
+					<input type="button" class="btn_09" value="取消" v-click="closeWenXinTiShiBox()">
+					<input type="button" class="btn_10" value="确定" v-show="yes" v-click="clickYes()">
+					<input type="button" class="btn_10" value="确定" v-show="yes1" v-click="goLast()">
+					<input type="button" class="btn_10" value="确定" v-show="yes2" v-click="clickYes2()">
+					<input type="button" class="btn_10" value="确定" v-show="yes3" v-click="goLast2()">
+				</div>
+			</div>
+		</div>
+		<!--本期应还温馨提示框  -->
+		<div class="tangkuang_box" id="RepayTransferBenQiWenXinTiShi_id" style="display: none;" v-click="CloseBenQiHKWEnXinTiShiFn();">
+			<div class="tangkuang_bg"></div>
+			<div class="tangkuang02" id="tangkuang02" style=" padding-top:-80px;top: 30%;">
+				<span class="error_icon02"></span>
+				<div class="question">
+					<p class="b_b">
+						<span>本期应还为当期次计划还款金额；若逾期，则应包含逾期金额，逾期金额可在贷款状态中查看。逾期之后，从还款日次日起，每日日终后系统自动从您的电子账户中扣划逾期金额，直至结清逾期金额。</span>
+					</p>
+				</div>
+				<input type="button" value="朕知道了">
+			</div>
+		</div>
+	</div>
+</div>

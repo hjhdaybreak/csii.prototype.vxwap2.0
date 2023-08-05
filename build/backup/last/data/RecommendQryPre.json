@@ -1,0 +1,10 @@
+{
+  "ChannelId": "web",
+  "_locale": "zh_CN",
+  "LoginType": "P",
+  "IsAuthorityDept": 0,
+  "BankId": "9999",
+  "DeptCount": 1,
+  "_ChannelId": "WAP",
+  "IsStaffAgent": 0
+}

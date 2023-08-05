@@ -1,0 +1,34 @@
+{
+	"_LocalProcessFlag": "false",
+	"_MCHJnlNo": "000000",
+	"_ChannelId": "WAP",
+	"_MCSJnlNo": "0",
+	"_MCHTimestamp": "2016-12-30 16:27:45.917",
+	"_ResponseSystemId": "MCA",
+	"ChannelId": "web",
+	"DCList": [
+		{
+			"ProdName": "微袋宝",
+			"ProdId": "0001",
+			"ProfitPerAcc": 0.9995,
+			"NavDate": "2016-12-29",
+			"MerchantNo": "1000000001",
+			"PminInAmt": "0.01",
+			"AnnualReturnBy7": 3.6482,
+			"ProdSubId": "000726",
+			"TaCode": "001",
+			"ProdType": "01|02",
+			"HoliDay": "0",
+			"ProdSubName": "大成添利宝E"
+		}
+	],
+	"_locale": "zh_CN",
+	"_RejMsg": "",
+	"LoginType": "P",
+	"BankId": "9999",
+	"_AuthenticateType": "000000",
+	"_TransactionId": "ptrsmgmt.MCLujinsuoProductListQry",
+	"List": [],
+	"_ProcessState": "",
+	"_RejCode": "000000"
+}

@@ -1,0 +1,29 @@
+{
+	"AREA_NAME": "太原",
+	"AREA_CODE": "351",
+	"BusiTypeList": [
+		{
+			"BUSI_TYPE": "1",
+			"BUSI_NAME": "水费"
+		}, {
+			"BUSI_TYPE": "2",
+			"BUSI_NAME": "燃气费"
+		}, {
+			"BUSI_TYPE": "3",
+			"BUSI_NAME": "通讯费"
+		}
+		, {
+			"BUSI_TYPE": "4",
+			"BUSI_NAME": "有线电视费"
+		}, {
+			"BUSI_TYPE": "5",
+			"BUSI_NAME": "加油卡"
+		}, {
+			"BUSI_TYPE": "6",
+			"BUSI_NAME": "供暖费"
+		}, {
+			"BUSI_TYPE": "7",
+			"BUSI_NAME": "物业费"
+		}
+	]
+}

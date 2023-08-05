@@ -1,0 +1,76 @@
+<div >
+	<div>
+		<div class="top02" style="position: fixed;z-index: 10;top: 0px;">
+			提前还款 <span class="back_btn01"> <img src="images/back.png" v-click="goto('appOther.LoanDetail')"> </span>
+			<span class="trad_btn01">&nbsp;<span>
+		</div>
+		<div  style="position: relative;top: 40px;">
+			<div>
+				<div class="b_bottom" >
+					<em class="name">还款账户信息</em>
+				</div>
+				<div class="bg_white" style="padding:0;">
+					<div class="b_bottom">
+						<em class="name">可用余额：</em>
+						<span style="float: right;">{{EcacctAvailBal|number:2}}元</span>
+					</div>
+					<div class="b_bottom">
+						<em class="name">未还本金：</em>
+						<span style="float: right;">{{RepayData.UnRepay|number:2}}元</span>
+					</div>
+				</div>
+				<div class="b_bottom" >
+					<em class="name">提前还款金额</em>
+				</div>
+				<div class="bg_white" style="padding:0;">
+					<div class="b_bottom" style="border: none;">
+						<em class="name_zl" style="width:30%;">金    额：</em>
+						<input type="text" id="TrsAmount" name="TrsAmount" v-model="TrsAmount" placeholder="100元以上金额" class="msg_input"min="0.01" max="999999999.99" ui-number='{"intLength":12,"float":true,"dotLength":2,"addZero":false}'style="text-align: right;"  required>
+						<span><img  src="images/hnlc-selected1.png" style="vertical-align:middle;width: 20px;"  v-click="selected()" id="selected"/> 全部还清</span>
+					</div>
+					<div class="b_bottom">
+						<span  v-click="Trial()"> <img src="images/shisuan.png" style="width:16%; vertical-align:middle;">&nbsp;贷款试算</span>
+						<span class="daikuanbenjin">本金:{{BusinessSum|number:2}}元</span>
+						<span class="daikuanlixi">利息:{{Interest|number:2}}元</span>
+					</div>
+				</div>
+				<div>
+					<div class="btn02_box">
+						<input type="button" class="btn02" value="下一步" v-click="next()"/>
+					</div>
+				</div>
+				<div class="tips" >
+					<ol>
+						<li>
+							您可以点击该页面的贷款试算查看提前还款所对应的本金与利息。
+						</li>
+						<li>
+							还款日当天不能进行提前还款，请您提前做好时间安排。
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--温馨提示框  -->
+<div class="tangkuang_box" v-show="WenXinTiShiFlag">
+	<div class="tangkuang_bg"></div>
+	<div class="tangkuang03" id="tangkuang03" style=" padding-top:-80px;">
+		<div class="tk_title">
+			温馨提示
+		</div>
+		<p class="mima_input">
+			<span>可用余额不足，请先进行资金转入再进行提前还款</span>
+		</p>
+		<div>
+			<input type="button" class="btn_09" value="取消" v-click="closeWenXinTiShiBox()">
+			<input type="button" class="btn_10" value="资金转入" v-click="clickYes();">
+		</div>
+	</div>
+</div>
+<script language="javascript" type="text/javascript" >
+	var tk02_height = document.getElementById("tangkuang03").offsetHeight;
+	var marginl = tk02_height / 2;
+	document.getElementById("tangkuang03").style.marginTop = -(marginl) + 'px'; 
+</script>

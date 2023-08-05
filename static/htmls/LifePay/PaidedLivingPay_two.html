@@ -1,0 +1,75 @@
+<form name="form2" v-init="form2init()">
+	<!-- <div class="top_ele_bar"><img src="images/ele_bar.png">
+	</div>-->
+	<div class="top02">
+		{{BusiType.BUSI_NAME}} <span class="back_btn01"> <img src="images/back.png" v-click="vPageBackoneFn();"> </span>
+
+	</div>
+	<!--    <div class="jf_city">
+	<span class="city_cur">太原</span>
+	<span class="yuyue_btn">预约缴费</span>
+	</div>-->
+
+	<div class="jf_infor02">
+		<h1><span id="amountType"><!-- 账户余额 --></span></br><span> <em id="balance" style="display: none;">{{BALANCE|number:2}}</em> <em id="payamt" style="display: none;">{{PAYAMT|number:2}}</em> &nbsp;元</span></h1>
+		<p>
+			<span>缴费单位</span>
+			<span>{{PayProjObj.ITERM_NAME}}</span>
+		</p>
+		<p>
+			<span>缴费号码</span>
+			<span>{{BILLKEY}}</span>
+		</p>
+		<p>
+			<span>缴费户名</span>
+			<span> <!-- <input type="text" placeholder="爸妈家" style=" background:url(images/menu01/life_jf/pencil_gray.png) right center no-repeat; background-size:7%;"> -->
+				<input class="input_cust_name" type="text" placeholder="可自定义缴费户名" maxlength="15" name="CUSTNAME" v-model="CUSTNAME"style=" background:url(images/menu01/life_jf/pencil_gray.png) right center no-repeat; background-size:7%;padding-right: 5%;"/>
+			</span>
+		</p>
+	</div>
+	<div class="jf_infor02 margintop" style="margin-top: 7px;">
+		<p>
+			<span>缴费金额</span>
+			<span>
+				<input type="text" placeholder="请输入缴费金额" name="PAYAMOUNT" v-model="PAYAMOUNT" maxlength="12"
+				style="display:none;" key-allow="amount" oninput="if(value.length>10)value=value.slice(0,10)"/>
+				<!-- 指定金额 --> <select title="请选择缴费金额" name="PayAmounts" v-model="PayAmounts"
+				v-options="value for value in PayAmountArray" v-change="getPayAmounts()" style="background-size:200px 55px; width: 100px; display:none;"></select> </span>
+		</p>
+	</div>
+	<div class="xy_check">
+		<span></span>
+		<span>同意<a class="lifexieyicolor" v-click="ChaKanXieYiFn();">《科蓝银行直销银行自助缴费服务协议》</a></span>
+	</div>
+	<div class="btn02_box">
+		<input type="button" class="btn02" value="立即缴费" v-click="doThree();">
+	</div>
+</form>
+<!-- 交易密码输入提示框  -->
+<div class="tangkuang_box" v-show="pwdbox">
+	<div class="tangkuang_bg"></div>
+	<div class="tangkuang03" id="tangkuang03" style=" padding-top:-80px; margin-top: -80px;">
+		<div class="tk_title">
+			付款详情
+		</div>
+		<p>
+			<span>缴费项目：</span>
+			<span>{{PAYPROJ_NAME}}</span>
+		</p>
+		<p>
+			<span>缴费金额：</span>
+			<span>{{PAYAMOUNT|number:2}}元</span>
+		</p>
+		<p class="mima_input">
+			<span>交易密码：</span>
+			<span>
+				<input type="password" id="trsPwd" placeholder="请输入6位交易密码" v-model="trsPassword" >
+			</span>
+		</p>
+		<div>
+			<input type="button" class="btn_09" value="取消" v-click="closeBox()">
+			<input type="button" class="btn_10" value="确定" v-click="doIt4()">
+		</div>
+	</div>
+</div>
+

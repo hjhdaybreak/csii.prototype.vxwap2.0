@@ -1,0 +1,35 @@
+<div class="top02">
+	设置密码 <span class="back_btn01"v-click="goLastPage()"> <img src="images/back.png"> </span>
+</div>
+<div class="con">
+	<div class="con_box01">
+		<div class="b_bottom paddingtop">
+			<input type="password"  name="loginPwd" v-model="loginPwd" class="text01 btn_key01" title="登录密码"  placeholder="设置登录密码" id="loginPwd"  />
+		</div>
+		<div class="b_bottom" v-class='{"b_none":showLoginPwd}'>
+			<input type="password"  class="text01 btn_key02" placeholder="确认登录密码" name="loginPwdC" v-model="loginPwdC" title="登录密码"  id="loginPwdC" />
+		</div>
+		<div v-show="!showLoginPwd">
+			<div class="b_bottom">
+				<input type="password" class="text01 btn_key01" placeholder="交易密码" name="transPwd" v-model="transPwd" id="transPwd" title="交易密码"/>
+			</div>
+			<div class="b_bottom">
+				<input type="password" name="transPwdC" v-model="transPwdC" class="text01 btn_key02" title="确认交易密码" id="transPwdC"  placeholder="确认交易密码" />
+			</div>
+		</div>
+	</div>
+	<div class="xy_check" v-show="showLoginPwd">
+		<a class="a_01">登录密码由6-20位的数字、英文字母组成，区分大小</a>
+	</div>
+	<div class="btn02_box" v-show="showLoginPwd">
+		<input type="button" class="btn02" v-click="showTrsPwd()" value="下一步" />
+	</div>
+	<div class="btn02_box" v-show="!showLoginPwd">
+		<input type="button" class="btn02" v-click="doIt()" value="下一步" />
+	</div>
+	<div class="tips">
+        <ol>
+            <li>请不要设置过于简单的密码，例如：111111，123456。</li>
+        </ol>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="top02 fixTop wealthTop">
+    定期转入修改 <span class="back_btn01"> <img src="images/back.png"  v-click="goto('appOther.RegularShiftTo')"> </span>
+</div>
+<div v-lazy-load="htmls/RegularShiftTo_Update/RegularShiftTo_Update.js" style="padding-top: 44px;">
+    <div v-controller="RegularShiftTo_UpdateCtrl" v-init="init()" style="width: 100%;overflow-x: hidden;">
+        <div v-page href="htmls/RegularShiftTo_Update/RegularShiftTo_UpdatePre.html"></div>
+        <div v-page href="htmls/RegularShiftTo_Update/RegularShiftTo_UpdateRst.html"></div>
+        <div v-page href="htmls/RegularShiftTo_Update/RegularShiftTo_UpdateCardList.html"></div>
+    </div>
+</div>

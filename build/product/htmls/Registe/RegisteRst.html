@@ -1,0 +1,39 @@
+<div class="top02">
+	开户结果 <!-- <span class="back_btn01"> <img src="images/back.png"> </span> -->
+</div>
+<div class="con">
+	<div class="result_box01">
+		<span v-if="!IsSchedule || IsSchedule!='Y'">开户成功</span>
+		<span v-if="IsSchedule && IsSchedule=='Y'">预约开户成功</span>
+	</div>
+	<div class="con_box01">
+		<div class="b_bottom b_none">
+			<p style="margin-bottom: 10px;font-size: 14px;color: #e64036;">
+				温馨提示：
+			</p>
+			<p style="margin-bottom: 20px;text-indent: 2em; " v-if="!IsSchedule || IsSchedule!='Y'">
+				账户暂时限制只收不付，待工作人员审核后会开放账户所有功能！
+			</p>
+			<p style="margin-bottom: 20px;text-indent: 2em; " v-if="IsSchedule && IsSchedule=='Y'">
+				由于目前不在联网核查期间，已为您转入预约开户流程，我行将在系统开放后将开户结果短信通知您。
+			</p>
+		</div>
+	</div>
+	<div class="con_box01">
+		<div class="b_bottom">
+			<span>姓名：</span>
+			<span>{{setPwdDate.CifName}}</span>
+		</div>
+		<div class="b_bottom b_none">
+			<span>开户行：</span>
+			<span>科蓝银行</span>
+		</div>
+	</div>
+	<div class="btn02_box">
+		<input type="button" class="btn03" value="立即登录" v-click="goLogin()">
+	</div>
+	<div class="btn02_box" v-click="goMy()">
+		<input type="button" class="btn02" value="我的账户">
+	</div>
+</div>
+

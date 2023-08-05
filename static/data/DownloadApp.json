@@ -1,0 +1,10 @@
+{
+    "ChannelId": "WAP",
+    "_locale": "zh_CN",
+    "andriodaddress": "http://apk.hiapk.com/appdown/com.jincheng.main",
+    "LoginType": "P",
+    "BankId": "9999",
+    "sendRedirectURL": "http://itunes.apple.com/us/app/id1022698023",
+    "_ChannelId": "WAP",
+    "iosaddress": "http://itunes.apple.com/us/app/id1022698023"
+}

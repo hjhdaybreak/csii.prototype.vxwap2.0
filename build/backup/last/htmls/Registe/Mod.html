@@ -1,0 +1,18 @@
+<div v-lazy-load="htmls/Registe/Registe.js">
+    <div v-controller="RegisteCtrl" v-init="init()">
+        <!-- 首页录入部分 -->
+        <div v-page href="htmls/Registe/RegistePre.html"></div>
+        <!-- 身份证照片信息 -->
+        <div v-page href="htmls/Registe/RegisterIdentityVerificate.html"></div>
+        <!-- 设置密码页面 -->
+        <div v-page href="htmls/Registe/RegisteSetPwd.html"></div>
+        <!-- 绑卡页面 -->
+        <div v-page href="htmls/Registe/RegisteCardAuthenticate.html"></div>
+        <!-- 结果页面 -->
+        <div v-page href="htmls/Registe/RegisteRst.html"></div>
+        <!-- 协议页面 -->
+        <div v-page href="htmls/Registe/AccountSeviceAgreement.html"></div>
+        <!-- 银行卡列表 -->
+        <div v-page href="htmls/Registe/CardList.html"></div>
+    </div>
+</div>

@@ -1,0 +1,307 @@
+<div v-lazy-load="htmls/Wealth/Wealth.js">
+	<div v-controller="WealthCtrl" v-init="init()" class="mainBox wealthBox" v-class='{"titleFixTop":showTopAdver,"titleFixTopDef":!showTopAdver}'>
+
+		<div class="top02 fixTop wealthTop" v-class='{"hasTopAdver":showTopAdver}'>
+			财&nbsp;富
+			<span class="back_btn01" v-show="loginedF"  v-click="showLogin()"> <img src="images/my02.png" > </span>
+			<span class="back_btn01"style="top:0" > <span  style="display:inline-block; width:40px ;font-size: 14px;color: #333;"v-show="!loginedF" v-click="showLogin()">登录 </span> </span>
+			<span class=" pro_btn01" v-click="goto('appOther.MyNews')"> <img src="images/new01.png" style="width:93%"/> </span>
+		</div>
+		<div class="wealth">
+			<ul>
+				<li id="qixian" v-click="SelectTypeFn('HoldDay');">
+					产品期限
+				</li>
+				<li id="shouyi" v-click="SelectTypeFn('AnnualReturnBy7');">
+					收益排行
+				</li>
+				<li id="qishijine" v-click="SelectTypeFn('PMinAmt');">
+					起购金额
+				</li>
+			</ul>
+		</div>
+		<!-- 财富页面进来默认不排序显示部分开始 -->
+		<div  v-show="defaultFlag">
+			<!-- 微智存  银行存款 -->
+			<div v-show="PEMap">
+				<span class="t_type t_type01" style="background:#ffb63d;">银行存款</span>
+				<div class="con_box01 b_top">
+					<div class="pro_title02"><img src="images/menu02/icon01.png" width="5%">微智存
+					</div>
+					<div class="pro01_box">
+						<div class="pro_title03">
+							智能存款 <span class="risk_no">零风险</span>
+						</div>
+						<div class="cf_pro" v-click="gotoDetail(PEMap)">
+							<ul>
+								<li>
+									<!-- {{PEMap.HoliDay}}天&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; -->
+									<span>随时支取</span></br>
+									<span>{{PEMap.startMoney|number:2}}元起</span>
+								</li>
+								<li style="width:38%">
+									<span class="cf_ll"><em>{{PEMap.yearRate|percent:4}}</em></span></br>
+									<span>最高年利率</span>
+								</li>
+								<li class="li_btn02">
+									<input type="button" value="存入" class="btn_buy01">
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--微袋宝   活期类产品-->
+			<div v-show="DCList&&DCList.length>0">
+				<span class="t_type t_type01" style="   background:#7bd6c2;">活期类产品</span>
+				<div class="con_box01 b_top">
+					<div class="pro_title02"><img src="images/menu02/icon02.png" width="5%">微袋宝
+					</div>
+					<div class="pro01_box" v-repeat="DCrow in DCList track by $index"v-click="gotoDetail(DCrow)">
+						<div class="pro_title03">
+							{{DCrow.ProdSubName}} <span class="risk_di">低风险</span>
+						</div>
+						<div class="cf_pro">
+							<ul>
+								<li>
+									<span>随时支取</span></br>
+									<span>{{DCrow.PminInAmt|number:2}}元起</span>
+								</li>
+								<li style="width:38%">
+									<span class="cf_ll"><em>{{DCrow.AnnualReturnBy7|percent:4}}</em></span></br>
+									<span>七日年化收益率</span>
+								</li>
+								<li class="li_btn02">
+									<input type="button" value="购买" class="btn_buy01">
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--微财富        定期类产品-->
+			<div v-show="ProdList&&ProdList.length>0">
+				<span class="t_type t_type01" style="   background:#97c7ff;">定期类产品</span>
+				<div class="con_box01 b_top">
+					<div class="pro_title02"><img src="images/menu02/icon03.png" width="5%">微财富
+					</div>
+					<div class="pro01_box" v-repeat="Prorow in ProdList track by $index"v-click="gotoDetail(Prorow)">
+						<div class="pro_title03">
+							{{Prorow.FundName}} <span class="risk_di">低风险</span>
+						</div>
+						<div class="cf_pro">
+							<ul>
+								<li>
+									<span>{{Prorow.HoldDay}}天</span></br>
+									<span v-show="row.FundType == 'A'">{{StartBuyAmt|number:2}}元起</span>
+									<span v-hide="row.FundType == 'A'">{{Prorow.PMinAmt|number:2}}元起</span>
+								</li>
+								<li style="width:38%" v-show="Prorow.ProdSubId != '002001'">
+									<span class="cf_ll"><em>{{Prorow.AnnualReturnBy7*100|percent:4}}</em></span></br>
+									<span>七日年化收益率</span>
+								</li>
+								<li style="width:38%"  v-show="Prorow.ProdSubId == '002001'&&Prorow.FundStatus==2">
+									<span class="cf_ll"><em v-class='{"alreadySaled":Prorow.FundStatus==2}'>{{Prorow.Nav|number:4}}</em></span></br>
+									<span>最新基金净值</span>
+								</li>
+								<li style="width:38%"  v-show="Prorow.ProdSubId == '002001'&&Prorow.FundStatus==1">
+									<span class="cf_ll"><em>{{Prorow.Benchmark|number:4}}%</em></span></br>
+									<span>历史业绩参考 </span>
+								</li>
+								<li style="width:38%"  v-show="Prorow.ProdSubId == '002001'&&Prorow.FundStatus==0">
+									<span class="cf_ll"><em>{{Prorow.Benchmark|number:4}}%</em></span></br>
+									<span>历史业绩参考 </span>
+								</li>
+								<li class="li_btn02">
+									<!-- 非招商收益 -->
+									<span v-show="Prorow.ProdSubId != '002001'">
+										<input type="button" value="购买" class="btn_buy01"  v-click="gotoDetail(Prorow)">
+									</span>
+									<!-- 招商收益 -->
+									<span v-show="Prorow.ProdSubId == '002001'&&Prorow.FundStatus==0">
+										<input type="button" value="预售" class="btn_buy03">
+									</span>
+									<span v-show="Prorow.ProdSubId == '002001'&&Prorow.FundStatus==1">
+										<input type="button" value="购买" class="btn_buy01"  v-click="gotoDetail(Prorow)">
+									</span>
+									<span v-show="Prorow.ProdSubId == '002001'&&Prorow.FundStatus==2">
+										<input type="button" value="售罄" class="btn_buy02">
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--微理财  银行理财-->
+			<div v-show="LCList&&LCList.length>0">
+				<span class="t_type t_type01" style="background:#f99b9b;">银行理财</span>
+				<div class="con_box01 b_top">
+					<div class="pro_title02"><img src="images/menu02/icon04.png" width="5%">微理财
+					</div>
+					<div class="pro01_box" v-repeat="LCrow in LCList track by $index" v-click="gotoDetail(LCrow)">
+						<div class="pro_title03">
+							{{LCrow.ProductName}} <span class="{{LCrow.ProductRiskLevel|riskLevelCalor}}">{{LCrow.ProductRiskLevelName}}</span>
+						</div>
+						<div class="cf_pro">
+							<ul>
+								<li>
+									<span>{{LCrow.ProductDay}}天 </span></br>
+									<span>{{LCrow.PerFirstApplyPrice*1?(LCrow.PerFirstApplyPrice|amountTwoFtr):(LCrow.PerFirstApplyPrice|number:2)}}元起</span>
+								</li>
+								<li style="width:38%">
+									<span class="cf_ll"><em>{{LCrow.YieldBig|percent:4}}</em></span></br>
+									<span>预期年化收益率</span>
+								</li>
+								<li class="li_btn02">
+									<!-- 预售 -->
+									<input type="button" v-show="LCrow.State==1" value="预售" class="btn_buy03">
+									<!-- 募集 -->
+									<input type="button" v-show="LCrow.State==2" value="购买" class="btn_buy01">
+									<!-- 售罄 -->
+									<input type="button" v-show="LCrow.State==3" value="售罄" class="btn_buy02">
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 财富页面进来默认不排序显示部分结束-->
+
+		<!-- 财富页面排序部分开始 -->
+		<div style="position: relative;margin-bottom: 44px;" v-hide="defaultFlag">
+			<!-- 招商招益 以最新净值显示   预售部分-->
+			<div v-show="ZhaoShangNotShouWanList&&ZhaoShangNotShouWanList.length>0">
+				<div class="con_box01" style="border: none;" v-repeat="row in ZhaoShangNotShouWanList" v-click="gotoDetail(row)">
+					<div class="wealthobject_box">
+						<div class="pro_title03">
+							{{row.FundName}} <span class="risk_gao">高风险</span>
+						</div>
+						<div class="cf_pro">
+							<ul>
+								<li>
+									<span>{{row.HoldDay}}天</span></br>
+									<span>{{row.PMinAmt|number:2}}元起</span>
+								</li>
+								<li style="width:38%">
+									<span class="cf_ll"><em>{{row.Nav|number:4}}</em></span></br>
+									<span v-show="row.FundStatus==2">最新基金净值</span>
+									<span v-hide="row.FundStatus==2">历史业绩参考 </span>
+								</li>
+								<li class="li_btn02">
+									<span v-show="row.ProdSubId == '002001'&&row.FundStatus==0">
+										<input type="button" value="预售" class="btn_buy03">
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 微理财 预售部分-->
+			<div v-show="WeiLiCaiYuShouList&&WeiLiCaiYuShouList.length>0">
+				<div class="con_box01" style="border: none;"v-repeat="row in WeiLiCaiYuShouList">
+					<div class="wealthobject_box">
+						<div class="pro_title03">
+							{{row.ProductName}} <span class="{{row.ProductRiskLevel|riskLevelCalor}}">{{row.ProductRiskLevelName}}</span>
+						</div>
+						<div class="cf_pro">
+							<ul>
+								<li>
+									<span>{{row.ProductDay}}天</span></br>
+									<span>{{row.PerFirstApplyPrice|number:2}}元起</span>
+								</li>
+								<li style="width:38%">
+									<span class="cf_ll"><em>{{row.YieldBig|percent:4}}</em></span></br>
+									<span>预期年化收益率</span>
+								</li>
+								<li class="li_btn02">
+									<input type="button" value="预售" class="btn_buy03">
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 其他产品购买以排序显示 -->
+			<div class="con_box01" style="border: none;"v-repeat="Wealthrow in WealthTotalList_last"  v-click="gotoDetail(Wealthrow)">
+				<div class="wealthobject_box">
+					<div class="pro_title03">
+						{{Wealthrow.FundName}} <span class="{{Wealthrow.ProductRiskLevel|riskLevelCalor}}">{{Wealthrow.ProductRiskLevelName}}</span>
+					</div>
+					<div class="cf_pro">
+						<ul>
+							<li>
+								<span v-show="Wealthrow.WealthType == 'TLB'">随时支取</span>
+								<span v-show="Wealthrow.WealthType == 'WZC'">随时存取</span>
+								<span v-show="(Wealthrow.WealthType != 'TLB')&&(Wealthrow.WealthType != 'WZC')">{{Wealthrow.HoldDay}}天</span></br>
+								<span>{{Wealthrow.PMinAmt|number:2}}元起</span>
+							</li>
+							<li style="width:38%">
+								<span class="cf_ll"><em>{{Wealthrow.AnnualReturnBy7|percent:4}}</em></span></br>
+								<span>{{Wealthrow.AnnualName}}</span>
+							</li>
+							<li class="li_btn02">
+								<input type="button" value="购买" class="btn_buy01" v-show="Wealthrow.WealthType != 'WZC'">
+								<input type="button" value="存入" class="btn_buy01" v-show="Wealthrow.WealthType == 'WZC'">
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 招商招益 以最新净值显示      已售罄部分-->
+			<div v-show="ZhaoShangShouWanList&&ZhaoShangShouWanList.length>0">
+				<div class="con_box01" style="border: none;"v-repeat="row in ZhaoShangShouWanList">
+					<div class="wealthobject_box">
+						<div class="pro_title03">
+							{{row.FundName}} <span class="risk_gao">高风险</span>
+						</div>
+						<div class="cf_pro">
+							<ul>
+								<li>
+									<span>{{row.HoldDay}}天</span></br>
+									<span>{{row.PMinAmt|number:2}}元起</span>
+								</li>
+								<li style="width:38%">
+									<span class="cf_ll"><em class="alreadySaled">{{row.Nav|number:4}}</em></span></br>
+									<span v-show="row.FundStatus==2">最新基金净值</span>
+									<span v-hide="row.FundStatus==2">历史业绩参考 </span>
+								</li>
+								<li class="li_btn02">
+									<input type="button" value="售罄" class="btn_buy02">
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 微理财 已售罄部分-->
+			<div v-show="WeiLiCaiShouWanList&&WeiLiCaiShouWanList.length>0">
+				<div class="con_box01" style="border: none;"v-repeat="row in WeiLiCaiShouWanList">
+					<div class="wealthobject_box">
+						<div class="pro_title03">
+							{{row.ProductName}} <span class="{{row.ProductRiskLevel|riskLevelCalor}}">{{row.ProductRiskLevelName}}</span>
+						</div>
+						<div class="cf_pro">
+							<ul>
+								<li>
+									<span>{{row.ProductDay}}天</span></br>
+									<span>{{row.PerFirstApplyPrice|number:2}}元起</span>
+								</li>
+								<li style="width:38%">
+									<span class="cf_ll"><em class="alreadySaled">{{row.YieldBig|percent:4}}</em></span></br>
+									<span>预期年化收益率</span>
+								</li>
+								<li class="li_btn02">
+									<input type="button" value="售罄" class="btn_buy02">
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 财富页面排序部分结束 -->
+	</div>
+</div>

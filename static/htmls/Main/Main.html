@@ -1,0 +1,94 @@
+<div v-lazy-load="[_swiper,'htmls/Main/Main.js']">
+	<div class="mainBox" id="box" v-controller="MainCtrl" v-init="init()">
+		<!--ios 设置快捷方式弹框-->
+		<div class="download_tips" v-show="iosSetQuickF" v-click="hideSetQuick()">
+			<div style="text-align:right;"><img src="images/colse02.png" width="15px;" />
+			</div>
+			<div>
+				您可以将此应用程序设置快捷方式，请点击&nbsp;&nbsp;<img src="images/download_icon.png" width="12px" style="margin-bottom:-3px;" />&nbsp;&nbsp;进行设置。
+			</div>
+		</div>
+		<div class="slideL" style="position: relative;" v-class='{"hasTopAdver1":showTopAdver}'>
+			<div class="swiper-container" id="topPic">
+				<div class="swiper-wrapper">
+					<div v-class='{"swiper-slide":true,"swiper-slide-active":$index==0,"swiper-slide-next":$index==1}' v-repeat="row in cardTypeList" index="$index" style="text-align: center;">
+						<a><img src="images/banner01.png" style="width:100%;" /></a>
+					</div>
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="fixed_btn indexTitFixTop slideL">
+				<img src="images/menu01/logo.png" width="40%">
+				<span class="fixed_btn01" style="margin-left: 12px;" v-click="showLogin()" v-show="!loginedF"> <span class="login_btn">登录</span> </span>
+				<span class="fixed_btn01" style="margin-left: 0px;" v-click="showLogin()" v-show="loginedF"> <img src="images/my02.png" width="50%"/> </span>
+				<span class=" fixed_btn02" v-click="goto('appOther.MyNews')"> <img src="images/new01.png" width="50%"/> </span>
+			</div>
+		</div>
+		<div class="bar_auto">
+			<div class="menu_kj">
+				<ul>
+					<li class="menu_kj01" v-click="TurnTo('app.My')">
+						我的账户
+					</li>
+					<li class="menu_kj02" v-click="TurnTo('appOther.MoneyIn')">
+						资金转入
+					</li>
+					<li class="menu_kj03" v-click="TurnTo('appOther.MoneyOut')">
+						资金转出
+					</li>
+					<li class="menu_kj04 b_top" style="background-size: 29%;" v-click="goto('appOther.LifeMain', {'prePageUrl' : 'app.Main'})">
+						生活缴费
+					</li>
+					<li class="menu_kj05 b_top" v-click="goPhoneRechargeFn();">
+						手机充值
+					</li>
+					<li class="menu_kj06 b_top" style="background-size: 29%;"v-click="goGasCardChargeFn();">
+						加油卡充值
+					</li>
+				</ul>
+			</div>
+			<div class="pro_box01 b_top margintop" style="margin-bottom: 20px;">
+				<div class="pro_title pro_title01">
+					精选产品 <a v-click="goto('app.Wealth')">更多</a>
+				</div>
+				<div class="pro" v-repeat="row in list"  v-show="row.Annual_Return_by_7!=null" v-click="gotoProduct(row)">
+					<div class="pro_t">
+						<span class="t_type" v-class='{"col7BD6C2":$index%3==0,"co97C7FF":$index%3==1,"colF99B9B":$index%3==2}'>{{$msg('Fund_oname')[row.Fund_oname]}}</span>
+						<span class="t_name">{{row.Fund_Name}}</span>
+					</div>
+					<div class="pro_con">
+						<ul>
+							<li style=" border-right:1px solid #e5e5e5;">
+								<span class="pro_ll" v-show="row.Annual_Name!='最新基金净值'">{{row.Annual_Return_by_7|percent:4}}</span>
+								<span class="pro_ll" v-show="row.Annual_Name=='最新基金净值'">{{row.Annual_Return_by_7|number:4}}</span></br>
+								<span>{{row.Annual_Name}}</span>
+							</li>
+							<li style="margin-top:10px;">
+								<span>{{row.HoldDay|showDay}}</span></br>
+								<span>起购金额：{{row.StartAmount*1>10000?(row.StartAmount|amountTwoFtr):(row.StartAmount|number:2)}}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="li_btn01">
+						<!-- 预售 -->
+						<input type="button" v-show="row.Status==0" value="{{$msg('buyStatus')[row.Status]}}" class="btn_buy03">
+						<!-- 购买 -->
+						<input type="button" v-show="row.Status==1&&row.Fund_oname!='WZC'&&row.Fund_oname!='HNLC'" value="{{$msg('buyStatus')[row.Status]}}" class="btn_buy01">
+						<input type="button" v-show="row.Status==1&&row.Fund_oname=='WZC'" value="存入" class="btn_buy01">
+						<!-- 售罄 -->
+						<input type="button" v-show="row.Status==2" value="{{$msg('buyStatus')[row.Status]}}" class="btn_buy02">
+						<!-- 行内理财特殊处理 -->
+						<!-- 预售 -->
+						<input type="button" v-show="row.Status==0&&row.Fund_oname=='HNLC'" value="预售" class="btn_buy03">
+						<!-- 募集 -->
+						<input type="button" v-show="row.Status==1&&row.Fund_oname=='HNLC'" value="购买" class="btn_buy01">
+						<!-- 售罄 -->
+						<input type="button" v-show="row.Status==2&&row.Fund_oname=='HNLC'" value="售罄" class="btn_buy02">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<div v-lazy-load="htmls/VXTest03/VXTest03.js" title="交易名称">
+    <div v-controller="VXTest03Ctrl" v-init="startup()">
+        过滤器:{{ 'word' | hello}}
+
+        <div v-show="flag">
+            <span>是否隐藏</span>
+        </div>
+        <button v-click="flag=false">按钮</button>
+
+    </div>
+
+
+</div>

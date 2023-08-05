@@ -1,0 +1,160 @@
+<style>
+	.searchListBox {
+		position: absolute;
+		width: 100%;
+		height: auto;
+		overflow: auto;
+		margin: 0 auto;
+	}
+	.text_left {
+		text-align: left;
+	}
+	.listname {
+		background: #fff;
+		overflow: hidden;
+		clear: both;
+		border-bottom: 1px solid #ddd;
+	}
+	#nav {
+		position: fixed;
+		right: 0px;
+		bottom: 0px;
+		padding: 10px;
+	}
+	#nav .current a span {
+		/*border-bottom: 2px solid #159deb;*/
+	}
+	.EComSearchkuangParrent {
+		background-color: #fff;
+		z-index: 4;
+		overflow: hidden;
+		position: fixed;
+		top: 44px;
+		width: 100%;
+		height: 44px;
+	}
+	.EComSearchkuang {
+		width: 100%;
+		margin-top: 5px;
+		float: left;
+		position: relative;
+		padding-left: 2%;
+	}
+	.EComSearchkuangWord {
+		width: 90%;
+		text-indent: 0.5em;
+		height: 30px;
+		outline: none;
+		border-radius: 3px !important;
+		border: 1px solid #d1cfcf;
+		font-size: 16px;
+		color: #898585;
+		background-color: #fff;
+		padding-left: 20px;
+	}
+	.selectcityclass {
+		overflow: hidden;
+		position: relative;
+		top: 86px;
+		width: 100%;
+		padding-left: 5%;
+		background-color: rgb(255, 255, 255);
+	}
+	.selectdingweicity {
+		width: 50%;
+		height: 30px;
+		line-height: 30px;
+		background-color: #fff;
+		font-size: 14px;
+		border: 1px solid rgba(132, 123, 123, 0.39);
+		padding-left: 2%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.hotcity {
+		width: 26%;
+		height: 30px;
+		line-height: 30px;
+		background-color: #fff;
+		font-size: 14px;
+		border: 1px solid rgba(132, 123, 123, 0.39);
+		padding-left: 2%;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		float: left;
+		text-align: center;
+		margin-left: 1%;
+	}
+	#letter {
+		width: 100px;
+		height: 100px;
+		border-radius: 5px;
+		font-size: 75px;
+		color: #555;
+		text-align: center;
+		line-height: 100px;
+		background: rgba(145,145,145,0.6);
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		margin: -50px 0px 0px -50px;
+		z-index: 99;
+		display: none;
+	}
+</style>
+<div v-lazy-load="htmls/LifePay/SelectCity.js">
+	<div v-controller="SelectCityCtrl" v-init="startup();">
+		<div class="top02" style="position: fixed;z-index: 10;top: 0px;">
+			城市选择 <span class="back_btn01"> <img src="images/back.png" v-click="goback();"> </span>
+			<span class="trad_btn01">&nbsp;</span>
+		</div>
+		<div id="search_id" class="EComSearchkuangParrent">
+			<div class="EComSearchkuang">
+				<input type="text" placeholder="输入城市名、拼音或首字母进行搜索" class="EComSearchkuangWord"  id="KeyWords" name="KeyWords" v-model="KeyWords">
+				<span ><img src="images/city_sousuoanniu.png" style="position: absolute;left: 2%;    width: 28px;top: 17%;"></span>
+				<span v-show="KeyWords" v-click="deleteCitySelectDataFn();"><img src="images/delete.png" style="position: absolute;right: 5%;    width: 28px;top: 9%;"></span>
+			</div>
+		</div>
+		<div>
+			<div class="selectcityclass">
+				<div style="font-size: 14px;">
+					您所在的地区
+				</div>
+				<div class="selectdingweicity" v-click="selectHotCityFn(PayCity);" style="color: black;font-weight: bold;" >
+					{{PayCity.AREA_NAME}}
+				</div>
+				<div style="font-size: 14px;">
+					热门城市
+				</div>
+				<div style="height: auto;">
+					<div class="hotcity" v-repeat="row in HotCityList" v-click="selectHotCityFn(row);"style="color: black;font-weight: bold;">
+						{{row.AREA_NAME}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="letter">
+			{{CharactorFlagName}}
+		</div>
+		<div class="searchListBox">
+			<div  class="text_left" style="width: 100%;">
+				<div class="text_left" style="" v-repeat="item1 in TheLastBankList"  v-show="falglist.length>0">
+					<div  style="background:#f6f6f6;line-height: 35px;padding-left: 3%;">
+						<a id="NAME{{item1.bankFlagName}}" >&nbsp;{{item1.bankFlagName}}</a>
+					</div>
+					<div class="text_left listname" style="line-height: 35px;padding-left: 3%;" v-repeat="Bankrow in falglist = (item1.bankFlagNameList|filter:KeyWords)" v-click="selectHotCityFn(Bankrow);">
+						<a style="color: black;font-weight: bold;">{{Bankrow.AREA_NAME}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<ul id="nav">
+			<li class="$first?'current':''" style="height: 14px;line-height: 14px;" v-repeat="row in TheLastBankList track by $index" on-finish-render-filters v-click="charactorShowFn(row);">
+				<a href="#NAME{{row.bankFlagName}}"> <span style="font-size: 14px;color: black;font-weight: bold;">{{row.bankFlagName}}</span> </a>
+			</li>
+			<li style="font-size: 14px;color: black;font-weight: bold;">
+				#
+			</li>
+		</ul>
+	</div>
+</div>

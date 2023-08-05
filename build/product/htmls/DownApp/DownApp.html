@@ -1,0 +1,27 @@
+<div v-lazy-load="[_swiper,'htmls/DownApp/DownApp.js']">
+    <div v-controller="DownAppCtrl" v-init="init()" style="padding-top: 44px; background-color:white">
+        <div class="top02 fixTop wealthTop">直销银行下载
+            <span class="back_btn01" v-click="goback()">
+                <img src="images/back.png">
+            </span>
+        </div>
+        <div id="hidden1" class="oi_img">
+            <img src="images/lg4.png" width="100%">
+            <div class="poirw">
+                <a class="wx right" ><img src="images/de.jpg"
+                    width="100%"><br> 关注微信</a>
+                <div class="sj" v-click="downApp()">
+                    <a class="left downloadbutton" >下载</a><br/> 
+                </div>
+            </div>
+        </div>
+        <div id="hidden2" class="oi_img" style="padding-bottom: 20%;">
+            <img src="images/lg6.png" width="100%">
+        </div>
+        <div class="oi_img" id='weixin_open_down' style="display: none;z-index: 1000000;top: 0px;width: 100%;height: 100%;position: fixed;top:0;left:0;" v-click="closeWeixinDilog()">
+            <img src="images/weixin_open_down.jpg" width="100%">
+        </div>
+        </div>
+</div>
+
+    

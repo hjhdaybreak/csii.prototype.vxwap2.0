@@ -1,0 +1,84 @@
+<div class="titleFixTopDef">
+    <form name="moneyInPreForm" v-submit="antiFraud()" novalidate>
+        <div class="top02 fixTop wealthTop">资金转入
+            <span class="back_btn01" v-click="goback()">
+            <img src="images/back.png">
+        </span>
+            <span class="pro_btn01" v-click="tipShow()">
+            <img src="images/problem01.png">
+        </span>
+        </div>
+        <div class="fkcard_box">
+            <p class="card_title"><img src="images/fk_card.png" width="6%">付款账号</p>
+            <div>
+                <div class="fkcard" v-class='{"card_cur":index==-1 || otherPCard}' v-click="payerAcctQry(BoundCard,-1)">
+                    <div><span>{{BoundCard.openBankName}}</span><em>{{$msg("bdState")[BoundCard.bdState]}}</em></div>
+                    <div>{{BoundCard.no|accountNoFilter}}</div>
+                </div>
+                <div class="cardxiane" v-show="BoundCard.innerFlag==1 && index===-1"><img src="images/con_tip_bg.png" width="4%">银行卡余额&nbsp;<em>{{AvailBal|number:2}}</em>&nbsp;元</div>
+                <div class="cardxiane" v-show="BoundCard.innerFlag==0 && index==-1" && !hideLimit><img src="images/con_tip_bg.png" width="4%">单笔限额&nbsp;<em>{{UnionPayLimit|number:2}}</em>&nbsp;元;日累计限额&nbsp;<em>{{UnionPayDayLimit|number:2}}</em>&nbsp;元</div>
+            </div>
+            <div v-repeat="row in PayCardList" v-click="payerAcctQry(row,$index)" v-show="PayCardList && PayCardList.length <3">
+                <div class="fkcard" v-class='{"card_cur":index==$index}'>
+                    <div><span>{{row.openBankName}}</span><em>{{$msg("bdState")[row.bdState]}}</em></div>
+                    <div>{{row.no|accountNoFilter}}</div>
+                </div>
+                <div class="cardxiane" v-show="row.innerFlag==1 && index==$index"><img src="images/con_tip_bg.png" width="4%">银行卡余额&nbsp;<em>{{AvailBal|number:2}}</em>&nbsp;元</div>
+                <div class="cardxiane" v-show="row.innerFlag==0 && index==$index && !hideLimit"><img src="images/con_tip_bg.png" width="4%">单笔限额&nbsp;<em>{{UnionPayLimit|number:2}}</em>&nbsp;元;日累计限额&nbsp;<em>{{UnionPayDayLimit|number:2}}</em>&nbsp;元</div>
+            </div>
+        </div>
+        <div class="xelink">
+            <!-- 可支持的银行及银行卡限额 -->
+            <a class="inline_left" style="text-decoration: underline;" v-click="goto('#4')" v-show="PayCardList && PayCardList.length >2">选择更多银行卡</a>
+            <!--v-show="PayCardList && PayCardList.length >3"-->
+            <a class="inline_right" v-click="goto('#5')">可支持的银行及银行卡限额</a>
+        </div>
+        <div class="con_box01 b_top">
+            <div class="b_bottom" v-class='{"b_none":innerFlag!=0 && !amount}'>
+                <em class="name">转入金额</em>
+                <input type="text" class="text03" name="amount" v-model="amount" title="转入金额" pattern="[0-9]+(\.[0-9]{0,2})?" maxlength="12" placeholder="{{amountPH}}" ui-number='{"intLength":12,"float":true,"dotLength":2,"addZero":false}' pattern-message="格式不符合要求" required/>
+            </div>
+            <div class="b_bottom" v-class='{"b_none":innerFlag!=0}' v-show="amount">
+                <em class="name">金额大写</em>
+                <span class="field_right">{{amount|amountFilter}}</span>
+            </div>
+            <!-- <div class="b_bottom b_none" v-show="innerFlag==0">
+                <em class="name">预留手机号</em>
+                <span class="field_right">{{CardMobilePhone}}</span>
+                <p style="line-height:24px; text-align:right; color:#d2d2d2; margin-top:-10px;">(发卡行预留手机号)</p>
+            </div> -->
+        </div>
+        <div class="btn02_box">
+            <input type="submit" class="btn02" value="下一步" v-disabled="disBtn">
+        </div>
+    </form>
+    <div class="tips">
+        <ol>
+            <li>以上资金转入限额仅供参考，实际以您付款账户开户行的转账限额设置为准。</li>
+        </ol>
+    </div>
+    <!--非强制实名认证-->
+    <div class="tangkuang_box"  v-show="needAuth">
+        <div class="tangkuang_bg"></div>
+        <div class="tangkuang01" id="tangkuang01" style="margin-bottom: 40%;">
+            <span class="error_icon"></span>
+            <p style="text-align: center;" id="authText">{{authText}}</p>
+            <div style="width:100%;">
+                <input type="button" style="width: 40%;" v-value="yesBtn"  v-click="doAuth('T')">
+                <input type="button" style="width: 40%;margin-left: 10%;"  value="取消" v-click="doAuth('F')">
+            </div>
+        </div>
+    </div>
+    <!---------------- 信息提示框  -------------------------->
+    <div class="tangkuang_box" v-show="showFlag">
+        <div class="tangkuang_bg"></div>
+        <div class="tangkuang01" id="tangkuang01" style="margin-bottom: 40%;">
+            <span class="error_icon"></span>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;没有绑定卡无法转入资金，请登录直销银行官方网站或下载直销银行APP进行绑定卡操作</p>
+            <div style="width:100%;">
+                <input type="button" style="width: 40%;" value="确认" v-click="goto('appOther.DownApp')">
+                <input type="button" style="width: 40%;margin-left: 10%;" value="取消" v-click="tip()">
+            </div>
+        </div>
+    </div>
+</div>

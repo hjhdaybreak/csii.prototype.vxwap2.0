@@ -1,0 +1,53 @@
+{
+	"List": [
+		{
+			"AREA_CODE": "571",
+			"ITERM_NAME": "浙江华数宽带缴费",
+			"CITY_CODE": "571",
+			"BUSI_TYPE": "3",
+			"PAYPROJ_CODE": "068293"
+		}, {
+			"AREA_CODE": "571",
+			"ITERM_NAME": "浙江电信手机充值",
+			"CITY_CODE": "571",
+			"BUSI_TYPE": "3",
+			"PAYPROJ_CODE": "068277"
+		}, {
+			"AREA_CODE": "571",
+			"ITERM_NAME": "浙江省联通缴费",
+			"CITY_CODE": "571",
+			"BUSI_TYPE": "3",
+			"PAYPROJ_CODE": "068276"
+		}, {
+			"AREA_CODE": "571",
+			"ITERM_NAME": "浙江电信宽带缴费",
+			"CITY_CODE": "571",
+			"BUSI_TYPE": "3",
+			"PAYPROJ_CODE": "068279"
+		}, {
+			"AREA_CODE": "571",
+			"ITERM_NAME": "浙江电信固话缴费",
+			"CITY_CODE": "571",
+			"BUSI_TYPE": "3",
+			"PAYPROJ_CODE": "068278"
+		}, {
+			"AREA_CODE": "571",
+			"ITERM_NAME": "浙江省联通固话宽带",
+			"CITY_CODE": "574",
+			"BUSI_TYPE": "3",
+			"PAYPROJ_CODE": "090001"
+		}, {
+			"AREA_CODE": "571",
+			"ITERM_NAME": "浙江省联通手机",
+			"CITY_CODE": "574",
+			"BUSI_TYPE": "3",
+			"PAYPROJ_CODE": "000001"
+		}, {
+			"AREA_CODE": "571",
+			"ITERM_NAME": "浙江省移动手机",
+			"CITY_CODE": "574",
+			"BUSI_TYPE": "3",
+			"PAYPROJ_CODE": "000002"
+		}
+	]
+}

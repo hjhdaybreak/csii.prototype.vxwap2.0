@@ -1,0 +1,99 @@
+<div>
+	<div>
+		<div class="top02" style="position: fixed;z-index: 10;top: 0px;">
+			自动还款修改 <span class="back_btn01"> <img src="images/back.png"  v-click="goto('appOther.RepayAutoMaintain')"> </span>
+			<span class="trad_btn01" style="top: 0px;"><span>
+		</div>
+		<div  style="position: relative;top: 40px;">
+			<div class="b_bottom" >
+				<em class="name">付款账户设置</em>
+			</div>
+			<div class="bg_white" style="padding:0;">
+				<div class="bg_white">
+					<div class="bankName">
+						{{AutoList.bankname}}<span class="cardtype"> {{Bdstate == "B" ? "绑定卡" : "支付卡"}}</span>
+					</div>
+					<div>
+						{{AutoList.cardNo|encryptAcNo}}
+					</div>
+				</div>
+				<div class="b_bottom b_none ">
+					<div class="con_tip info_line" id="availbal" style="display: none;">
+						<img src="images/con_tip_bg.png">银行卡余额<em >&nbsp;&nbsp;{{AvailBal|number:2}}元</em>
+					</div>
+					<div class="con_tip info_line" id="limit" style="display: none;">
+						<img src="images/con_tip_bg.png">单笔限额<em >&nbsp;&nbsp;{{UnionPayLimit|number:2}}元</em>
+					</div>
+				</div>
+				<div class="b_bottom">
+					<em class="name">转入日期：</em>
+					<select class="select"title="" name="TimerRule3" id="TimerRule3" v-show="TimerRule3" style="border: 1px solid #f2f2f2;width:28%;height: 35px;background-size: 200px 40px;float: right;"
+					v-model="Time1" v-options="item.Name for item in TimerRule3List" required></select>
+					<select class="select" title="" name="TimerRule4" id="TimerRule4"v-show="TimerRule4" style="border: 1px solid #f2f2f2;width:28%;height: 35px;background-size: 200px 40px;float: right;"
+					v-model="Time2" v-options="item.Name for item in TimerRule4List" required></select>
+					<select class="select" title="" name="TimerFreq" style="border: 1px solid #f2f2f2;width:28%;height: 35px;background-size: 200px 40px;float: right;"
+					v-model="TimerFreq" v-options="item.Name for item in TimerFreqList"
+					v-change='TimerFreqChange()'  required></select>
+				</div>
+				<div class="b_bottom">
+					<em class="name">金额：</em>
+					<input type="text" name="TrsAmount" style="text-align: right;width: 66%;"  id="TrsAmount"   v-model="TrsAmount" class="msg_input"
+					pattern-message="两位小数数字" placeholder="请输入转入金额" min="0.01" max="999999999.99" ui-number='{"intLength":12,"float":true,"dotLength":2,"addZero":false}'required/>
+					元
+				</div>
+				<div class="b_bottom">
+					<em class="name_zl" style="width:30%;">短信验证码：</em>
+					<input type="text" ui-number='{"intLength":6,"float":false,"dotLength":2,"addZero":false}' placeholder="请输入验证码" class="msg_input" v-model="_pTokenName" style="text-align: right;" required>
+					<input type="button" ui-timebtn='{"time":60}' v-click="sendMsgCode()" value="获取验证码" class="msg_button"/>
+				</div>
+			</div>
+			<div>
+				<div class="btn02_box">
+					<input type="button" class="btn02" value="确  定" v-click="next()"/>
+				</div>
+			</div>
+			<div class="tips" style="margin-top: 30px; margin-bottom: 30px;">
+				<ol>
+					<li>
+						一张银行卡只能设置一笔定期转入；
+					</li>
+					<li>
+						您可以通过定期转入设置开通其他银行卡的该功能；
+					</li>
+				</ol>
+			</div>
+		</div>
+		<!-- 交易密码输入提示框  -->
+		<div class="tangkuang_box" v-show="pwdbox">
+			<div class="tangkuang_bg"></div>
+			<div class="tangkuang03" id="tangkuang03" style="top: 30%;">
+				<div class="tk_title"style="padding-left: 47px;">
+					交易密码
+				</div>
+				<p class="mima_input">
+					<span style="margin-left: 25%;">
+						<input type="text" id="trsPwd" placeholder="请输入6位交易密码" v-model="trsPassword" v-click="alertPwd({skType:1,type:1,elem:'#trsPwd',maxLength:6})" readonly="readonly">
+					</span>
+				</p>
+				<div>
+					<input type="button" class="btn_09" value="取消" v-click="closeBox()">
+					<input type="button" class="btn_10" value="确定" v-click="doIt1()">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--非强制实名认证-->
+<div class="tangkuang_box"  v-show="needAuth">
+	<div class="tangkuang_bg"></div>
+	<div class="tangkuang01" id="tangkuang01" style="margin-bottom: 40%;">
+		<span class="error_icon"></span>
+		<p style="text-align: center;" id="authText">
+			{{authText}}
+		</p>
+		<div style="width:100%;">
+			<input type="button" style="width: 40%;" v-value="yesBtn"  v-click="doAuth('T')">
+			<input type="button" style="width: 40%;margin-left: 10%;"  value="取消" v-click="doAuth('F')">
+		</div>
+	</div>
+</div>

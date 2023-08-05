@@ -1,0 +1,75 @@
+<div class="top02 fixTop wealthTop">
+	加油卡充值 <span class="back_btn01"> <img src="images/back.png" v-click="backPrePageFn();"> </span>
+	<span class="trad_btn01">充值记录</span>
+</div>
+<form name="form1" v-submit="next()" novalidate  >
+
+	<div class="tab03">
+		<ul>
+			<li v-class="{'tab03_cur':tabFlag==1}" v-click="toCharge(1)" >
+				中石化
+			</li>
+			<li v-class="{'tab03_cur':tabFlag==2}" v-click="toCharge(2)" >
+				中石油
+			</li>
+		</ul>
+	</div>
+
+	<div class="phone_box">
+		<div class="phone_num">
+			<input type="text" id="GasCardNo" name="GasCardNo" v-model="GasCardNo" placeholder="请输入加油卡卡号"
+			style="border:none; -webkit-box-shadow:none;" maxlength="19" required v-blur="qryItemInfo()"/>
+			<div v-show="tabFlag==1">
+				&nbsp;<span class="zsh_pic">&nbsp;中石化</span>&nbsp;
+			</div>
+			<div v-show="tabFlag==2">
+				&nbsp;<span class="zsy_pic">&nbsp;中石油</span>&nbsp;
+			</div>
+		</div>
+
+		<div class="money_num" v-show="PayItemQryList!=null && GasCardNo.length!=''">
+			<ul>
+				<li v-repeat="item in PayItemQryList" v-class='{"money_num_cur":$index==currentIndex,"money_num_li02":clickAble}' v-click="selectAmount(item,$index)" class="lineH25">
+					<span>{{item.filed4}}元
+						<br>
+						售价{{item.payamount}}元</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="btn02_box" v-if="currentIndex!=-1">
+		<input type="submit" id="button1" class="btn02" value="立即充值">
+	</div>
+
+	<div class="tips">
+		<ol>
+			<li v-if="tabFlag==1">
+				充值服务时间为<span>{{startTime_zsh}}</span>-<span>{{endTime_zsh}}</span>。
+			</li>
+			<li v-if="tabFlag==2">
+				充值服务时间为<span>{{startTime_zsy}}</span>-<span>{{endTime_zsy}}</span>。
+			</li>
+			<li>
+				本业务不提供发票，尽请谅解。
+			</li>
+			<li>
+				充值成功后实时到账，但须在充值成功后在加油站圈存后才可持卡消费。
+			</li>
+		</ol>
+	</div>
+
+</form>
+
+<div class="tangkuang_box" v-if="'null'!=popup_text">
+	<div class="tangkuang_bg"></div>
+	<div class="tangkuang01" id="tangkuang01">
+		<span class="error_icon"></span>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{popup_text}}
+		</p>
+		<input type="button" value="下载小草App" v-click="popupCancel()">
+		&nbsp;&nbsp;
+		<input type="button" value="取消" v-click="popupConfirm()">
+	</div>
+</div>

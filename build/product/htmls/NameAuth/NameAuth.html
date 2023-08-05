@@ -1,0 +1,60 @@
+<style type="text/css">
+	body {
+		width: 100%;
+		height: 100%;
+		background-color: #fff;
+	}
+</style>
+<div v-lazy-load="[_takephoto,'htmls/NameAuth/NameAuth.js']">
+	<div v-controller="NameAuthCtrl" v-init="init()">
+		<div class="top02 fixTop wealthTop">
+			实名认证 <span class="back_btn01" v-click="goto('app.Main')"> <img src="images/back.png"/> </span>
+		</div>
+		<form name="NameAuthForm" class="titleFixTopDef" v-submit="doAuth()" novalidate v-show="reAuthFlag || (authFlag && authFlag!='N' && authFlag!='T' && authFlag!='V')">
+			<div class="con">
+				<div class="con_box01" style="border:none;">
+					<div class="b_bottom b_none">
+						<span style="width:100%;">请点击录入身份证正反面照片:</span>
+					</div>
+					<div class="b_bottom b_none" style="padding-bottom: 20px;">
+						<div class="idPicBox marginB15p">
+							<img src="images/photo1.png" alt="" id="positiveImgBox" />
+							<input class="takephoto fake-camera" accept="image/*" id="positiveImg" name="positiveImg" type="file" title="身份证正面" required/>
+						</div>
+						<div class="idPicBox marginL4 marginB15p">
+							<img src="images/photo2.png" alt="" id="oppositeImgBox" />
+							<input class="takephoto fake-camera" accept="image/*" id="oppositeImg" name="oppositeImg" type="file" title="身份证反面" required/>
+						</div>
+						<div class="idPicBox">
+							<img src="images/photo3.png" id="handImgBox" alt="" />
+							<input class="takephoto fake-camera" accept="image/*" id="handImg" name="handImg" type="file" title="手持身份证" required/>
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div class="btn02_box">
+					<input type="submit" class="btn02" value="下一步" />
+				</div>
+			</div>
+		</form>
+		<div  class="authResult">
+			<img src="images/authSuccess.png" v-if="authFlag=='N'" /><!--成功-->
+			<img src="images/authing.png" v-if="authFlag=='T'"/><!--审核中-->
+			<img src="images/refuse.png" v-if="authFlag=='V' && !reAuthFlag"/><!--拒绝-->
+			<div class="info" v-class='{"success":authFlag=="N","authing":authFlag=="T","refuse":authFlag=="V"}'>
+				{{authFlag=='N'?'认证成功':''}}
+				{{authFlag=='T'?'认证审核中...请耐心等待...':''}}
+				{{(authFlag=='V'  && !reAuthFlag)?'审核拒绝':''}}
+			</div>
+			<p v-if="AuthTime && (authFlag=='N' || authFlag=='T')">
+				认证时间：{{AuthTime}}
+			</p>
+			<p style="margin-top:-10px;" v-if="RejectType && authFlag=='V' && !reAuthFlag">
+				{{RejectType}}
+			</p>
+			<div   v-if="authFlag=='V' && !reAuthFlag">
+				<input type="button" class="upImgBtn" v-click="reAuth()" value="重新认证" />
+			</div>
+		</div>
+	</div>
+</div>

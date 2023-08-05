@@ -1,0 +1,118 @@
+{
+  "_LocalProcessFlag": "false",
+  "_MCHJnlNo": "000000",
+  "Lists": {
+    "LumpList": [
+      {
+        "ActiveDate": "20151104",
+        "StorageName": "整存整取三月期利率",
+        "InterestRate": "1.43",
+        "DeptId": "888000"
+      },
+      {
+        "ActiveDate": "20151104",
+        "StorageName": "整存整取半年期利率",
+        "InterestRate": "1.69",
+        "DeptId": "888000"
+      },
+      {
+        "ActiveDate": "20151104",
+        "StorageName": "整存整取一年期利率",
+        "InterestRate": "1.95",
+        "DeptId": "888000"
+      },
+      {
+        "ActiveDate": "20151024",
+        "StorageName": "整存整取二年期利率",
+        "InterestRate": "2.73",
+        "DeptId": "888000"
+      },
+      {
+        "ActiveDate": "20151024",
+        "StorageName": "整存整取三年期利率",
+        "InterestRate": "3.575",
+        "DeptId": "888000"
+      },
+      {
+        "ActiveDate": "20150826",
+        "StorageName": "整存整取五年期利率",
+        "InterestRate": "5.225",
+        "DeptId": "888000"
+      }
+    ],
+    "CallDepositList": [
+      {
+        "ActiveDate": "20150826",
+        "StorageName": "通知存款一天利率",
+        "InterestRate": "1.04",
+        "DeptId": "888000"
+      },
+      {
+        "ActiveDate": "20150826",
+        "StorageName": "通知存款七天利率",
+        "InterestRate": "1.755",
+        "DeptId": "888000"
+      }
+    ]
+  },
+  "_MCSJnlNo": "0",
+  "LumpList": [
+    {
+      "ActiveDate": "20151104",
+      "StorageName": "整存整取三月期利率",
+      "InterestRate": "1.43",
+      "DeptId": "888000"
+    },
+    {
+      "ActiveDate": "20151104",
+      "StorageName": "整存整取半年期利率",
+      "InterestRate": "1.69",
+      "DeptId": "888000"
+    },
+    {
+      "ActiveDate": "20151104",
+      "StorageName": "整存整取一年期利率",
+      "InterestRate": "1.95",
+      "DeptId": "888000"
+    },
+    {
+      "ActiveDate": "20151024",
+      "StorageName": "整存整取二年期利率",
+      "InterestRate": "2.73",
+      "DeptId": "888000"
+    },
+    {
+      "ActiveDate": "20151024",
+      "StorageName": "整存整取三年期利率",
+      "InterestRate": "3.575",
+      "DeptId": "888000"
+    },
+    {
+      "ActiveDate": "20150826",
+      "StorageName": "整存整取五年期利率",
+      "InterestRate": "5.225",
+      "DeptId": "888000"
+    }
+  ],
+  "_MCHTimestamp": "2016-12-20 15:14:12.398",
+  "_ResponseSystemId": "MCA",
+  "_RejMsg": "",
+  "_AuthenticateType": "000000",
+  "_TransactionId": "interest.MCPEMToInterestRateQry",
+  "_ProcessState": "",
+  "_RejCode": "000000",
+  "CallDepositList": [
+    {
+      "ActiveDate": "20150826",
+      "StorageName": "通知存款一天利率",
+      "InterestRate": "1.04",
+      "DeptId": "888000"
+    },
+    {
+      "ActiveDate": "20150826",
+      "StorageName": "通知存款七天利率",
+      "InterestRate": "1.755",
+      "DeptId": "888000"
+    }
+  ]
+}

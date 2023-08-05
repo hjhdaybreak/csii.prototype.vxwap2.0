@@ -1,0 +1,23 @@
+<form name="RegisteAuthenticateForm" v-submit="cardBind()" novalidate>
+    <div class="top02">银行卡绑定
+        <span class="back_btn01" v-click="goto('#2')">
+            <img src="images/back.png">
+        </span>
+    </div>
+    <div class="con">
+        <div class="con_box01">
+            <div class="b_bottom paddingtop" v-class='{"b_none":!bankName}'>
+                <input type="text" class="text01 btn_zjh" placeholder="请输入银行卡" name="cardNo" v-model="cardNo" id="cardNo" pattern="\d{19}" required-message="格式不正确" maxlength="19" v-blur="checkBank($event)"/>
+            </div>
+            <div class="b_bottom b_none" v-if="bankName && cardNo">
+                <span class="text01_p btn_iphone">{{bankName}}</span>
+            </div>
+        </div>
+        <div style="margin-top: 20px;">
+            <span style="text-align: center;width:100%;display: block;"><a class="a_01" v-click="goto('#7')">支持银行卡列表</a> </span>
+        </div>
+        <div class="btn02_box">
+            <input type="submit" class="btn02" value="下一步" />
+        </div>
+    </div>
+</form>

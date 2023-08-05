@@ -1,0 +1,69 @@
+<style>
+	.PayProjObjclass {
+		float: right;
+		margin-top: 10px;
+		width: 50%;
+	}
+</style>
+<div >
+	<form name="form1">
+		<!-- <div class="top_ele_bar"><img src="images/ele_bar.png">
+		</div> -->
+		<div class="top02">
+			{{BusiType.BUSI_NAME}} <span class="back_btn01"> <img src="images/back.png" v-click="goback()"> </span>
+			<span class="trad_btn01"></span>
+		</div>
+		<!--    <div class="jf_city">
+		<span class="city_cur">太原</span>
+		<span class="yuyue_btn">预约缴费</span>
+		</div>-->
+		<div>
+			<div class="jf_type_book">
+				<ul>
+					<li class="yijiaoguo{{BusiType.BUSI_TYPE}}">
+						&nbsp;
+					</li>
+					<li class="jf_book_name" style="font-size: 16px;width: inherit;padding-top: 17px;">
+						&nbsp;<span>{{BusiType.BUSI_NAME}}</span>
+					</li>
+					<!-- <li class="qidai02">
+					敬请期待
+					</li> -->
+					<div style="clear: both;"></div>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+			<!-- 无记录 -->
+			<div class="l_norecord" style="display: none;">
+				<ul>
+					<p><img src="images/icon9.png" width="25" height="25">该地区暂无缴费项目
+					</p>
+				</ul>
+			</div>
+			<div class="jf_infor" id="payField">
+				<p >
+					<!-- 缴费单位列表 -->
+					<span>缴费单位</span>
+					<span  class="jf_select" id="payproj" style="width: 69%;padding-right: 3%;"></span>
+				</p>
+			</div>
+
+			<div class="xy_check">
+				<a>缴费服务时段&nbsp;<a class="a_01">{{PayField.start_TIME}}~{{PayField.end_TIME}}</a>&nbsp;。更多帮助内容，请查看&nbsp;<a class="a_02" v-click="goLifePaymentComQuestionFn();"></br>常见问题</a></a>
+			</div>
+			<div class="btn02_box">
+				<input type="button" class="btn02" value="下一步" v-click="doNext();">
+			</div>
+			<!-- 如果缴费单位或缴费项目为多个时以下拉列表展示 -->
+			<ul style="max-height: 230px; overflow: auto;" class="outList" id="payprojList">
+				<li v-repeat="item in PayProjList" v-click="choosePayProj(item);">
+					{{item.ITERM_NAME}}
+				</li>
+			</ul>
+			<!--点击缴费项目下拉 遮罩层显示 -->
+			<div class="jf_out" id="jf_A">
+				&nbsp;
+			</div>
+		</div>
+	</form>
+</div>

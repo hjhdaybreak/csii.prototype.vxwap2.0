@@ -1,0 +1,40 @@
+{
+	"PayFieldBean": {
+		"payFieldQryList": [
+			{
+				"in_LABEL": "缴费号码",
+				"in_LABEL_TYPE": "0",
+				"in_LABEL_MIN": "1",
+				"in_LABEL_MAX": "11",
+				"in_LABEL_LIST": "",
+				"in_LABEL_LIST_VALUE": "",
+				"in_LABEL_REMARK": "请输入水表号码"
+			}
+		],
+		"auto_FLAG": "1",
+		"switch": "1",
+		"busi_TYPE": "1",
+		"area_CODE": "351",
+		"city_CODE": "351",
+		"iterm_CODE": "001101",
+		"iterm_NAME": "自来水费",
+		"in_COUNT": "1",
+		"owing_RELATION": ">=",
+		"is_ALLOW_PAY": "0",
+		"fixed_AMT_NUM": "",
+		"fixed_AMT_VALUE": "",
+		"pay_MIN": "",
+		"pay_MAX": "",
+		"start_TIME": "00:15",
+		"end_TIME": "23:45",
+		"special_INSTRUCTIONS": "1、缴费服务时段为00：15-23：45。",
+		"see_CODE": "5280",
+		"pay_CODE": "5285",
+		"is_HAND_INPUT": "",
+		"cust_NAME_CONTROL": "2",
+		"pay_PERIOD": "0",
+		"fee_TYPE": "1",
+		"fee_RATE": 0.2,
+		"fee_MAX": null
+	}
+}

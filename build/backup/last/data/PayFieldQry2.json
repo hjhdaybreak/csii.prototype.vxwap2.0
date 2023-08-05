@@ -1,0 +1,40 @@
+{
+	"PayFieldBean": {
+		"payFieldQryList": [
+			{
+				"in_LABEL": "加油卡卡号",
+				"in_LABEL_TYPE": "0",
+				"in_LABEL_MIN": "16",
+				"in_LABEL_MAX": "16",
+				"in_LABEL_LIST": "",
+				"in_LABEL_LIST_VALUE": "",
+				"in_LABEL_REMARK": "本业务不提供发票,加油站圈存到账"
+			}
+		],
+		"auto_FLAG": "0",
+		"switch": "1",
+		"busi_TYPE": "5",
+		"area_CODE": "000",
+		"city_CODE": "025",
+		"iterm_CODE": "008303",
+		"iterm_NAME": "全国中石油加油卡充值",
+		"in_COUNT": "1",
+		"owing_RELATION": "=",
+		"is_ALLOW_PAY": "1",
+		"fixed_AMT_NUM": "",
+		"fixed_AMT_VALUE": "",
+		"pay_MIN": "",
+		"pay_MAX": "",
+		"start_TIME": "00:00",
+		"end_TIME": "24:00",
+		"special_INSTRUCTIONS": "",
+		"see_CODE": "7412",
+		"pay_CODE": "7413",
+		"is_HAND_INPUT": "",
+		"cust_NAME_CONTROL": "3",
+		"pay_PERIOD": "0",
+		"fee_TYPE": "2",
+		"fee_RATE": null,
+		"fee_MAX": null
+	}
+}

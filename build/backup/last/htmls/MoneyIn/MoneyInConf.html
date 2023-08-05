@@ -1,0 +1,42 @@
+<form name="moneyInConfForm" v-submit="doIt()" novalidate>
+    <div class="top02">资金转入
+        <span class="back_btn01" v-click="goto('#1')">
+            <img src="images/back.png">
+        </span>
+    </div>
+    <div class="fkcard_box">
+        <p class="card_title"><img src="images/fk_card.png" width="6%">付款账号</p>
+        <div>
+            <div class="fkcard card_cur">
+                <div><span>{{confData.PayerDeptName}}</span><em>{{$msg("bdState")[currentCard.bdState]}}</em></div>
+                <div>{{confData.PayerAccountNo|accountNoFilter}}</div>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <div class="cardxiane" v-show="innerFlag==1"><img src="images/con_tip_bg.png" width="4%">可用余额&nbsp;<em>{{confData.AvailBal|number:2}}</em>&nbsp;元</div>
+                <div class="cardxiane" v-show="innerFlag==0 && !hideLimit"><img src="images/con_tip_bg.png" width="4%">单笔限额&nbsp;<em>{{confData.UnionPayLimit|number:2}}</em>&nbsp;元;日累计限额&nbsp;<em>{{confData.UnionPayDayLimit|number:2}}</em>&nbsp;元</div>
+            </div>
+        </div>
+    </div>
+    <div class="con_box01 b_top">
+        <div class="b_bottom">
+            <em class="name">转入金额</em>
+            <span class="field_right">{{confData.TrsAmount|number:2}}</span>
+        </div>
+        <div class="b_bottom">
+            <em class="name">金额大写</em>
+            <span class="field_right">{{confData.TrsAmount|amountFilter}}</span>
+        </div>
+        <div class="b_bottom b_none">
+            <em class="name">短信验证码</em>
+            <input type="text" placeholder="请输入验证码" pattern="[0-9]{6}" maxlength="6" title="短信验证码" class="text02" v-model="_pTokenName" required>
+            <input type="button"  ui-timebtn='{"time":60}' v-click="sendMsg()" value="获取验证码" class="btn01" />
+        </div>
+        <!-- <div class="b_bottom b_none">
+            <em class="name">交易密码</em>
+            <input type="text" class="text03" />
+        </div> -->
+    </div>
+    <div class="btn02_box">
+        <input type="submit" class="btn02" value="下一步">
+    </div>
+</form>

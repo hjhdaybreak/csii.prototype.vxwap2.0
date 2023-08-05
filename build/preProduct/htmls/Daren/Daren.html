@@ -1,0 +1,107 @@
+<div v-lazy-load="[_iscroll,'htmls/Daren/Daren.js']">
+  <div v-controller="DarenQryCtrl" v-init="init()">
+    <div class="top02">推荐达人榜
+      <span class="back_btn01" v-click="goto('appOther.MyRecommendQry')">
+        <img src="images/back.png">
+      </span>
+    </div>
+    <div class="con_box01">
+      <div class="record_box" v-repeat="row in List | orderBy: '-num'">
+        <div>
+          <span>
+            <span class="number" v-if="$index > 2">{{$index+1}}</span>
+            <span class="phone">{{row.mobilephone|dimAcNoFilter}}</span>
+          </span>
+          <span>
+            推荐&nbsp;{{row.num}}&nbsp;人
+          </span>
+        </div>
+      </div>
+      <div class="errormsg" v-if="!List || List.length <= 0">
+        没有符合查询条件的信息
+      </div>
+    </div>
+    <div class="btn04_box">
+      <input type="button" class="btn" value="返回" v-click="goto('appOther.MyRecommendQry')">
+      <input type="button" class="btn" value="我要当达人" v-click="gotoRecFri()">
+    </div>
+  </div>
+</div>
+<style>
+  .errormsg {
+    text-align: center;
+    font-size: 14px;
+    padding: 20px;
+  }
+  .record_box div:first-child span {
+    color: #646464;
+  }
+  div.record_box:nth-child(1) span {
+    color: #e64036;
+    padding-left: 4px;
+  }
+  div.record_box:nth-child(2) span {
+    color: #ed850a;
+    padding-left: 4px;
+  }
+  div.record_box:nth-child(3) span {
+    color: #3cbcf1;
+    padding-left: 4px;
+  }
+  div.record_box:nth-child(n+4) span.number {
+    border-radius: 50%;
+    padding: 2px;
+    border: 1px solid;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+  }
+  div.record_box:nth-child(n+4) {
+    margin-left: 14px;
+  }
+  .record_box:nth-child(1) {
+    background: url(images/myrecommend/first.png) 3% center no-repeat;
+    background-size: 36px;
+  }
+  .record_box:nth-child(2) {
+    background: url(images/myrecommend/second.png) 3% center no-repeat;
+    background-size: 36px;
+  }
+  .record_box:nth-child(3) {
+    background: url(images/myrecommend/third.png) 3% center no-repeat;
+    background-size: 36px;
+  }
+  .number {
+    margin-right: 10px;
+  }
+  .record_box > div > span > span:nth-child(1).phone {
+    margin-left: 40px;
+  }
+  div.btn04_box > .btn {
+    width: 50%;
+    color: #fff;
+    background: #e64036;
+    font-size: 14px;
+    line-height: 40px;
+    border: none;
+    border-top: 1px solid #e64036;
+  }
+  div.btn04_box {
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  div.btn04_box > .btn:first-child {
+    border: none;
+    background-color: white;
+    color: #e64036;
+  }
+  div.btn04_box > .btn:last-child {
+    float: right;
+  }
+  div.record_box {
+    height: 30px;
+    margin-left: 0;
+  }
+</style>

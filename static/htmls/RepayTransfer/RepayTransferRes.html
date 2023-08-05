@@ -1,0 +1,48 @@
+<div>
+	<div >
+		<div class="top02" style="position: fixed;z-index: 10;top: 0px;">
+			资金转入结果
+			<!-- <span class="back_btn01"> <img src="images/back.png"  v-click="goto('appOther.RepayAutoMaintain')"> </span> -->
+			<span class="trad_btn01" style="top: 0px;"><span>
+		</div>
+		<div  style="position: relative;top: 40px;">
+			<div class="con">
+				<div class="result_box01">
+					资金转入成功！
+				</div>
+			</div>
+			<div class="b_bottom" >
+				<em class="name">还款信息</em>
+			</div>
+			<div class="bg_white" style="padding:0;">
+				<div class="b_bottom">
+					<em class="name">可用余额：</em>
+					<span style="float: right;">{{NewAvailBal|number:2}}元</span>
+				</div>
+				<div class="b_bottom">
+					<em class="name">还款账号：</em>
+					<span style="float: right;">{{RepayData.AccountNo}}</span>
+				</div>
+				<div class="b_bottom" v-show="CurrentRepayResult" id="CurrentRepayResult">
+					<em class="name">本期应还：</em>
+					{{RepayData.CurrentRepay|number:2}}元
+					<span style="margin-top: 10px;float: right;" v-click="OpenBenQiHKWEnXinTiShiFn()"><img src="images/help.png"  style='width: 20px;float: right;'></span>
+				</div>
+				<div class="b_bottom" id="Info" v-show="Info">
+					<div class="con_tip2" style="background-color: white;padding-top: 5px;padding-bottom: 5px;" v-show="PlanDate!=null"><img src="images/con_tip_bg.png">账户余额充足，系统将于{{PlanDate}}自动扣款，在此之前请确保电子账户可用余额资金充足。
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="btn02_box" v-show="ok" id="ok">
+					<input type="button" class="btn02" value="确    定" v-click="goloanDetail()"/>
+				</div>
+			</div>
+			<div>
+				<div class="btn02_box" v-show="next" id="next">
+					<input type="button" class="btn02" value="下一步" v-click="goRepayMentforward()"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,64 @@
+<form name="TLB_BuyPreForm" novalidate>
+	<div class="b_bottom">
+		<em class="name">付款账户</em>
+	</div>
+	<div class="bg_white">
+		<div class="bankName">
+			{{cardName}}<span class="cardtype"> {{Bdstate == "B" ? "绑定卡" : "支付卡"}}</span>
+		</div>
+		<div>
+			{{cardNo}}
+		</div>
+	</div>
+	<!--付款帐号结束-->
+	<div class="b_bottom">
+		<em class="name">转入设置</em>
+	</div>
+	<div class="con_box01">
+		<div class="b_bottom">
+			<em class="name">转入金额：</em>
+			<span style="float: right;">{{amount|number:2}}元</span>
+		</div>
+		<div class="b_bottom">
+			<em class="name">金额大写：</em>
+			<span style="float: right;">{{amount|amountFilter}}</span>
+		</div>
+		<div class="b_bottom select_date_bg">
+			<em class="name">转入日期：</em>
+			<span v-show="getValueFromList.collPeriod=='2'" style="float: right;">{{Time1.Name}}</span>
+			<span v-show="getValueFromList.collPeriod=='1'" style="float: right;">{{Time2.Name}}</span>
+			<span style="float: right;">{{TimerFreq.Name}}</span>
+		</div>
+		<div class="b_bottom">
+			<em class="name_zl" style="width:30%;">短信验证码：</em>
+			<input type="text" ui-number='{"intLength":6,"float":false,"dotLength":2,"addZero":false}'   placeholder="请输入验证码" class="msg_input text02" v-model="_pTokenName" required>
+
+			<input type="button" ui-timebtn='{"time":60}' v-click="sendMsgCode()" value="获取验证码" class="msg_button" />
+		</div>
+	</div><!--转入设置结束-->
+
+	<div>
+		<div class="btn02_box">
+			<input type="button" class="btn02" value="提交" v-click="doNext();"/>
+		</div>
+	</div>
+</form>
+
+<!-- 交易密码输入提示框  -->
+<div class="tangkuang_box" id="pwd_tangkuang_box" v-show="pwdbox">
+	<div class="tangkuang_bg"></div>
+	<div class="tangkuang03" id="tangkuang03" style=" top: 30%;">
+		<div class="tk_title" style="padding-left: 47px;">
+			交易密码
+		</div>
+		<p class="mima_input">
+			<span>
+				<input type="password" class="pwdCommon" id="pwdCommon" placeholder="请输入6位交易密码" v-model="trsPassword">
+			</span>
+		</p>
+		<div>
+			<input type="button" class="btn_09" value="取消" v-click="closeBox()">
+			<input type="button" class="btn_10" value="确定" v-click="okPassIn()">
+		</div>
+	</div>
+</div>

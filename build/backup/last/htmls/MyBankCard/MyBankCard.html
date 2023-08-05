@@ -1,0 +1,105 @@
+<div>
+	<div style="padding-top: 44px;">
+		<div class="top02 fixTop wealthTop">
+			我的银行卡 <span class="back_btn01"> <img src="images/back.png" v-click="goback()"> </span>
+		</div>
+		<div>
+			<div class="card_main">
+				<div class="card_main_con01">
+					<span class="card_logo">直销银行</span>
+					<span class="jy_btn" v-click="goto('appOther.InvestmentDetail')">交易明细</span>
+				</div>
+				<div>
+					<span class="card_num01" id="copy" style="color: #fff">{{EAcct|accountNoFilter}}</span>
+					<span class="card_num_copy" ngclipboard data-clipboard-target="#copy">复制</span>
+				</div>
+				<div>
+					<span class="money_title">可用余额：</span>
+					<span class="money">{{AvailBal|number:2}}元</span>
+				</div>
+				<div class="card_main_con02">
+					<span>开户行：科蓝银行</span>
+					<span>开户时间：<em>{{CreateTime}}</em></span>
+				</div>
+			</div>
+			<ul class="zhuan_btn">
+				<li><img src="images/zhuanchu.png" style="width: 42%;" v-click="gotoMoneyOut()">
+				</li>
+				<li><img src="images/zhuanru.png" style="width: 42%;"  v-click="gotoMoneyIn()">
+				</li>
+			</ul>
+		</div>
+		<div class="card_x">
+			我的银行卡&nbsp; <em>{{length}}</em>&nbsp;张 <span v-click="goto('#2')"></span>
+		</div>
+		<div class="j_norecord" v-show="length == 0">
+			<ul>
+				<p style="text-align: center;letter-spacing: 1px;">
+					您暂无银行卡！
+				</p>
+			</ul>
+		</div>
+
+		<div class="{{BoundCard.openBankId|bankCardCalor}}" v-click="gotoDetail(BoundCard)" v-show="isExist">
+			<div class="card_infor">
+				<img v-hide="!(BoundCard.openBankId|bankCardLogoFilter)" src="images/card/{{BoundCard.openBankId|bankCardLogoFilter}}" width="6%">
+				<span class="bank_name whiteColor">{{BoundCard.openBankName}}</span>
+				<span class="card_type" v-click="gotoDetail(BoundCard)">{{BoundCard.bdState == "B" ? "绑定卡" : "支付卡"}}</span>
+				<span class="jjk">借记卡</span>
+			</div>
+			<div>
+				<span class="card_num02" style="color: #fff">{{BoundCard.no|accountNoFilter}}</span>
+			</div>
+			<div class="time_bd">
+				绑定时间：<em>{{BoundCard.createTime}}</em>
+			</div>
+			<div class="card_tips"><img src="images/card_icon.png" width="5%">&nbsp;&nbsp;当前可转出至该银行卡的金额{{(AvailBal>LimitAmount1?LimitAmount1:AvailBal)|number:2}}元 <span v-click="tip()"><img src="images/next02.png" style="width:70%;" width="50%;"></span>
+			</div>
+		</div>
+		<div class="{{row.openBankId|bankCardCalor}}" v-repeat="row in PayCardList track by $index"v-click="gotoDetail(row)" >
+			<div class="card_infor">
+				<img v-hide="!(row.openBankId|bankCardLogoFilter)" src="images/card/{{row.openBankId|bankCardLogoFilter}}" width="6%">
+				<span class="bank_name whiteColor">{{row.openBankName}}</span>
+				<span class="card_type">{{row.bdState == "C" ? "支付卡" : "绑定卡"}}</span>
+				<span class="jjk">借记卡</span>
+			</div>
+			<div>
+				<span class="card_num02">{{row.no|accountNoFilter}}</span>
+			</div>
+			<div class="time_bd">
+				绑定时间：<em>{{row.createTime}}</em>
+			</div>
+			<div class="card_tips"><img src="images/card_icon.png" width="5%">&nbsp;&nbsp;当前可转出至该银行卡的金额{{(AvailBal>LimitAmount[$index]?LimitAmount[$index]:AvailBal)|number:2}}元 <span v-click="tip()"><img src="images/next02.png" width="50%;"></span>
+			</div>
+		</div>
+		<div class="btn02_box">
+			<input type="button" class="btn11" value="添加银行卡" v-click="tip()">
+		</div>
+
+		<!---------------- 信息提示框  -------------------------->
+		<div class="tangkuang_box" v-show="showFlag">
+			<div class="tangkuang_bg"></div>
+			<div class="tangkuang01" id="tangkuang01"  style="margin-bottom: 40%;">
+				<span class="error_icon"></span>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网页版暂不支持变更绑定卡和添加/删除支付卡，如需变更请登录直销银行官方网站或下载直销银行APP进行操作
+				</p>
+				<div style="width:100%;">
+					<input type="button" style="width: 40%;" value="确认" v-click="goto('appOther.DownApp')">
+					<input type="button" style="width: 40%;margin-left: 10%;" value="取消" v-click="tip()">
+				</div>
+			</div>
+		</div>
+
+		<div class="tips" style="margin-top:40px;">
+			<ol>
+				<li>
+					网页版暂不支持变更绑定卡和添加/删除支付卡，如需变更请登录直销银行官方网站或 <a class="a_01" v-click="goto('appOther.DownApp')">下载直销银行APP</a> 进行操作；
+				</li>
+				<li>
+					如您的绑定卡、支付卡状态不正常或已销户，导致资金无法转出或无法更换绑定卡或无法删除支付卡，请及时拨打客服电话9510-5757咨询更换绑定卡或支付卡的流程。
+				</li>
+			</ol>
+		</div>
+	</div>
+</div>

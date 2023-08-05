@@ -1,0 +1,55 @@
+{
+	"PayBean": {
+		"payItemQryList": [
+			{
+				"customername": "太六",
+				"contractno": "12345",
+				"balance": "0.0",
+				"payamount": "9.0E7",
+				"begindate": "",
+				"enddate": "",
+				"filed1": "",
+				"filed2": "",
+				"filed3": "",
+				"filed4": "",
+				"filed5": ""
+			},
+			{
+				"customername": "太六",
+				"contractno": "12345",
+				"balance": "0.0",
+				"payamount": "9.0E7",
+				"begindate": "",
+				"enddate": "",
+				"filed1": "",
+				"filed2": "",
+				"filed3": "",
+				"filed4": "",
+				"filed5": ""
+			},
+			{
+				"customername": "太六",
+				"contractno": "12345",
+				"balance": "0.0",
+				"payamount": "9.0E7",
+				"begindate": "",
+				"enddate": "",
+				"filed1": "",
+				"filed2": "",
+				"filed3": "",
+				"filed4": "",
+				"filed5": ""
+			}
+		],
+		"billkey": "12345",
+		"companyid": "351001101",
+		"item1": "",
+		"item2": "",
+		"item3": "",
+		"item4": "",
+		"item5": "",
+		"item6": "",
+		"item7": "",
+		"totalnum": "1"
+	}
+}

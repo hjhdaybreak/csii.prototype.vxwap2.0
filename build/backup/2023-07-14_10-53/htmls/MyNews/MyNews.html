@@ -1,0 +1,20 @@
+<div>
+    <div class="top02 fixTop wealthTop">消&nbsp;息
+        <span class="back_btn01" v-click="goback()">
+       <img src="images/back.png">
+   </span>
+    </div>
+    <div>
+        <div class="new_box" v-click="tonews_detial(row)" v-repeat="row in List" v-show="List.length>0">
+            <h1>{{row.Title}}</h1>
+            <p>{{row.Content}}</p>
+            <div>{{row.CreateDate}}</div>
+            <img src="images/news_new.png" v-show="row.NewFlag == 0">
+        </div>
+        <div class="l_norecord" v-show="List.length == 0">
+            <ul>
+                <p><img src="images/icon9.png" width="25" height="25">未查询到相关交易记录</p>
+            </ul>
+        </div>
+    </div>
+</div>

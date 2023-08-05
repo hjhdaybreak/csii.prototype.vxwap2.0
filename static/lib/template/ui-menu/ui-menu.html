@@ -1,0 +1,31 @@
+<div>
+
+	<div class="content_main" style="position:relative">
+		
+		<div class="left" id="twocontent">
+
+			<div class='two'>
+				<!--二级菜单 开始-->
+			
+
+				<div v-repeat="leave1 in list" on-repeat-finish emit-when='fn(leave1)' emit-data='leave1' id='{{row.name}}Div'>
+					<!--<div id='查询服务Div'>-->
+					<h2>{{leave1.name}}</h2>
+					<ul class='menuA'>
+						<li class='twoGroup' v-repeat="leave2 in leave1.children" on-repeat-finish emit-when='fn(leave2)' emit-data='leave2'>
+							<span >{{leave2.name}} ></span>
+							<ul class='showOrHide'>
+								<li class='third' v-repeat="leave3 in leave2.children" on-repeat-finish emit-when='fn(leave3)' emit-data='leave3' >
+									<span > > {{leave3.name}}</span>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+				<!--二级菜单 结束-->
+			</div>
+		</div>
+		
+</div>
+</div>

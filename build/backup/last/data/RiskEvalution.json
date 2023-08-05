@@ -1,0 +1,23 @@
+{
+  "_LocalProcessFlag": "false",
+  "Answer": "D,D,C,D,D,C,C,C,B,C,B",
+  "_MCHJnlNo": "000000",
+  "AcNo": "6231970506712738183",
+  "_ChannelId": "WAP",
+  "_MCSJnlNo": "41710",
+  "_MCHTimestamp": "2017-01-05 14:33:53.895",
+  "_ResponseSystemId": "MCA",
+  "ChannelId": "WAP",
+  "RiskExplain": "进取型",
+  "_locale": "zh_CN",
+  "_RejMsg": "",
+  "LoginType": "P",
+  "IdNo": "142601199001010101",
+  "BankId": "9999",
+  "_AuthenticateType": "000000",
+  "_TransactionId": "ptrsmgmt.MCRiskEvalution",
+  "RiskGrad": "4",
+  "_ProcessState": "OK",
+  "_RejCode": "000000",
+  "CifName": "测试一"
+}

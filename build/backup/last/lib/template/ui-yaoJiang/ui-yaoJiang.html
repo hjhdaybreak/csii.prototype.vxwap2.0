@@ -1,0 +1,28 @@
+<div id="contain" class="uiYaojiang">
+	<div id="walletTree" style="position: relative;" v-init="startup()">
+		<img src="lib/plugins/ui-yaojiang/img/backtree.png" style="width: 100%;">
+		<div id="leftCloud" class="leftCloud"><img src="lib/plugins/ui-yaojiang/img/yun2.png" style="width: 80px;height:35px;" /></div>
+		<div id="rightCloud" class="rightCloud"><img src="lib/plugins/ui-yaojiang/img/yun1.png" style="width: 105px;height: 45px;" /></div>
+		<div id="wallet1" class="wallet1"><img id="wallet1Shake" src="lib/plugins/ui-yaojiang/img/wallet1.png" style="width: 38px;height: 75px;" /></div>
+		<div id="wallet2" class="wallet2"><img id="wallet2Shake" src="lib/plugins/ui-yaojiang/img/wallet2.png" style="width: 37px;height: 80px;" /></div>
+		<div id="wallet3" class="wallet3"><img id="wallet3Shake" src="lib/plugins/ui-yaojiang/img/wallet3.png" style="width: 36px;height: 76px;" /></div>
+		<div id="wallet4" class="wallet4"><img id="wallet4Shake" src="lib/plugins/ui-yaojiang/img/wallet4.png" style="width: 30px;height: 70px;" /></div>
+		<div id="wallet5" class="wallet5"><img id="wallet5Shake" src="lib/plugins/ui-yaojiang/img/wallet5.png" style="width: 38px;height: 85px;" /></div>
+		<div id="wallet6" class="wallet6"><img id="wallet6Shake" src="lib/plugins/ui-yaojiang/img/wallet6.png" style="width: 65px;height:105px;" /></div>
+		<div id="wallet7" class="wallet7"><img id="wallet7Shake" src="lib/plugins/ui-yaojiang/img/wallet1.png" style="width: 42px;height:83px;" /></div>
+		<div id="wallet8" class="wallet8"><img id="wallet8Shake" src="lib/plugins/ui-yaojiang/img/wallet5.png" style="width: 40px;height:80px;" /></div>
+		<div id="wallet9" class="wallet9"><img id="wallet9Shake" src="lib/plugins/ui-yaojiang/img/wallet3.png" style="width: 40px;height:85px;" /></div>
+		<div id="wallet10" class="wallet10"><img id="wallet10Shake" src="lib/plugins/ui-yaojiang/img/wallet6.png" style="width: 60px;height:100px;" /></div>
+		<div id="wallet11" class="wallet11"><img id="wallet11Shake" src="lib/plugins/ui-yaojiang/img/wallet4.png" style="width: 35px;height: 70px;" /></div>
+		<div id="wallet12" class="wallet12"><img id="wallet12Shake" src="lib/plugins/ui-yaojiang/img/wallet5.png" style="width: 40px;height:80px;" /></div>
+		<div id="wallet13" class="wallet13"><img id="wallet13Shake" src="lib/plugins/ui-yaojiang/img/wallet3.png" style="width: 40px;height:75px;" /></div>
+		<div class="haveTimes">{{HaveTimes}}</div>
+	</div>
+	<div id="floatId">
+		<div id="floatImg" class="floatImg">
+			<div id="contentDiv">{{resultContent}}</div>
+			<a id="close" v-click="closeFloatImg()"> </a>
+			<a id="joinfrend" v-click="JoinToFriend()"> </a>
+		</div>
+	</div>
+</div>

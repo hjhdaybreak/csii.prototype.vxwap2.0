@@ -1,0 +1,172 @@
+{
+	"List": [
+		{
+			"MonthList": [
+				{
+					"BILLKEY": "13510215055",
+					"COMPANYID": "755060303",
+					"BILLNO": "2016120602812002",
+					"PAYDATE": "2016-12-07 15:28:56",
+					"PAYAMOUNT": 50,
+					"BANKBILLNO": "",
+					"PAYACCOUNT": "6231970506700000489",
+					"BRANCH_ID": "777000",
+					"USER_ID": "ZX999",
+					"PAYPROJ_CODE": "060303",
+					"PAYPROJ_NAME": "全国联通手机充值",
+					"CERT_NO": "430481199302066138",
+					"STATUS": "2",
+					"CORE_SEQ_NO": "00553504",
+					"CITY_CODE": "755",
+					"PAYAREA_CODE": "000",
+					"CHANNEL_ID": "直销银行",
+					"BUSI_TYPE": "3"
+				}, {
+					"BILLKEY": "13510215055",
+					"COMPANYID": "755060303",
+					"BILLNO": "2016120602811946",
+					"PAYDATE": "2016-12-07 15:26:21",
+					"PAYAMOUNT": 50,
+					"BANKBILLNO": "946691259",
+					"PAYACCOUNT": "6231970506700000489",
+					"BRANCH_ID": "777000",
+					"USER_ID": "ZX999",
+					"PAYPROJ_CODE": "060303",
+					"PAYPROJ_NAME": "全国联通手机充值",
+					"CERT_NO": "430481199302066138",
+					"STATUS": "0",
+					"CORE_SEQ_NO": "00553492",
+					"CITY_CODE": "755",
+					"PAYAREA_CODE": "000",
+					"CHANNEL_ID": "直销银行",
+					"BUSI_TYPE": "3"
+				}, {
+					"BILLKEY": "13510215055",
+					"COMPANYID": "755060303",
+					"BILLNO": "2016120602804634",
+					"PAYDATE": "2016-12-07 10:37:49",
+					"PAYAMOUNT": 50,
+					"BANKBILLNO": "946690456",
+					"PAYACCOUNT": "6231970506700000489",
+					"BRANCH_ID": "777000",
+					"USER_ID": "ZX999",
+					"PAYPROJ_CODE": "060303",
+					"PAYPROJ_NAME": "全国联通手机充值",
+					"CERT_NO": "430481199302066138",
+					"STATUS": "0",
+					"CORE_SEQ_NO": "00553410",
+					"CITY_CODE": "755",
+					"PAYAREA_CODE": "000",
+					"CHANNEL_ID": "直销银行",
+					"BUSI_TYPE": "3"
+				}
+			],
+			"Month": "12"
+		}, {
+			"MonthList": [
+				{
+					"BILLKEY": "13510215055",
+					"COMPANYID": "755060401",
+					"BILLNO": "2016110200541552",
+					"PAYDATE": "2016-11-02 18:51:38",
+					"PAYAMOUNT": 5,
+					"BANKBILLNO": "",
+					"PAYACCOUNT": "6231970506700000489",
+					"BRANCH_ID": "777000",
+					"USER_ID": "ZX999",
+					"PAYPROJ_CODE": "060401",
+					"PAYPROJ_NAME": "中国移动全国手机流量充值",
+					"CERT_NO": "430481199302066138",
+					"STATUS": "2",
+					"CORE_SEQ_NO": "00618414",
+					"CITY_CODE": "755",
+					"PAYAREA_CODE": "000",
+					"CHANNEL_ID": "直销银行",
+					"BUSI_TYPE": "3"
+				}, {
+					"BILLKEY": "13510215055",
+					"COMPANYID": "755060303",
+					"BILLNO": "2016110200541399",
+					"PAYDATE": "2016-11-02 14:24:58",
+					"PAYAMOUNT": 50,
+					"BANKBILLNO": "946620166",
+					"PAYACCOUNT": "6231970506700000489",
+					"BRANCH_ID": "777000",
+					"USER_ID": "ZX999",
+					"PAYPROJ_CODE": "060303",
+					"PAYPROJ_NAME": "全国联通手机充值",
+					"CERT_NO": "430481199302066138",
+					"STATUS": "0",
+					"CORE_SEQ_NO": "00618347",
+					"CITY_CODE": "755",
+					"PAYAREA_CODE": "000",
+					"CHANNEL_ID": "直销银行",
+					"BUSI_TYPE": "3"
+				}
+			],
+			"Month": "11"
+		}, {
+			"MonthList": [
+				{
+					"BILLKEY": "13510215055",
+					"COMPANYID": "755060401",
+					"BILLNO": "2016103100539975",
+					"PAYDATE": "2016-10-31 14:22:43",
+					"PAYAMOUNT": 5,
+					"BANKBILLNO": "",
+					"PAYACCOUNT": "6231970506700000489",
+					"BRANCH_ID": "777000",
+					"USER_ID": "ZX999",
+					"PAYPROJ_CODE": "060401",
+					"PAYPROJ_NAME": "中国移动全国手机流量充值",
+					"CERT_NO": "430481199302066138",
+					"STATUS": "2",
+					"CORE_SEQ_NO": "00618030",
+					"CITY_CODE": "755",
+					"PAYAREA_CODE": "000",
+					"CHANNEL_ID": "直销银行",
+					"BUSI_TYPE": "3"
+				}, {
+					"BILLKEY": "13510215055",
+					"COMPANYID": "755060401",
+					"BILLNO": "2016103100539920",
+					"PAYDATE": "2016-10-31 13:06:55",
+					"PAYAMOUNT": 5,
+					"BANKBILLNO": "",
+					"PAYACCOUNT": "6231970506700000489",
+					"BRANCH_ID": "777000",
+					"USER_ID": "ZX999",
+					"PAYPROJ_CODE": "060401",
+					"PAYPROJ_NAME": "中国移动全国手机流量充值",
+					"CERT_NO": "430481199302066138",
+					"STATUS": "2",
+					"CORE_SEQ_NO": "00618020",
+					"CITY_CODE": "755",
+					"PAYAREA_CODE": "000",
+					"CHANNEL_ID": "直销银行",
+					"BUSI_TYPE": "3"
+				}, {
+					"BILLKEY": "13510215055",
+					"COMPANYID": "755060401",
+					"BILLNO": "2016103100539872",
+					"PAYDATE": "2016-10-31 11:13:44",
+					"PAYAMOUNT": 5,
+					"BANKBILLNO": "",
+					"PAYACCOUNT": "6231970506700000489",
+					"BRANCH_ID": "777000",
+					"USER_ID": "ZX999",
+					"PAYPROJ_CODE": "060401",
+					"PAYPROJ_NAME": "中国移动全国手机流量充值",
+					"CERT_NO": "430481199302066138",
+					"STATUS": "2",
+					"CORE_SEQ_NO": "00618018",
+					"CITY_CODE": "755",
+					"PAYAREA_CODE": "000",
+					"CHANNEL_ID": "直销银行",
+					"BUSI_TYPE": "3"
+				}
+			],
+			"Month": "10"
+		}
+	]
+}

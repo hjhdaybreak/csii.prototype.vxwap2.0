@@ -1,0 +1,107 @@
+<div class="titleFixTopDef">
+    <div class="top01 fixTop wealthTop">我的定期类产品
+        <span class="back_btn01">
+          <img src="images/back.png" v-click="goto('app.My')">
+        </span>
+    </div>
+    <div class="con01">
+        <div class="detial_btn01">
+            <span class="btn_l">持有金额（元）</span>
+            <!--        <span class="btn_r">投资明细</span>-->
+            <span class="trad_btn01" v-click="openBox()">
+          <img src="images/que02.png" width="46%" style="margin:10px 10px 0 0;">
+        </span>
+        </div>
+        <div class="lilv01"><span style="padding-top:20px;">{{fundHoldShareQry.TotalAmt|number:2}}</span></div>
+        <div class="title_small02">
+            <span></span>
+            <em>累计收益(元)</em>
+            <span></span>
+        </div>
+        <div class="title_small02_con">{{fundHoldShareQry.TotalProfit|number:2}}</div>
+    </div>
+    <div v-repeat="item in shareList">
+        <div class="pro_dingqi" v-if="item.FundType == 'A'" v-click="gotoYYY('appOther.MyYYY')">
+            <p>
+                <span>{{item.FundName}}</span><span class="dq_type">债券型</span></br>
+            </p>
+            <div class="dingqi_con">
+                <ul>
+                    <li>{{item.AnnualReturnBy7*100|number:4}}<em style="color:#e64036;">&nbsp;%</em></li>
+                    <li>七日年化收益率</li>
+                </ul>
+                <ul>
+                    <li>{{item.TotalShare|number:2}}</li>
+                    <li>持有金额(元)</li>
+                </ul>
+                <ul>
+                    <li>{{item.UnPaidProfit|number:2}}</li>
+                    <li>未付收益(元)</li>
+                </ul>
+            </div>
+            <div class="pro_bottom">
+                <em>短期理财&nbsp;收益稳定</em>
+            </div>
+        </div>
+        <div class="pro_dingqi" v-if="item.FundType == 'B'" v-click="gotoMyZSZY(item)">
+            <p>
+                <span>{{item.FundName}}</span><span class="dq_type">债券型</span>
+            </p>
+            <div class="dingqi_con">
+                <ul>
+                    <li>{{item.Nav|number:4}}<em style="color:#e64036;">&nbsp;%</em></li>
+                    <li>最新基金净值</li>
+                </ul>
+                <!-- 未到募集期，显示购买金额 zs-->
+                <ul v-show="item.PShareStatus == '0' || item.PShareStatus == '3'">
+                    <li>{{item.Cost|number:2}}</li>
+                    <li>购买金额(元)</li>
+                </ul>
+                <!-- 到募集期，显示持有金额 zs -->
+                <ul v-show="item.PShareStatus == '1' || item.PShareStatus == '2' || item.PShareStatus == undefined">
+                    <li>{{item.TotalAmount|number:2}}</li>
+                    <li>持有金额(元)</li>
+                </ul>
+                <ul v-show="item.AcctShareStatus == '1' || item.AcctShareStatus == '2'">
+                    <li>{{item.RemainDays}}</li>
+                    <li>距离成立(天)</li>
+                </ul>
+                <ul v-show="item.AcctShareStatus == '4' && item.TotalAllProfits !='0'">
+                    <li>{{item.TotalAllProfits|number:2}}</li>
+                    <li>累计收益(元)</li>
+                </ul>
+                <ul v-show="item.AcctShareStatus == '3' && item.RemainDays == '0'">
+                    <li>0</li>
+                    <li>今天到期</li>
+                </ul>
+                <ul v-show="item.AcctShareStatus == '3' && item.RemainDays != '0'">
+                    <li>{{item.RemainDays}}</li>
+                    <li>距离到期(天)</li>
+                </ul>
+                <ul v-show="item.AcctShareStatus == '4' && item.TotalAllProfits =='0'">
+                    <li style="line-height:40px;">已到期</li>
+                </ul>
+            </div>
+            <div class="pro_bottom" v-show="item.AcctShareStatus == '0' || item.AcctShareStatus == '1' || item.AcctShareStatus == '2'">
+                产品生效日<em>{{item.EffectDate}}</em>
+            </div>
+            <div class="pro_bottom" v-show="item.AcctShareStatus == '3' || item.AcctShareStatus == '4'">
+                产品到期日<em>{{item.ExpireDate}}</em>
+            </div>
+            <!--  <div class="pro_bottom" v-show="item.AcctShareStatus == '4' && item.TotalAllProfits =='0'">
+      已到期<em></em>
+    </div> -->
+        </div>
+    </div>
+    <div class="tangkuang_box" v-show="questionflag">
+        <div class="tangkuang_bg"></div>
+        <div class="tangkuang02" id="tangkuang02" style=" padding-top:0;margin-top: -80px;">
+            <span class="error_icon02"></span>
+            <div class="question">
+                <h1><em>Q：</em>“累计收益”是指什么？</h1>
+                <p class="b_b">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;累计收益是指定期类产品下所有产品实现的收益，包含已到期产品兑付的收益及未到期产品即将兑付的收益两部分。</p>
+            </div>
+            <input type="button" value="朕知道了" v-click="closeBox()">
+        </div>
+    </div>
+</div>

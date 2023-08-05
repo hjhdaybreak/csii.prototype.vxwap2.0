@@ -1,0 +1,2053 @@
+/*全局变量*/
+@font-face {
+	font-family: 'glyphicon';
+	src: url('../fonts/glyphicons-halflings-regular.eot');
+	src: url('../fonts/glyphicons-halflings-regular.eot') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/*常见问题样式*/
+.questiondownClass {
+	background: url(../images/questiondown.png) 98% center no-repeat;
+	background-size: 6%;
+}
+.questionupClass {
+	background: url(../images/questionup.png) 98% center no-repeat;
+	background-size: 6%;
+}
+/*定期转入卡列表选择*/
+/*天利宝服务协议*/
+.tableCellClass33 {
+	width: 33.3%;
+	height: 30px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.tableCellClassH30 {
+	height: 30px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.tableCellClass10 {
+	width: 10%;
+	height: 30px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.cardtype {
+	display: inline-block;
+	border: 1px solid #e64036;
+	color: #e64036;
+	padding: 0 6px;
+	border-radius: 5px;
+	font-size: 12px;
+	line-height: 16px;
+	margin: 0 10px;
+}
+/*我的贷款*/
+.recommend_con02 {
+	background: #fff;
+	text-align: center;
+	line-height: 40px;
+	padding: 0 0 20px 0;
+}
+.recommend_ac .re_ac {
+	width: 24px;
+	height: 50px;
+	position: absolute;
+	left: -12px;
+	top: 6px;
+}
+.recommend_ac {
+	position: relative;
+	width: 88%;
+	margin: 0 auto;
+	border: 1px solid #ff8224;
+	border-radius: 8px;
+}
+.recommend_ac ul {
+	padding: 0 6% 0 10%;
+}
+.recommend_ac ul li {
+	margin: 6px 0;
+	line-height: 20px;
+	text-align: justify;
+}
+/*我的贷款部分*/
+/* 协议样式 */
+.xiyi {
+	padding: 15px;
+}
+.xiyi p {
+	line-height: 30px;
+	font-size: 14px;
+}
+.xiyi p.headline0 {
+	text-align: center;
+	font-size: 18px;
+}
+.xiyi p.headline1 {
+	font-weight: 700;
+}
+.xiyi p.text {
+	text-indent: 2em;
+}
+.xiyi p.bold {
+	font-weight: 800;
+}
+.lifexieyicolor {
+	color: #04a2e1;
+}
+/* 协议 */
+.xieyi p {
+	line-height: 30px;
+	margin-left: 5px;
+	font-size: 14px;
+}
+/*定期产品列表招商*/
+.regularproduct_investment {
+	width: 94%;
+	margin: 10px auto;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	background: #fff;
+}
+.regularproduct_investment p {
+	background: url(../images/next.png) 97% center no-repeat;
+	background-size: 2%;
+	border-bottom: 1px dashed #e5e5e5;
+}
+.regularproduct_investment p span:first-child {
+	display: inline-block;
+	line-height: 30px;
+	padding-left: 38px;
+	background: url(../images/menu02/icon01.png) 10px center no-repeat;
+	background-size: 20px 12px;
+	color: #333;
+}
+.dingqi_con {
+	overflow: hidden;
+}
+.dingqi_con ul {
+	background: url(../images/huoqi_bg.png) right center no-repeat;
+	background-size: 1px 80%;
+}
+.dingqi_con ul:last-child {
+	background: none;
+}
+.dingqi_con ul li:last-child {
+	color: #909090;
+}
+.dingqi_con ul {
+	width: 33.33%;
+	float: left;
+	line-height: 20px;
+	padding: 10px 0;
+	text-align: center;
+}
+.dingqi_con ul:first-child li:first-child {
+	font-size: 18px;
+	color: #e64036;
+}
+.regularproduct_investment p em {
+	margin-left: 38px;
+	padding-bottom: 10px;
+	font-size: 10px;
+	line-height: 20px;
+}
+.regularproduct_investment p .dq_type {
+	display: inline-block;
+	line-height: 18px;
+	background: #fad9d7;
+	color: #e64036;
+	border-radius: 5px;
+	margin-left: 10px;
+	font-size: 10px;
+	padding: 0 8px;
+}
+/*财富主页面*/
+.wealthobject_box {
+	position: relative;
+	border-bottom: 1px solid #d7d7d7;
+	padding: 0 0;
+}
+.wealth {
+	background: #fff;
+	border-bottom: 1px solid #e5e5e5;
+}
+.wealth ul {
+	overflow: hidden;
+}
+.wealth ul li#qixian {
+	float: left;
+	margin: 0 6%;
+	width: 21.333%;
+	font-size: 14px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../images/menu02/more02.png) right center no-repeat;
+	background-size: 8%;
+}
+.wealth ul li#qixian.wealthselectdown {
+	color: #e64036;
+	background: url(../images/menu02/more04.png) right center no-repeat;
+	background-size: 8%;
+}
+.wealth ul li#qixian.wealthselectup {
+	color: #e64036;
+	background: url(../images/menu02/more03.png) right center no-repeat;
+	background-size: 8%;
+}
+.wealth ul li#shouyi {
+	float: left;
+	margin: 0 6%;
+	width: 21.333%;
+	font-size: 14px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../images/menu02/yielddefaultdown.png) right center no-repeat;
+	background-size: 8%;
+}
+.wealth ul li#shouyi.wealthselectyielddown {
+	color: #e64036;
+	background: url(../images/menu02/down.png) right center no-repeat;
+	background-size: 8%;
+}
+.wealth ul li#qishijine {
+	float: left;
+	margin: 0 6%;
+	width: 21.333%;
+	font-size: 14px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../images/menu02/startamountdefaultup.png) right center no-repeat;
+	background-size: 8%;
+}
+.wealth ul li#qishijine.wealthselectamountup {
+	color: #e64036;
+	background: url(../images/menu02/up.png) right center no-repeat;
+	background-size: 8%;
+}
+.arrow_dw {
+	position: absolute;
+	bottom: 0;
+	float: right;
+	right: 0;
+}
+div.fd {
+	color: #c23535;
+	position: absolute;
+	right: 0px;
+	top: -99px;
+	display: inline;
+	width: 150px;
+	text-align: left;
+	background: url(../images/fuchubg.png) no-repeat;
+	background-size: contain;
+	padding-left: 10px;
+	line-height: 50px;
+	z-index: 2;
+}
+div.firstSecond {
+	color: #c23535;
+	position: absolute;
+	right: 83px;
+	top: 5px;
+	display: inline;
+	width: 150px;
+	text-align: left;
+	background: url(../images/loanhistory.png) no-repeat;
+	background-size: contain;
+	padding-left: 10px;
+	line-height: 50px;
+	z-index: 2;
+}
+div.arrowfd {
+	width: 18px;
+	height: 10px;
+	background: url(../images/arrowfd.png) no-repeat;
+	z-index: 2;
+	position: absolute;
+	top: 98px;
+	left: 40%;
+}
+.wxts_div {
+	width: 90%;
+	margin: 10px auto 0 auto;
+	color: #717171;
+	padding: 10px 0;
+}
+.wxts_div p {
+	line-height: 20px;
+}
+/*提前还款结果页面*/
+.bresult_bottom span {
+	line-height: 40px;
+	color: #909090;
+	display: inline-block;
+	text-align: left;
+}
+/*温馨提示*/
+.tips ul li {
+	margin: 25px 25px;
+	line-height: 20px;
+	text-align: justify;
+}
+.tips .daikuanloal {
+	margin: 25px 25px;
+	line-height: 20px;
+	text-align: justify;
+	font-size: 14px;
+}
+.aqhk_jieguo {
+	width: 100%;
+	margin: 5% auto;
+	margin-top: 5%;
+	text-align: center;
+}
+.ok_img {
+	width: 10%;
+	margin-right: 3%;
+	display: inline-block;
+}
+.daikuanbenjin {
+	color: #909090;
+	display: inline-block;
+	text-align: left
+}
+.daikuanlixi {
+	color: #909090;
+	display: inline-block;
+	text-align: left
+}
+/*浮层*/
+.divname {
+	position: relative;
+	z-index: 2
+}
+.divname .fd {
+	color: #c23535;
+	position: absolute;
+	right: -30px;
+	top: -96px;
+	display: inline;
+	width: 150px;
+	text-align: left;
+	background: url(../images/fuchubg.png) no-repeat;
+	background-size: contain;
+	line-height: 42px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.divname .arrowfd {
+	width: 18px;
+	height: 10px;
+	background: url(../images/arrowfd.png) no-repeat;
+	z-index: 2;
+	position: absolute;
+	top: 85px;
+	left: 36%;
+}
+.fade {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 101%;
+	height: 200%;
+	background: #000;
+	z-index: 1001;
+	-moz-opacity: 0.4;
+	opacity: .40;
+	filter: alpha(opacity=40);
+	display: none;
+}
+.fright {
+	float: right;
+}
+.arrow_dw {
+	position: absolute;
+	bottom: 0;
+	float: right;
+	right: 0;
+}
+.icon_pro {
+	position: relative
+}
+/*************************缴费结果*****jiaofei_result.html****************/
+.jiaofei_result_main_top {
+	padding: 30px 10px 22px 0;
+	text-align: center;
+}
+.jiaofei_result_main_top .icon-textX {
+	line-height: 44px;
+	font-weight: 500;
+	font-size: 15px;
+	width: 100%;
+	height: 44px;
+}
+.jiaofei_result_main_top .icon-textX span {
+	background-image: url(../images/success.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 36px 36px;
+	margin-right: 14px;
+	padding: 20px;
+	text-align: left;
+}
+.jiaofei_result_main_text {
+	padding: 0 7% 10px 7%;
+	text-indent: 26px;
+	font-size: 13px;
+	color: #666;
+	line-height: 18px;
+}
+.jiaofei_result_main_text a.href {
+	font-size: 13px;
+	color: red;
+	text-decoration: underline;
+}
+
+.jiaofei_result_main_require li {
+	float: left;
+	width: 33.333%;
+	text-align: center;
+	padding: 12px 0 9px 0;
+	font-size: 10px;
+}
+.jiaofei_result_main_require li a {
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: 34px 34px;
+	display: block;
+	margin: 0 auto;
+	padding-top: 42px;
+	text-align: center;
+	color: #777;
+}
+.jiaofei_result_main_require .textX {
+	margin-top: 36px;
+	font-size: 12px;
+	padding: 0 12px 4px 12px;
+	color: #999;
+}
+.jiaofei_result_main_require li  a.weixin {
+	background-image: url(../images/weixin_icon.png);
+}
+.jiaofei_result_main_require li  a.jilu {
+	background-image: url(../images/menu01/jfjg_jilu.png);
+}
+.jiaofei_result_main_require li  a.tixing {
+	background-image: url(../images/menu01/jfjg_tixing.png);
+}
+.jiaofei_result_main_require .whiteX {
+	background: #fff;
+	padding: 3px 12px 4px 12px;
+	color: #999;
+}
+
+.jiaofei_result_main_bottom {
+	margin-top: 20px;
+	background: #f8ebeb;
+	padding: 18px 20px 18px 32px;
+}
+.jiaofei_result_main_bottom .imgX {
+	float: left;
+	background-image: url(../images/menu01/yuyuejiaofei_index.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 92px 92px;
+	margin-right: 14px;
+	padding: 50px;
+	text-align: left;
+}
+.jiaofei_result_main_bottom .text1x {
+	padding-top: 15px;
+	padding-bottom: 10px;
+	font-weight: 600;
+	font-size: 16px;
+}
+.jiaofei_result_main_bottom .text2x {
+	font-size: 11px;
+	padding-bottom: 6px;
+}
+.jiaofei_result_main_bottom .text2x span {
+	color: #f88282;
+}
+.jiaofei_result_main_bottom .text3x {
+	font-size: 9px;
+}
+
+/*生活缴费缴费提醒修改日期选择*/
+select.select {
+	background: #fff url(../images/spinner.png) no-repeat right center;
+	background-size: 20px 20px;
+	border-style: none;
+	background-color: #fff;
+	line-height: 20px;
+	-webkit-appearance: none;
+	padding-left: 5px !important;
+	padding-right: 30px !important;
+	font-size: 14px;
+	font-family: inherit;
+}
+
+/*生活缴费滑动块样式*/
+.slideObject a {
+	width: 25%;
+	float: left;
+	text-align: center;
+	padding: 56px 0 10px 0;
+}
+/*************************缴费*****jiaofei.html****************/
+.glyphicon-menu-right::before {
+	content: "";
+}
+/*************************缴费历史****jiaofei_history.html****************/
+.jiaofei-history {
+	border-bottom: 1px solid #e7e7e7;
+}
+.main-jiaofei-history-tip {
+	padding: 6px 10px 6px 12px;
+	font-size: 12px;
+	position: relative;
+	color: #666;
+}
+.main-jiaofei-history-tip span.glyphicon {
+	top: 6px;
+	float: right;
+	color: #aaa;;
+}
+.main-jiaofei-history-list li {
+	float: left;
+}
+.main-jiaofei-history-list .dateX {
+	text-align: center;
+	margin-right: 10px;
+	font-size: 14px;
+	margin-top: 1px;
+	color: #999;
+}
+.main-jiaofei-history-list .textX {
+}
+.main-jiaofei-history-list .text1X {
+	font-weight: 600;
+	font-size: 13px;
+	margin-top: 3px;
+}
+.main-jiaofei-history-list .text2X {
+	font-size: 13px;
+	margin-top: 2px;
+	color: #aaa;
+}
+.main-jiaofei-history-list .rightX {
+	float: right;
+	text-align: right;
+}
+.main-jiaofei-history-list .right1X {
+	font-weight: 500;
+	margin-top: 1px;
+}
+.main-jiaofei-history-list .right2X {
+	font-size: 13px;
+	margin-top: 3px;
+	color: #666;
+}
+
+.main-jiaofei-history-list ul {
+	clear: both;
+	padding: 12px 12px 14px 12px;
+	text-align: left;
+	border-top: 1px solid #e7e7e7;
+	background: #fff;
+}
+.main-jiaofei-history-list .icon-textX {
+	line-height: 44px;
+	font-weight: 500;
+	font-size: 15px;
+	width: 40px;
+	height: 30px
+}
+.main-jiaofei-history-list .icon-textX span {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 28px 28px;
+	margin-right: 10px;
+	padding: 15px;
+	text-align: left;
+}
+/* 缴费历史列表里的类型图标 */
+.main-jiaofei-history-list .icon-textX span.busi0 {
+	background-image: url(../images/menu01/life_jf/dianfei.png);
+}
+.main-jiaofei-history-list .icon-textX span.busi1 {
+	background-image: url(../images/menu01/life_jf/shuifei.png);
+}
+.main-jiaofei-history-list .icon-textX span.busi2 {
+	background-image: url(../images/menu01/life_jf/ranqifei.png);
+}
+.main-jiaofei-history-list .icon-textX span.busi3 {
+	background-image: url(../images/menu01/life_jf/tongxunfei.png);
+}
+.main-jiaofei-history-list .icon-textX span.busi4 {
+	background-image: url(../images/menu01/life_jf/dianshifei.png);
+}
+.main-jiaofei-history-list .icon-textX span.busi5 {
+	background-image: url(../images/menu01/life_jf/jiayouka.png);
+}
+.main-jiaofei-history-list .icon-textX span.busi6 {
+	background-image: url(../images/menu01/life_jf/gongnuanfei.png);
+}
+.main-jiaofei-history-list .icon-textX span.busi7 {
+	background-image: url(../images/menu01/life_jf/wuyefei.png);
+}
+.main-jiaofei-history-list .icon-textX span.busi8 {
+	background-image: url(../images/menu01/life_jf/jiaofeiOther.png);
+}
+
+.main-jiaofei-history-list .numX {
+	margin-top: 10px;
+	font-weight: 600;
+}
+.cover-more_list li.redX {
+	color: #f5596a;
+	line-height: 40px;
+	padding: 0;
+	text-align: center;
+}
+.cover-more_list-fixed-jiaofei-history li {
+	padding: 5px 0 5px 15%;
+	line-height: 44px;
+	text-align: left;
+}
+.cover-more_list-fixed-jiaofei-history input {
+	padding-left: 6px;
+	margin-top: -2px;
+	font-weight: 500;
+	background-position: right 6px center;
+	background-repeat: no-repeat;
+	background-size: 18px 18px;
+	width: 126px;
+	padding: 0;
+	line-height: 24px;
+	margin-left: 10px;
+	background-color: #f7f7f7;
+	background-image: url(../images/payment/icon_date.png) !important;
+	outline: 0px solid #ccc;
+	border: none;
+}
+.cover-more_list-fixed-jiaofei-history .date-text {
+	float: left;
+	width: 30%;
+	text-align: right;
+}
+.cover-more_list-fixed-jiaofei-history .input-date {
+	width: 50%;
+	margin-right: 10%;
+	padding-left: 6px;
+	text-align: left;
+	float: right;
+	margin-top: 9px;
+	font-weight: 500;
+	background-position: right 6px center;
+	background-repeat: no-repeat;
+	background-size: 18px 18px;
+	padding: 0;
+	line-height: 24px;
+	margin-left: 10px;
+	background-color: #f7f7f7;
+	background-image: url(../images/payment/icon_date.png);
+	outline: 0px solid #ccc;
+	border: none;
+}
+/*生活缴费主页缴费名册侧滑部分样式*/
+.index-fixed-top .main-clip {
+	padding-top: 3px;
+	background: #f7f7f7;
+	height: 27px;
+	line-height: 27px;
+	border-bottom: 1px solid #ddd;
+	color: #999;
+	font-size: 11px;
+	padding-left: 16px;
+	padding-right: 12px;
+}
+.index-fixed-top .main-clip .right {
+	float: right;
+	cursor: pointer;
+	line-height: 24px;
+	margin-top: 2px;
+}
+.index-fixed-top .main-clip .right .done {
+	display: none;
+}
+.main .main-clip {
+	padding-top: 3px;
+	background: #f7f7f7;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #ddd;
+	color: #999;
+	font-size: 11px;
+	padding-left: 16px;
+	padding-right: 12px;
+}
+.main .main-clip .right {
+	float: right;
+	cursor: pointer;
+	line-height: 24px;
+	margin-top: 2px;
+}
+.main .main-clip .right .done {
+	display: none;
+}
+/*生活缴费侧滑List样式*/
+.main .list-style-jiaofei ul {
+	position: relative;
+	width: 100%;
+	height: 52px;
+	border-bottom: 1px solid #eee;
+	overflow: hidden;
+}
+.main .list-style-jiaofei ul .ul-container {
+	position: absolute;
+	width: 100%;;
+}
+.main .list-style-jiaofei ul li {
+	float: left;
+	height: 38px;
+	padding: 8px 0px 6px 0px;
+}
+.main .list-style-jiaofei ul .position {
+	width: 14px;
+}
+.main .list-style-jiaofei ul .pay {
+	float: right;
+	line-height: 36px;
+	font-size: 12px;
+	color: #999;
+	margin-right: 12px;
+}
+.main .list-style-jiaofei ul .delete-text {
+	float: right;
+	width: 56px;
+	line-height: 36px;
+	text-align: center;
+	font-size: 12px;
+	color: #999;
+	width: 56px;
+	color: #fff;
+	background: #f22d43;
+}
+.main .list-style-jiaofei ul .text {
+}
+.main .list-style-jiaofei ul .text span {
+	display: block;
+	float: left;
+}
+.main .list-style-jiaofei ul .text span.title {
+	max-width: 34%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.main .list-style-jiaofei ul .text .top {
+	line-height: 22px;
+}
+.main .list-style-jiaofei ul .text .bottom {
+	font-size: 11px;
+	color: #777;
+}
+.main .list-style-jiaofei ul .text .bottom .tel {
+	margin-right: 8px;
+}
+.main .list-style-jiaofei ul .text .bottom .pencil {
+	margin-left: 3px;
+	width: 0px;
+	height: 0px;
+	line-height: 12px;
+	padding: 6px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url(../images/menu01/life_jf/pencil_gray.png);
+	background-size: 12px 12px;
+}
+.main .list-style-jiaofei ul .list-icon {
+	margin-top: 12px;
+	width: 21px;
+	height: 17px;
+	margin-right: 12px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.main .list-style-jiaofei ul .delete-icon {
+	cursor: pointer;
+	display: none;
+	background-image: url(../images/jfdelete.png);
+	background-size: 14px 14px
+}
+.main .list-style-jiaofei ul .shuifei {
+	background-image: url(../images/payment/jficon/shuifei1.png);
+	background-size: 12px 16px;
+	height: 17px;
+}
+.main .list-style-jiaofei ul .dianfei {
+	background-image: url(../images/payment/jficon/dianfei1.png);
+	background-size: 10px 16px
+}
+.main .list-style-jiaofei ul .tongxunfei {
+	background-image: url(../images/payment/jficon/tongxunfei1.png);
+	background-size: 14px 14px
+}
+.main .list-style-jiaofei ul .nuanqifei {
+	background-image: url(../images/payment/jficon/nuanqifei1.png);
+	background-size: 14px 16px
+}
+/* 缴费名册里类型小图标 */
+.ul-container li.busi0 {
+	background: #fff url("../images/menu01/life_jf/dianfei.png") no-repeat left 22px;
+	background-size: 20px;
+}
+.ul-container li.busi1 {
+	background: #fff url("../images/menu01/life_jf/shuifei.png") no-repeat left 22px;
+	background-size: 20px;
+}
+.ul-container li.busi2 {
+	background: #fff url("../images/menu01/life_jf/ranqifei.png") no-repeat left 22px;
+	background-size: 20px;
+}
+.ul-container li.busi3 {
+	background: #fff url("../images/menu01/life_jf/tongxunfei.png") no-repeat left 22px;
+	background-size: 20px;
+}
+.ul-container li.busi4 {
+	background: #fff url("../images/menu01/life_jf/dianshifei.png") no-repeat left 22px;
+	background-size: 20px;
+}
+.ul-container li.busi5 {
+	background: #fff url("../images/menu01/life_jf/jiayouka.png") no-repeat left 22px;
+	background-size: 20px;
+}
+.ul-container li.busi6 {
+	background: #fff url("../images/menu01/life_jf/gongnuanfei.png") no-repeat left 22px;
+	background-size: 20px;
+}
+.ul-container li.busi7 {
+	background: #fff url("../images/menu01/life_jf/wuyefei.png") no-repeat left 22px;
+	background-size: 20px;
+}
+
+/*覆盖全屏样式*/
+.cover-screen {
+	display: none;
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+	height: 100%;
+	width: 100%;
+	background: #777;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+.cover-dlg {
+	display: none;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 101;
+}
+.cover-dlg .dlg {
+	font-size: 12px;
+	text-align: center;
+	font-weight: 500;
+	width: 280px;
+	top: 50%;
+	left: 50%;
+	margin-left: -140px;
+	margin-top: -70px;
+	background: #fff;
+	position: absolute;
+	z-index: 102;
+	border-radius: 5px;
+}
+.cover-dlg .icon {
+	height: 84px;
+	width: 52px;
+	top: 50%;
+	left: 50%;
+	margin-left: -26px;
+	margin-top: -112px;
+	position: absolute;
+	z-index: 103;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 52px 84px;
+	background-image: url(../images/payment/dingwei_icon.png);
+}
+.cover-dlg .dlg .text {
+	margin-top: 46px;
+	height: 14px;
+	line-height: 14px;
+	margin-bottom: 28px;
+}
+.cover-dlg .dlg .two-buttons div {
+	cursor: pointer;
+	font-weight: 600;
+	text-align: center;
+	float: left;
+	height: 43px;
+	line-height: 43px;
+	font-size: 12px;
+}
+.cover-dlg .dlg .two-buttons .not-promiss {
+	width: 49%;
+	color: #ccc;;
+	letter-spacing: 5px;
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.cover-dlg .dlg .two-buttons .promiss {
+	width: 50%;
+	color: #f5596a;
+	letter-spacing: 12px;
+	border-top: 1px solid #ddd;
+}
+.cover-dlg .dlg .two-buttons .cancel {
+	width: 49%;
+	color: #ccc;;
+	letter-spacing: 12px;
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.cover-dlg .dlg .two-buttons .done {
+	width: 50%;
+	color: #f5596a;
+	letter-spacing: 12px;
+	border-top: 1px solid #ddd;
+}
+
+.cover-dlg .dlg_edit_name {
+	top: 40%;
+}
+.dlg_edit_name .title .pencil {
+	margin-left: 3px;
+	margin-right: 6px;
+	width: 0px;
+	height: 0px;
+	line-height: 14px;
+	padding: 0px 8px;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-image: url(../images/menu01/life_jf/pencil_red.png);
+	background-size: 15px 15px;
+}
+.dlg_edit_name .title {
+	margin-top: 18px;
+	height: 18px;
+	line-height: 16px;
+	font-size: 13px;
+	margin-bottom: 16px;
+	font-weight: 600;
+	padding-right: 12px;
+}
+.dlg_edit_name  input {
+	width: 180px;
+	border: none;
+	outline: medium;
+	padding: 0px;
+	color: #999;
+	font-size: 12px;
+	line-height: 32px;
+	height: 32px;
+	font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+}
+.dlg_edit_name  label {
+	float: left;
+	line-height: 32px;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+	width: 90px;
+}
+.dlg_edit_name  .form div div {
+	float: right;
+	width: 184px;
+	line-height: 32px;
+	text-align: left;
+	font-size: 12px;
+}
+.dlg_edit_name  .form .tel {
+	font-weight: 600px;
+	color: #666;
+}
+.dlg_edit_name  .ep_beizhu {
+	color: #999;;
+}
+.dlg_edit_name .ep {
+	margin-bottom: 12px;
+	padding: 0;
+	margin-top: 0;
+}
+.dlg_edit_name .ep label {
+	line-height: 12px;
+}
+.dlg_edit_name .tel {
+	font-weight: 600;
+}
+/*缴费历史缴费提醒常见问题样式*/
+.cover-more_list {
+	z-index: 102;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	margin: auto;
+	display: none;
+}
+.cover-more_list div {
+	width: 100%;
+	background: #fff;
+	max-width: 640px;
+	margin: auto;
+}
+.cover-more_list li {
+	cursor: pointer;
+	height: 42px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	color: #333;
+	line-height: 42px;
+	border-bottom: 1px solid #ddd;;
+}
+.cover-more_list li.cancel {
+	background: #f7f7f7;
+	color: #999;
+}
+/*预约缴费方式*/
+.jf_payorder_xm_ul {
+	border-top: 1px solid #e3e3e3;
+	color: #222;
+	border-bottom: 1px solid #e3e3e3;
+	width: 92%;
+	padding: 0 4%;
+	line-height: 50px;
+	height: 50px;
+	background: #fff;
+}
+.jf_payorder_xm_ul li:nth-child(1) {
+	width: auto;
+	float: left;
+	font-size: 1rem;
+}
+.jf_payorder_xm_ul li:nth-child(2) {
+	float: right;
+	text-align: right;
+}
+.jf_payorder_xm_ul li input {
+	width: 50px;
+}
+
+/*协议*/
+.jf_xy {
+	width: 92%;
+	padding: 0 4%;
+	height: 30px;
+}
+.jf_xy li {
+	font-size: 12px;
+}
+.jf_xy li a {
+	font-size: 12px;
+	color: #04a2e1;
+}
+.jf_xy li:nth-child(1) {
+	float: left;
+}
+.jf_xy li:nth-child(2) {
+	float: right;
+	text-align: right;
+	padding-left: 5px;
+	background: url("../images/ljs_qs.png") no-repeat 6px 4px;
+	width: 20%;
+	height: 50px;
+	background-size: 12px;
+}
+/*缴费预约-未交费*/
+.main-jiaofei-confirm-top {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid #e7e7e7;
+	background: #fff;
+}
+.yueyujiaofeibottom {
+	position: relative;
+	border-top: 1px solid #e7e7e7;
+}
+.main-jiaofei-confirm-top .icon-textX {
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	font-weight: 500;
+	font-size: 15px;
+}
+.main-jiaofei-confirm-top .icon-textX span {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 34px 34px;
+	margin-right: 10px;
+	padding: 20px;
+	text-align: left;
+}
+.jiaofei-buttonX {
+	width: 260px;
+	margin: auto;
+	margin-top: 17px;
+	font-weight: 600;
+	font-size: 15px;
+	border-radius: 25px;
+	height: 34px;
+	color: #fff;
+	background: #d8161c;
+	line-height: 34px;
+	text-align: center;
+}
+.jiaofei_order_main {
+	position: absolute;
+	top: 27%;
+	width: 100%;
+	max-width: 640px;
+}
+.jiaofei_order_main .jiaofei-buttonX {
+	position: static;
+}
+.jiaofei_order_main .imgX {
+	background-image: url(../images/menu01/yuyuejiaofei_index.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 90px 90px;
+	padding: 50px;
+	text-align: center;
+}
+.jiaofei_order_main .textX {
+	text-align: center;
+	color: #777;
+}
+.jiaofei_order_main .textX .text1X {
+	margin-top: 4px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #333;
+}
+.jiaofei_order_main .textX .text2X {
+	margin-top: 20px;
+	font-size: 12px;
+}
+.jiaofei_order_main .textX .text3X {
+	font-size: 10px;
+	margin-top: 6px;
+}
+.jiaofei_order_main .textX .red {
+	color: #dd2d3c;
+}
+.jiaofei-buttonX-fixed-jiaofei_order_main {
+	margin-top: 38px;
+	background: #fff;
+	border: 1px solid #d8161c;
+	color: #d8161c;
+}
+/*************************缴费预约-新增****jiaofei_order_add.html****************/
+.jiaofei-tips-fixed-order-add {
+	text-align: left;
+	margin-top: -2px;
+	font-size: 11px;
+}
+.jiaofei-tips .blueX {
+	color: #68adff;
+}
+.main-jiaofei-confirm-list .pencil {
+	margin-left: 3px;
+	width: 0px;
+	height: 0px;
+	line-height: 12px;
+	padding: 4px 6px 6px 6px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url(../images/payment/pencil_gray.png);
+	background-size: 10px 10px;
+}
+/*第二步*/
+.jf_Two {
+	width: 92%;
+	padding: 0 4%;
+	background: #fff;
+	height: 80px;
+	line-height: 80px;
+}
+.jf_Two li {
+	float: left;
+}
+.jf_Two li.li_A {
+	width: 50px;
+	height: auto;
+}
+.jf_Two li.busi0 {
+	background: url("../images/menu01/life_jf/dianfei.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_Two li.busi1 {
+	background: url("../images/menu01/life_jf/shuifei.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_Two li.busi2 {
+	background: url("../images/menu01/life_jf/ranqifei.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_Two li.busi3 {
+	background: url("../images/menu01/life_jf/tongxunfei.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_Two li.busi4 {
+	background: url("../images/menu01/life_jf/dianshifei.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_Two li.busi5 {
+	background: url("../images/menu01/life_jf/jiayouka.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_Two li.busi6 {
+	background: url("../images/menu01/life_jf/gongnuanfei.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_Two li.busi7 {
+	background: url("../images/menu01/life_jf/wuyefei.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_Two li:nth-child(2) p:nth-child(1) {
+	font-size: 1.2 rem;
+	line-height: 24px;
+	padding-top: 27px;
+}
+.jf_Two li:nth-child(2) p:nth-child(2) {
+	font-size: 0.8 rem;
+	color: #999;
+}
+.jf_Two li:nth-child(2) p i {
+	font-size: 0.8 rem;
+	color: #999;
+}
+/*缴费历史详情  复用缴费详情*/
+.jf_Main .jf_Two .jf_lsN .jf_lsName {
+	font-size: 1.3 rem;
+	line-height: 44px;
+	padding-top: 19px;
+}
+
+.jf_Main .guding {
+	margin-left: 3px;
+	margin-right: 4px;
+	width: 0px;
+	height: 0px;
+	line-height: 12px;
+	padding: 7px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 14px 14px;
+}
+.jf_Main .yingjiao {
+	margin-left: 8px;
+	margin-right: 4px;
+	width: 0px;
+	height: 0px;
+	line-height: 12px;
+	padding: 8px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 14px 14px;
+}
+.jf_Main .checkedX {
+	background-image: url(../images/checkedjine.png);
+}
+.jf_Main .uncheckedX {
+	background-image: url(../images/notcheckedjine.png);
+}
+/*生活缴费常见问题*/
+.main {
+	background-color: #fff;
+}
+.main .main-listX ul{
+	border-bottom: 1px solid #ddd;
+}
+.main .main-listX li {
+	padding: 12px 10% 12px 12px;
+}
+.main-listX .question {
+	font-size: 13px;
+	color: #FB3B20
+}
+.main-listX .glyphicon {
+	float: right;
+	font-size: 12px;
+	line-height: 20px;
+	color: #ccc;
+}
+.main-listX .answer {
+	font-size: 12px;
+	color: #777;
+	display: none;
+}
+.glyphicon {
+	display: inline-block;
+	font-family: "glyphicon";
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1;
+	position: relative;
+}
+.glyphicon-menu-down::before {
+	content: "";
+}
+.glyphicon-menu-up::before {
+	content: "";
+}
+/*按钮*/
+.jf_btn {
+	width: 80%;
+	margin: 0 auto;
+	padding: 0 10%;
+	line-height: 42px;
+	overflow: hidden;
+	margin-top: 30px;
+}/*公共按钮*/
+.jf_btn .jf_next {
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	height: 42px;
+	border-radius: 90px;
+	display: block;
+	font-size: 16px;
+	background: #C6162A;
+}
+.jf_btn a {
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	height: 42px;
+	border-radius: 90px;
+	display: block;
+	font-size: 16px;
+	background: #C6162A;
+}
+.jf_btn input.submit {
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	height: 42px;
+	border-radius: 90px;
+	display: block;
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif "微软雅黑";
+	background: #C6162A;
+}
+/*缴费提醒详情*/
+.jf_paydo {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.jf_paydo_lx {
+	border-top: 1px solid #eaeaea;
+	border-bottom: 1px solid #e3e3e3;
+	width: 92%;
+	padding: 0 4%;
+	line-height: 65px;
+	background: #fff;
+	height: 74px;
+}
+.jf_paydo_lx li {
+	float: left;
+	font-size: 1.2 rem;
+	color: #222;
+}
+.jf_paydo_lx li.li_A {
+	width: 50px;
+	height: auto;
+}
+.jf_paydo_lx li.busi0 {
+	background: url("../images/jf_d.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_paydo_lx li.busi1 {
+	background: url("../images/jf_s.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_paydo_lx li.busi2 {
+	background: url("../images/jf_r.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_paydo_lx li.busi3 {
+	background: url("../images/jf_t.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_paydo_lx li.busi4 {
+	background: url("../images/jf_tv.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_paydo_lx li.busi5 {
+	background: url("../images/jf_y.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_paydo_lx li.busi6 {
+	background: url("../images/jf_n.png") no-repeat left 19px;
+	background-size: 80%;
+}
+.jf_paydo_lx li.busi7 {
+	background: url("../images/jf_w.png") no-repeat left 19px;
+	background-size: 80%;
+}
+
+.jf_paydo_lx .li_lx {
+	padding-top: 8px;
+}
+.jf_paydo_add {
+	border-top: 0;
+	height: auto;
+	height: 50px;
+	line-height: 50px;
+	color: #222;
+}
+.jf_paydo_add li:nth-child(1) {
+	width: auto;
+	background: none;
+	font-size: 1rem;
+}
+.jf_paydo_add li:nth-child(2) {
+	float: right;
+	color: #666;
+	font-size: 1rem;
+}
+.jf_paydo_xm_ul {
+	border-top: 1px solid #e3e3e3;
+	color: #222;
+	border-bottom: 1px solid #e3e3e3;
+	width: 92%;
+	padding: 0 4%;
+	line-height: 50px;
+	height: 50px;
+	background: #fff;
+}
+.jf_paydo_xm_ulA {
+	border-bottom: none;
+}
+.jf_paydo_xm_ul li:nth-child(1) {
+	width: auto;
+	float: left;
+	font-size: 1rem;
+}
+.jf_paydo_xm_ul li:nth-child(2) {
+	float: right;
+	text-align: right;
+}
+.jf_paydo_xm_ulA li:nth-child(2) {
+	width: 65%;
+}
+.jf_paydo_xm_ul li.selected {
+	padding-right: 4%;
+}
+
+.jf_out {
+	display: none;
+	background: #000;
+	opacity: 0.3;
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	padding-left: 100%;
+	padding-top: 100%;
+	height: 100%;
+}
+.outList {
+	display: none;
+	width: 100%;
+	line-height: 50px;
+	z-index: 2000;
+	position: fixed;
+	bottom: 0;
+}
+.outList li {
+	width: 100%;
+	border-top: 1px solid #eaeaea;
+	line-height: 50px;
+	background: #fff;
+	text-align: center;
+}
+.jf_paydo_xm_ul .jf_select .jf_selectA {
+	direction: rtl;
+	border: 0;
+	box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0) inset;
+	border-rious: 5px;
+	text-align: center;
+}
+.jf_paydo_xm_ul li.jf_select  option:focus {
+	outline: none;
+	border: 0;
+	box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0) inset;
+}
+.jf_paydo_xm_ul li:nth-child(2) input {
+	text-align: right;
+	outline: none;
+	width: 97%;
+	-webkit-appearance: none;
+	appearance: none;
+	outline: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	border-radius: 0;
+}
+.jf_paydo_xm_ul li:nth-child(2) input:focus {
+	outline: none;
+	box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0) inset;
+}
+.jf_tips {
+	text-align: center;
+	color: #999;
+}
+.jf_paydo_lx .li_lx {
+	padding-top: 8px;
+}
+.jf_line {
+	height: 1px;
+	background: #e3e3e3;
+	width: 100%;
+}
+.jf_txImg {
+	background: url("../images/huakuai_right.png") no-repeat right 12px;
+	background-size: 54px;
+	width: 160px;
+	height: 50px;
+}
+.jf_txOff {
+	background: url("../images/huakuai_left.png") no-repeat right 12px;
+	background-size: 54px;
+	width: 160px;
+	height: 50px;
+}
+.jf_clear {
+	height: 10px;
+}/*公共间隙*/
+.jf_Main {
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	height: auto;
+}
+.jf_Two_notice {
+	width: 92%;
+	padding: 0 4%;
+	background: #fff;
+	height: 80px;
+	line-height: 80px;
+}
+.jf_Two_notice li {
+	float: left;
+}
+.jf_Two_notice li:nth-child(2) p:nth-child(1) {
+	font-size: 1.2 rem;
+	line-height: 24px;
+	padding-top: 27px;
+}
+.jf_Two_notice li:nth-child(2) p:nth-child(2) {
+	font-size: 0.8 rem;
+	color: #999;
+}
+li.jf_TX_img_choose0 {
+	background: url("../images/menu01/life_jf/dianfei.png") no-repeat left 20px;
+	width: 50px;
+	background-size: 80%;
+	height: auto;
+}
+li.jf_TX_img_choose1 {
+	background: url("../images/menu01/life_jf/shuifei.png") no-repeat left 20px;
+	width: 50px;
+	background-size: 80%;
+	height: auto;
+}
+li.jf_TX_img_choose2 {
+	background: url("../images/menu01/life_jf/ranqifei.png") no-repeat left 20px;
+	width: 50px;
+	background-size: 80%;
+	height: auto;
+}
+li.jf_TX_img_choose3 {
+	background: url("../images/menu01/life_jf/tongxunfei.png") no-repeat left 20px;
+	width: 50px;
+	background-size: 80%;
+	height: auto;
+}
+li.jf_TX_img_choose4 {
+	background: url("../images/menu01/life_jf/dianshifei.png") no-repeat left 20px;
+	width: 50px;
+	background-size: 80%;
+	height: auto;
+}
+li.jf_TX_img_choose5 {
+	background: url("../images/menu01/life_jf/jiayouka.png") no-repeat left 20px;
+	width: 50px;
+	background-size: 80%;
+	height: auto;
+}
+li.jf_TX_img_choose6 {
+	background: url("../images/menu01/life_jf/gongnuanfei.png") no-repeat left 20px;
+	width: 50px;
+	background-size: 80%;
+	height: auto;
+}
+li.jf_TX_img_choose7 {
+	background: url("../images/menu01/life_jf/wuyefei.png") no-repeat left 20px;
+	width: 50px;
+	background-size: 80%;
+	height: auto;
+}
+/*缴费提醒*/
+.main-jiaofei-confirm-list {
+	background: #fff;
+	padding: 6px 0;
+	border-bottom: 1px solid #e7e7e7;
+}
+.main-jiaofei-confirm-list ul {
+	padding: 6px 12px 6px 12px;
+}
+.main-jiaofei-confirm-list .leftX {
+	float: left;
+	font-size: 14px;
+	font-weight: 600;
+}
+.main-jiaofei-confirm-list .rightX {
+	float: right;
+	font-size: 14px;
+}
+.main-jiaofei-confirm-list .glyphicon {
+	margin-left: 3px;
+	top: 2px;
+	color: #ccc;
+}
+.main-jiaofei-confirm-list .gray {
+	padding-right: 5px;
+	color: #666;
+}
+/* 缴费详情图标 */
+.main-jiaofei-confirm-top .icon-textX span.busi0 {
+	background-image: url(../images/menu01/life_jf/dianfei.png);
+}
+.main-jiaofei-confirm-top .icon-textX span.busi1 {
+	background-image: url(../images/menu01/life_jf/shuifei.png);
+}
+.main-jiaofei-confirm-top .icon-textX span.busi2 {
+	background-image: url(../images/menu01/life_jf/ranqifei.png);
+}
+.main-jiaofei-confirm-top .icon-textX span.busi3 {
+	background-image: url(../images/menu01/life_jf/tongxunfei.png);
+}
+.main-jiaofei-confirm-top .icon-textX span.busi4 {
+	background-image: url(../images/menu01/life_jf/dianshifei.png);
+}
+.main-jiaofei-confirm-top .icon-textX span.busi5 {
+	background-image: url(../images/menu01/life_jf/jiayouka.png);
+}
+.main-jiaofei-confirm-top .icon-textX span.busi6 {
+	background-image: url(../images/menu01/life_jf/gongnuanfei.png);
+}
+.main-jiaofei-confirm-top .icon-textX span.busi7 {
+	background-image: url(../images/menu01/life_jf/wuyefei.png);
+}
+.main-jiaofei-confirm-top .icon-textX span.busi8 {
+	background-image: url("../images/payment/jficon/gengduo.png");
+}
+/* 查询记录无记录 */
+.l_norecord {
+}
+.l_norecord ul {
+	padding: 60px 0;
+	border: 1px #ebebeb solid;
+	background: #fff
+}
+.l_norecord ul p {
+	text-align: center;
+	color: #bbb;
+	font-size: 15px;
+}
+.l_norecord ul p img {
+	vertical-align: middle;
+	margin-top: -5px;
+	margin-right: 3px;
+}
+/*************************缴费提醒*****jiaofei_warn.html****************/
+.main-jiaofei-warn-fixed-top {
+	padding: 8px 12px;
+	position: relative;
+	border-top: 1px solid #e7e7e7;
+}
+.main-jiaofei-warn-fixed-top .abs-icon {
+	position: absolute;
+	right: 0;
+	top: 0px;
+	height: 46px;
+	width: 46px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 46px 46px;
+}
+.jiaofei-warn-item {
+	margin-bottom: 8px;
+}
+.main-jiaofei-warn-fixed-top .guanbi {
+	background-image: url(../images/jb_guanbi.png);
+}
+.main-jiaofei-warn-fixed-top .gudingjine {
+	background-image: url(../images/jb_gudingjine.png);
+}
+.main-jiaofei-warn-fixed-top .kaiqi {
+	background-image: url(../images/jb_kaiqi.png);
+}
+.main-jiaofei-warn-fixed-top .yingjiaojine {
+	background-image: url(../images/jb_yingjiaojine.png);
+}
+.jiaofei-warn-footer {
+	max-width: 640px;
+	text-align: center;
+	height: 40px;
+	border-top: 1px solid #e7e7e7;
+	line-height: 40px;
+	background: #fff;
+	color: #f87c7c;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+.tian-jia-yu-yue-jiao-fei {
+	max-width: 640px;
+	text-align: center;
+	height: 40px;
+	border-top: 1px solid #e7e7e7;
+	line-height: 40px;
+	background: #e64036;
+	color: #fff;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	font-size: 14px;
+}
+.jiaofei-warn-footer-position {
+	height: 40px;
+}
+.main-jiaofei-warn-fixed-top .icon-textX {
+	font-size: 14px;
+	font-weight: 600;
+}
+.main-jiaofei-warn-fixed-top .icon-textX .beizhu {
+	padding-left: 20px;
+	padding-right: 0;
+}
+.main-jiaofei-warn-fixed-top .icon-textX .pencil {
+	margin-left: 3px;
+	width: 0px;
+	height: 0px;
+	line-height: 12px;
+	padding: 4px 6px 6px 6px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url(../images/payment/pencil_gray.png);
+	background-size: 10px 10px;
+}
+.two-buttonsX {
+	border-bottom: 1px solid #e7e7e7;
+	width: 100%;
+	background: #fff;
+	display: none;
+}
+.two-buttonsX div {
+	cursor: pointer;
+	font-weight: 600;
+	text-align: center;
+	float: left;
+	height: 43px;
+	line-height: 43px;
+	font-size: 12px;
+}
+.two-buttonsX .not-promiss {
+	width: 49%;
+	color: #ccc;
+	letter-spacing: 5px;
+	border-right: 1px solid #e7e7e7;
+}
+.two-buttonsX .promiss {
+	width: 50%;
+	color: #f5596a;
+	letter-spacing: 12px;
+}
+.two-buttonsX .cancel {
+	width: 49%;
+	color: #f5596a;
+	letter-spacing: 12px;
+	border-right: 1px solid #e7e7e7;
+}
+.two-buttonsX .done {
+	width: 50%;
+	color: #f5596a;
+	letter-spacing: 12px;
+}
+.two-buttonsX .clear-fix {
+	clear: both;
+	float: inherit;
+	height: 0;
+}
+.header .header-right-text {
+	position: absolute;
+	top: 6px;
+	font-size: 12px;
+	right: 10px;
+}
+/*************************缴费提醒-添加提醒-第一步*****jiaofei_warn_add_step1.html****************/
+.jiaofei-warn-status {
+	margin-top: 10px;
+	border-top: 1px solid #e7e7e7;
+	background: #fff;
+}
+.jiaofei-warn-status ul {
+	border-bottom: 1px solid #e7e7e7;
+	padding: 11px 12px 12px 12px;
+}
+.jiaofei-warn-status .leftX {
+	float: left;
+	font-size: 13px;
+	font-weight: 600;
+}
+.jiaofei-warn-status .rightX {
+	float: right;
+	font-size: 13px;
+}
+.jiaofei-warn-status .status {
+	padding: 10px 20px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 38px 20px;
+}
+.jiaofei-warn-status .status-off {
+	background-image: url(../images/payment/huakuai_left.png);
+}
+.jiaofei-warn-status .status-on {
+	background-image: url(../images/payment/huakuai_right.png);
+}
+/*************************缴费提醒-添加提醒-第二步*****jiaofei_warn_add_step2.html****************/
+.fixed-margin-top-30 {
+	margin-top: 30px;
+}
+.jiaofei-warn-status-fixed-step2 {
+	margin-top: 0;
+	border-top: 0;
+}
+/*缴费账户*/
+.con_jiaofei0 {
+	background: url(../images/menu01/life_jf/dianfei.png) left center no-repeat;
+	background-size: 12%;
+}
+.con_jiaofei1 {
+	background: url(../images/menu01/life_jf/shuifei.png) left center no-repeat;
+	background-size: 12%;
+}
+.con_jiaofei2 {
+	background: url(../images/menu01/life_jf/ranqifei.png) left center no-repeat;
+	background-size: 12%;
+}
+.con_jiaofei3 {
+	background: url(../images/menu01/life_jf/tongxunfei.png) left center no-repeat;
+	background-size: 12%;
+}
+.con_jiaofei4 {
+	background: url(../images/menu01/life_jf/dianshifei.png) left center no-repeat;
+	background-size: 12%;
+}
+.con_jiaofei5 {
+	background: url(../images/menu01/life_jf/jiayouka.png) left center no-repeat;
+	background-size: 12%;
+}
+.con_jiaofei6 {
+	background: url(../images/menu01/life_jf/gongnuanfei.png) left center no-repeat;
+	background-size: 12%;
+}
+.con_shuifei7 {
+	background: url(../images/menu01/life_jf/wuyefei.png) left center no-repeat;
+	background-size: 12%;
+}
+/*生活缴费高度显亮*/
+.yijiaoguo0 {
+	background: url(../images/menu01/life_jf/dianfei.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.yijiaoguo1 {
+	background: url(../images/menu01/life_jf/shuifei.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.yijiaoguo2 {
+	background: url(../images/menu01/life_jf/ranqifei.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.yijiaoguo3 {
+	background: url(../images/menu01/life_jf/tongxunfei.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.yijiaoguo4 {
+	background: url(../images/menu01/life_jf/dianshifei.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.yijiaoguo5 {
+	background: url(../images/menu01/life_jf/jiayouka.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.yijiaoguo6 {
+	background: url(../images/menu01/life_jf/gongnuanfei.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.yijiaoguo7 {
+	background: url(../images/menu01/life_jf/wuyefei.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.yijiaoguo8 {
+	background: url(../images/menu01/life_jf/jiaofeiOther.png) center 10px no-repeat;
+	background-size: 40%;
+}
+/*生活缴费灰显*/
+.jiaofeihuixian00 {
+	background: url(../images/menu01/life_jf/dianfei2.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.jiaofeihuixian01 {
+	background: url(../images/menu01/life_jf/shuifei2.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.jiaofeihuixian02 {
+	background: url(../images/menu01/life_jf/ranqifei2.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.jiaofeihuixian03 {
+	background: url(../images/menu01/life_jf/tongxunfei2.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.jiaofeihuixian04 {
+	background: url(../images/menu01/life_jf/dianshifei2.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.jiaofeihuixian05 {
+	background: url(../images/menu01/life_jf/jiayouka2.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.jiaofeihuixian06 {
+	background: url(../images/menu01/life_jf/gongnuanfei2.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.jiaofeihuixian07 {
+	background: url(../images/menu01/life_jf/wuyefei2.png) center 10px no-repeat;
+	background-size: 40%;
+}
+.jiaofeihuixian08 {
+	background: url(../images/menu01/life_jf/jiaofeiOther2.png) center 10px no-repeat;
+	background-size: 40%;
+}
+/*生活缴费分类*/
+.jiaofeitype0 {
+	background: url(../images/menu01/life_jf/dianfei.png) center 20px no-repeat;
+	background-size: 40%;
+}
+.jiaofeitype1 {
+	background: url(../images/menu01/life_jf/shuifei.png) center 20px no-repeat;
+	background-size: 40%;
+}
+.jiaofeitype2 {
+	background: url(../images/menu01/life_jf/ranqifei.png) center 20px no-repeat;
+	background-size: 40%;
+}
+.jiaofeitype3 {
+	background: url(../images/menu01/life_jf/tongxunfei.png) center 20px no-repeat;
+	background-size: 40%;
+}
+.jiaofeitype4 {
+	background: url(../images/menu01/life_jf/dianshifei.png) center 20px no-repeat;
+	background-size: 40%;
+}
+.jiaofeitype5 {
+	background: url(../images/menu01/life_jf/jiayouka.png) center 20px no-repeat;
+	background-size: 40%;
+}
+.jiaofeitype6 {
+	background: url(../images/menu01/life_jf/gongnuanfei.png) center 20px no-repeat;
+	background-size: 40%;
+}
+.jiaofeitype7 {
+	background: url(../images/menu01/life_jf/wuyefei.png) center 20px no-repeat;
+	background-size: 40%;
+}
+.jiaofeitype8 {
+	background: url(../images/menu01/life_jf/jiaofeiOther.png) center 20px no-repeat;
+	background-size: 40%;
+}
+/*如果缴费单位或缴费项目为多个时以下拉列表展示*/
+.selected {
+	display: block;
+	background: #fff url("../images/next.png") no-repeat 100% center;
+	background-size: 9px;
+}
+.outList {
+	display: none;
+	width: 100%;
+	line-height: 50px;
+	z-index: 2000;
+	position: fixed;
+	bottom: 0;
+}
+.outList li {
+	width: 100%;
+	border-top: 1px solid #eaeaea;
+	line-height: 50px;
+	background: #fff;
+	text-align: center;
+}
+/*缴费项目缴费单位点击下拉谈起遮罩*/
+.jf_out {
+	display: none;
+	background: #000;
+	opacity: 0.3;
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	padding-left: 100%;
+	padding-top: 100%;
+	height: 100%;
+}
+/*生活缴费具体缴费列表*/
+.jf_type_qiehuan_huixian ul li a {
+	width: 25%;
+	float: left;
+	text-align: center;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 56px 0 10px 0;
+}
+/*从缴费名册进入缴费类型显示*/
+.jf_type_book ul {
+	overflow: hidden;
+	background: #fff;
+	border-bottom: 1px solid #e5e5e5;
+}
+.jf_type_book ul li {
+	width: 25%;
+	float: left;
+	text-align: center;
+	padding: 30px 0 10px 0px;
+}
+.jf_city .dingwei {
+	padding-left: 20px;
+	background: url(../images/menu01/life_jf/dingwei_icon.png) left center no-repeat;
+	background-size: 13px;
+	line-height: 50px;
+	font-size: 14px;
+}

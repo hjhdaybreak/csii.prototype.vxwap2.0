@@ -1,0 +1,16 @@
+<div v-lazy-load="htmls/app.js">
+    <div v-controller="appCtrl" v-init="startup();">
+        <!--        <span some-directive other-directive> </span>-->
+
+        <span some-directive fn="parentFn(param)" list="dataList" message="{{obj}}"> </span>
+
+        <!--过滤器-->
+        <!--        <div>-->
+        <!--            <input v-model="model">-->
+        <!--        </div>-->
+        <!--        <div>-->
+        <!--            {{model | someFilter:'-' | otherFilter}}-->
+        <!--        </div>-->
+
+    </div>
+</div>

@@ -1,0 +1,48 @@
+{
+	"ChannelId": "web",
+	"_locale": "zh_CN",
+	"recordNumber": 1,
+	"LoginType": "P",
+	"deposit": [
+		{
+			"setTime": "2016-09-27",
+			"cardNoNew": "3956",
+			"Phone": "15503560355",
+			"acNo": "6231970506700002204",
+			"remark": null,
+			"bankname": "科蓝银行股份有限公司",
+			"collTime": "12",
+			"cardNo": "6231970135110003956",
+			"amount": "3",
+			"collPeriod": "2",
+			"bdstate": "B",
+			"seq": "9201",
+			"nextColl": "2017-01-12",
+			"acNoSeq": "10204",
+			"innerFlag": "1"
+		}
+	],
+	"AcNo": "6231970506700002204",
+	"BankId": "9999",
+	"pageSize": 10,
+	"List": [
+		{
+			"setTime": "2016-09-27",
+			"cardNoNew": "3956",
+			"Phone": "15503560355",
+			"acNo": "6231970506700002204",
+			"remark": null,
+			"bankname": "科蓝银行股份有限公司",
+			"collTime": "12",
+			"cardNo": "6231970135110003956",
+			"amount": "3",
+			"collPeriod": "2",
+			"bdstate": "B",
+			"seq": "9201",
+			"nextColl": "2017-01-12",
+			"acNoSeq": "10204",
+			"innerFlag": "1"
+		}
+	],
+	"_ChannelId": "WAP"
+}

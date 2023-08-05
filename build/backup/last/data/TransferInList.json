@@ -1,0 +1,18 @@
+{
+    "PayerAcNo": "3535",
+    "OpenBankId": "313168000003",
+    "PayeeStatus": "D",
+    "AcctNo": "6231970506700001628",
+    "PayerStatus": "D",
+    "_ChannelId": "WAP",
+    "PayeeAcNo": "1628",
+    "CardNo": "6231970135110003535",
+    "ChannelId": "web",
+    "TrsType": "In",
+    "_locale": "zh_CN",
+    "LoginType": "P",
+    "AcctName": "赵一",
+    "CardName": "赵一",
+    "TrsAmount": "10",
+    "BankId": "9999"
+}

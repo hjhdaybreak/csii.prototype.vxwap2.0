@@ -1,0 +1,12 @@
+{
+	"OrignLimitAmount": 30000,
+	"ChannelId": "web",
+	"AvailBal": 24.57,
+	"_locale": "zh_CN",
+	"LoginType": "P",
+	"PayeeAccountNo": "6225320135624766808",
+	"BankId": "9999",
+	"LimitAmount": 24.57,
+	"Content": "24.57|24.57|30,000.00",
+	"_ChannelId": "WAP"
+}

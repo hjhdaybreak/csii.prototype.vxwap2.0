@@ -1,0 +1,197 @@
+<div v-lazy-load="[_swiper,'htmls/LifePay/LifeMain.js']">
+	<div v-controller="LifeMainCtrl" v-init="init();">
+		<div class="top02" style="position: fixed;z-index: 10;top: 0px;">
+			生活缴费 <span class="back_btn01"> <img src="images/back.png" v-click="backPrePageFn();"> </span>
+			<span class="trad_btn01" style="top: 0px;" onclick="showMenuFn();"><img src="images/head_more.png" style="width: 60%;"/><span>
+		</div>
+		<div  style="position: relative;top: 40px;">
+			<div class="main">
+				<!-- 未登陆显示或登录无缴费名册显示 -->
+				<div class="jf_city" style="line-height: 50px;">
+					<em>缴费城市：</em>
+					<span class="dingwei">{{PayCity.AREA_NAME}}</span>
+					<span></span>
+					<span class="yuyue_btn">预约缴费</span>
+				</div>
+				<div class="jf_type no_has_pay">
+					<ul>
+						<li class="b_br jiaofeitype{{item.BUSI_TYPE}}"  v-repeat="item in BusiTypeList" v-click="busyTypePayFn(item);">
+							{{item.BUSI_NAME}}
+						</li>
+						<li class="qidai b_br">
+							敬请期待
+						</li>
+					</ul>
+				</div>
+				<!-- <div class="link_btn">
+				<a v-click="goLifePaymentReminderFn();">缴费提醒</a>｜<a v-click="">缴费历史</a>｜<a v-click="goLifePaymentComQuestionFn();">常见问题</a>
+				</div> -->
+				<!-- 登录有缴费名册显示 -->
+				<div class="has_pay" style="display: none;">
+					<!-- 生活缴费类型滑动块部分 -->
+					<div class="swiper-container" style="background-color: #fff;border-bottom: 1px solid #e5e5e5;">
+						<div class="swiper-wrapper">
+							<div v-class='{"swiper-slide":true,"swiper-slide-active":$index==0,"swiper-slide-next":$index==1}' v-repeat="row in typeInfo track by $index" index="$index" style="text-align: center;">
+								<div class="slideObject" v-repeat="item in row.List track by $index" v-click="busyTypePayFn(item);">
+									<div>
+										<a class="yijiaoguo{{item.BUSI_TYPE}}"> <span>{{item.BUSI_NAME}}</span> </a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div v-show="typeInfo.length>1" class="swiper-pagination" style="bottom: 0px;"></div>
+					</div>
+				</div>
+				<!-- 生活缴费缴费名册部分 -->
+				<div class="main-clip has_pay" style="display: block;">
+					<span class="left">缴费账户</span>
+					<span class="right"><a class="edit">编辑</a><a class="done">完成</a></span>
+				</div>
+				<div class="list-style-jiaofei has_pay">
+					<ul v-repeat="item in PaymentList|limitTo:ListNumber"  v-swipe-left="flagShow=true;className='uiopen'" v-swipe-right="flagShow=false;className='uiclose'">
+						<div class="ul-container">
+							<div class="ui-slide {{className}}">
+								<li class="position"></li>
+								<li class="list-icon delete-icon" v-click="delPaymentObject(item,$index);"></li>
+								<li class="list-icon busi{{item.BUSI_TYPE}}"></li>
+								<li class="text" style="width: 64%;">
+									<div class="top">
+										{{$msg("PayBusiType")[item.BUSI_TYPE]}}
+									</div>
+									<a>
+									<div class="bottom">
+										<span class="tel">{{item.BILLKEY}}</span>
+										<span class="title" id="beizhu{{$index}}" >{{item.CUSTNAME}}</span>
+										<span class="pencil" v-click="toEditPaymentObject(item,$index);"></span>
+									</div> </a>
+								</li>
+							</div>
+							<li class="delete-text" v-click="delPaymentObject(item,$index)" v-show="flagShow">
+								<a style="color: white;">删除</a>
+							</li>
+							<li class="pay" v-show="!flagShow">
+								<a v-click="bookPayMentFn(item)">立即缴费</a>
+							</li>
+						</div>
+					</ul>
+					<div class="col-xs-12" v-show="ListNumber < PaymentList.length">
+						<p style="text-align: center;font-size: 20px;" v-click="ListNumber=PaymentList.length;">
+							加载更多<img class="arraws-down" src="images/arraws-down.png">
+						</p>
+					</div>
+				</div>
+				<!-- 遮罩屏幕显示 -->
+				<div class="cover-screen" onclick="closeCoverFn();"></div>
+				<!-- 编辑信息弹框显示 -->
+				<div class="cover-dlg">
+					<div class="dlg dlg_edit_name">
+						<div class="title">
+							<span class="pencil"></span>设置备注及标签
+						</div>
+						<div class="form">
+							<form class="beizhu">
+								<div>
+									<label >缴费号码：</label>
+									<div class="tel" id="jf_num">
+										{{PaymentObjcet.BILLKEY}}
+									</div>
+								</div>
+								<div>
+									<label for="beizhu" >备　　注：</label>
+									<input name="CUSTNAME" v-model="CUSTNAME" placeholder="为了方便记忆，请输入备注名称" required/>
+								</div>
+								<div class="ep">
+									<label for="beizhu" > 　　　　　 </label>
+									<div class="ep_beizhu">
+										例如：爸妈家水费
+									</div>
+								</div>
+								<div style="clear: both;"></div>
+							</form>
+						</div>
+						<div class="two-buttons">
+							<div class="cancel">
+								取消
+							</div>
+							<div class="done" v-click="updatePaymentObject()">
+								确定
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 底部菜单显示 -->
+				<div class="cover-more_list">
+					<div>
+						<ul>
+							<li id='payHistory'>
+								缴费历史
+							</li>
+							<li id='payNotice'>
+								缴费提醒
+							</li>
+							<li id='problems'>
+								常见问题
+							</li>
+							<li class="cancel bottomcancel">
+								取　消
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	//显示缴费历史提醒缴费常见问题菜单函数
+	function showMenuFn() {
+		$(".cover-more_list").slideToggle();
+		coverScreen();
+	};
+	//关闭遮罩及底部菜单
+	function closeCoverFn() {
+		coverScreen();
+		$('.cover-more_list').slideToggle();
+	};
+	//遮罩屏幕函数
+	function coverScreen() {
+		if ($('.cover-screen').css('display') == 'none') {
+			$('.cover-screen').fadeIn('fast');
+		} else {
+			$('.cover-screen').fadeOut('fast');
+		}
+	}
+
+	//设置延时,页面加载完毕后加载函数
+	setTimeout(function() {
+		//点击底部菜单取消按钮
+		$('.cover-more_list').find('.cancel').click(function() {
+			coverScreen();
+			$('.cover-more_list').slideToggle();
+		});
+		//点击编辑
+		$('.main-clip').find('.edit').click(function() {
+			//点击编辑时先消除左滑
+			$(this).hide();
+			$('.list-style-jiaofei').find('.delete-icon').show();
+			$('.main-clip').find('.done').show();
+		});
+		//点击完成
+		$('.main-clip').find('.done').click(function() {
+			$(this).hide();
+			$('.list-style-jiaofei').find('.delete-icon').hide();
+			$('.ul-container').css('left', 0);
+			$('.main-clip').find('.edit').show();
+		});
+		//编辑弹框 取消和确认
+		$('.cancel').click(function() {
+			coverScreen();
+			$('.cover-dlg').fadeOut('fast');
+		});
+		$('.cover-dlg').find('.done').click(function() {
+			coverScreen();
+			$('.cover-dlg').fadeOut('fast');
+		});
+	}, 500);
+
+</script>

@@ -1,0 +1,60 @@
+<div class="app_download" id="indexAdverFixTop" v-class='{"topAdver":showTopAdver,"topAdverHide":!showTopAdver}'>
+	<span><img src="images/logo2.png" style="width:40px;"></span>
+	<div style="width:44%;">
+		<div>
+			直销银行APP下载
+		</div>
+		<div>
+			查看更多内容
+		</div>
+	</div>
+	<span style="padding-top: 10px;"><img src="images/smQr.png" style="width:30px;" v-click="bgQrS=true;"></span>
+	<span><img src="images/download.png" v-click="goto('appOther.DownApp')" style="width:20px;"></span>
+	<span v-click="hideTopAdver()"><img src="images/colse.png" style="width:20px;"></span>
+</div>
+<!-- 二维码  -->
+<div class="tangkuang_box" v-show="bgQrS"    v-click="bgQrS=false;">
+	<div class="tangkuang_bg"></div>
+	<div class="tangkuang03" id="tangkuang03" style=" padding-top:0;margin-top: -80px;">
+		<div class=" tipMessageBox">
+			<img src="images/bigQr.jpg" style="width:80%;margin-top: 20px;" alt="公众号二维码">
+		</div>
+		直销银行，助您财富茁壮成长！
+	</div>
+</div>
+<div ui-view></div>
+<!-- 菜单 -->
+<div v-controller="AppViewCtrl" v-init="init()">
+	<div class="mainmenus slideL" id="menu">
+		<!-- <input type="text" name="password" v-focus="vxBlur();" v-click="vxGetKeyboard($event)" style="z-index:1000;"/> 梆梆密码控件-->
+		<ul>
+			<li class="menu01" v-class='{"menu02 menu_cur ":sHash=="app/Main"}' v-click="goto('app.Main')">
+				首页
+			</li>
+			<li class="menu03" v-class='{"menu04 menu_cur":sHash=="app/Wealth"}' v-click="goto('app.Wealth')">
+				财富
+			</li>
+			<li class="menu05" v-class='{"menu06 menu_cur":sHash=="app/Life"}' v-click="goto('app.Life')">
+				生活
+			</li>
+			<li class="menu07" v-class='{"menu08 menu_cur":sHash=="app/My"}' v-click="TurnTo('app.My')">
+				我的
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
+	ibsapp.register.controller("AppViewCtrl", ["$rootScope", "$q", "$state", "$stateParams", "$cookieService", '$scope', '$remote',
+	function($rootScope, $q, $state, $stateParams, $cookieService, $scope, $remote) {
+		//进入不同菜单交易页
+		$scope.TurnTo = function(router) {
+			if (sessionStorage.getItem("loginedF") == "true") {
+				$scope.goto(router);
+			} else {
+				//打开侧滑栏登录
+				$rootScope.beforeLoginRoute = router;
+				$scope.showLogin();
+			}
+		};
+	}]); 
+</script>

@@ -1,0 +1,21 @@
+    <div >
+        <div class="top02 fixTop wealthTop">
+            银行卡列表 <span class="back_btn01" v-click="goback();"> <img src="images/back.png"> </span>
+        </div>
+        <div class="fkcard_box">
+            <p class="card_title"><img src="images/fk_card.png" width="6%">付款账号
+            </p>
+            <div>
+                <div class="fkcard"  id="b{{row.no}}" v-click="select2(row.no,$index)" v-repeat="row in PayeeAccount">
+                    <div>
+                        <span>{{row.openBankName}}</span><em>{{row.bdState == "C" ? "支付卡" : "绑定卡"}}</em>
+                    </div>
+                    <div>
+                        {{row.no|accountNoFilter}}
+                    </div>
+                </div>
+                <div class="cardxiane" style=" display:none;"><img src="images/con_tip_bg.png" width="4%">单笔限额&nbsp;<em>5000</em>&nbsp;元;日累计限额&nbsp;<em>5000</em>&nbsp;元
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,12 @@
+<div v-lazy-load="htmls/VXTest02/VXTest02.js" title="交易名称">
+    <div v-controller="VXTest02Ctrl" v-init="startup()">
+        <input name="helloword" v-model="helloword">
+        {{helloword}}
+    </div>
+<!--    <div>-->
+<!--        <ul>-->
+<!--            <li v-repeat="row in companylist">{{helloword}},这里是:{{row.name}}</li>-->
+<!--        </ul>-->
+<!--    </div>-->
+    <div ui-mydirective></div>
+</div>

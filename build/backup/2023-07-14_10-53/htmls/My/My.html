@@ -1,0 +1,338 @@
+<div v-lazy-load="['htmls/My/My.js']">
+	<div v-controller="MyCtrl" id="box" class="slideR_style fixBottom" v-class='{"titleFixTop":showTopAdver,"titleFixTopDef":!showTopAdver}' v-init="init()">
+		<div class="top02 fixTop wealthTop slideL" v-class='{"hasTopAdver":showTopAdver}'>
+			我的 <span class="back_btn01" v-click="showLogin()"> <img src="images/my02.png"> </span>
+			<span class=" pro_btn01" v-click="goto('appOther.MyNews')"> <img src="images/new01.png" style="width:93%"/> </span>
+		</div>
+		<div class="tab03">
+			<ul>
+				<li v-class='{"tab03_cur":liFlag=="MyZc"}'  v-click="changeType('MyZc')">
+					我的资产
+				</li>
+				<li v-class='{"tab03_cur":liFlag=="MyFz"}' v-hide="myPageFlag=='WDZC'" v-click="changeType('MyFz')">
+					我的负债
+				</li>
+			</ul>
+		</div>
+		<!--我的资产页-->
+		<div class="con_zichan" v-show="liFlag=='MyZc'">
+			<div class="con_zichan01">
+				<div class="con_zichan01a">
+					<span>资产总金额</span>
+					<span class="btn08" v-click="gotoDetail()">交易明细</span>
+				</div>
+				<div class="con_zichan01bb">
+					<span  v-bind="Assert" v-show="isShowAmount"> </span>
+					<span v-bind="'****'" v-show="!isShowAmount"> </span>
+					<div class="eye" v-class="isShowAmount ? 'show' : 'hidden'" v-click="showAmount()"></div>
+					</br>
+					<span>可用余额(元)：<em v-bind="isShowAmount ? (availBalValue|number:2) : '****'"></em></span>
+				</div>
+				<div class="con_zichan01c">
+					<ul>
+						<li style="border-right:1px solid #e5e5e5;">
+							<span v-bind="isShowAmount ? (LastIncome|number:2) : '****'"></span></br>
+							<span>昨日收益(元)</span>
+						</li>
+						<li>
+							<span v-bind="isShowAmount ? (TotalIncome|number:2) : '****'"></span></br>
+							<span>累计收益(元)</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div style="background:#fff;">
+				<ul class="ul_btn">
+					<li v-click="goto('appOther.MoneyOut')">
+						资金转出
+					</li>
+					<li v-click="goto('appOther.MoneyIn')">
+						资金转入
+					</li>
+				</ul>
+			</div>
+			<div class="con_zichan03 margintop b_top" v-if="ZaituAmtList && ZaituAmtList.length > 0">
+				<div class="con_zichan03a">
+					您有&nbsp;<em v-bind="ZaituAmtList.length"></em>&nbsp;笔在途资金<span v-click="togZaitu()" v-class='{"show":togZaituF}'></span>
+				</div>
+				<div class="con_zichan03b" v-show="!togZaituF">
+					<div v-repeat="item in ZaituAmtList">
+						<span v-bind="item.FundName"></span>
+						<span><em v-bind="isShowAmount ? (item.AppointAmount|number:2) : '****'"></em>&nbsp;元</span>
+					</div>
+				</div>
+			</div>
+			<div class="con_zichan02 margintop b_top">
+				<div class="b_bottom linkheight01" style="background-image: url();">
+					<span style="background:url(images/my_huo.png) no-repeat left top; background-size:18px;  width: 18px;line-height: 18px;height:18px;">&nbsp;&nbsp;</span>
+					<span>活期余额</span>
+					<span><em v-bind="isShowAmount ? (huoqiBalance|number:2) : '****'"></em>&nbsp;元</span>
+				</div>
+				<div class="b_bottom linkheight01" v-click="gotoBankProduct()">
+					<span style="background:#FFB63D;">存</span>
+					<span>银行存款</span>
+					<span v-if="DepIsSign"><em v-bind="isShowAmount ? (SumBalance|number:2) : '****'"></em>&nbsp;元</span>
+					<span v-if="!DepIsSign">活期便利、定期收益</span>
+				</div>
+				<div class="b_bottom linkheight01" v-click="gotoDemand()">
+					<span style="background:#7BD6C2;">活</span>
+					<span>活期类产品</span>
+					<span v-if="BaoIsSign"><em v-bind="isShowAmount ? (TotalShare|number:2) : '****'"></em>&nbsp;元</span>
+					<span v-if="!BaoIsSign">日日复利 随时支取</span>
+				</div>
+				<div class="b_bottom linkheight01" v-click="gotoRegular()">
+					<span style="background:#97C7FF;">定</span>
+					<span>定期类产品</span>
+					<span v-if="WcfIsSign"><em v-bind="isShowAmount ? (TotalAmt|number:2) : '****'"></em>&nbsp;元</span>
+					<span v-if="!WcfIsSign">低门槛，高收益</span>
+				</div>
+				<div class="b_bottom linkheight01" v-click="gotoBank()">
+					<span style="background:#F99B9B;">理</span>
+					<span>银行理财</span>
+					<span v-if="!IsSign">银行理财，安全可靠</span>
+					<span v-if="IsSign"><em v-bind="isShowAmount ? (MktBalAmount|number:2) : '****'"></em>&nbsp;元</span>
+				</div>
+			</div>
+		</div>
+		<!--我负债页-->
+		<div class="con_zichan" v-show="liFlag=='MyFz' && ((RePayList && RePayList.length>0)||(FinishList && FinishList.length>0)) && myPageFlag!='WDZC'">
+			<div class="con_zichan01">
+				<div class="con_zichan01a">
+					<span>负债总金额(元)</span>
+					<span style="position: relative;right:20px;" v-click="questionShowFn()"> <img src="images/problem01.png" style="width: 20px;" > </span>
+				</div>
+				<div class="con_zichan01bb" style="margin-bottom: 60px;">
+					<span v-bind="TotalBalance" v-show="isShowTotalBalance"> </span>
+					<span v-bind="'****'" v-if="!isShowTotalBalance"> </span>
+					<div class="eye" v-class="isShowTotalBalance ? 'show' : 'hidden'" v-click="showTotalBalance()"></div>
+				</div>
+			</div>
+			<div style="background:#fff;">
+				<ul class="ul_btn" style="">
+					<li v-click="goto('appOther.MoneyOut')">
+						资金转出
+					</li>
+					<li v-click="goto('appOther.MoneyIn')">
+						资金转入
+					</li>
+				</ul>
+			</div>
+			<div class="fuzhai_tab" v-show="(RePayList && RePayList.length>0)||(FinishList && FinishList.length>0)">
+				<ul>
+					<li v-class='{"fzh_tab_cur":settleFlag=="Already"}' v-click="changeSettle('Already')">
+						未结清
+					</li>
+					<li v-class='{"fzh_tab_cur":settleFlag=="NoSettle"}' v-click="changeSettle('NoSettle')">
+						已结清
+					</li>
+				</ul>
+			</div>
+			<div style="margin-bottom: 50px;" v-show="liFlag=='MyFz' && (RePayList && RePayList.length>0)||(FinishList && FinishList.length>0)">
+				<!-- 未结清部分 -->
+				<div v-show="settleFlag=='Already'">
+					<div v-show="RePayList">
+						<div v-repeat="item in RePayList" v-click="turnToDetail(item)" style="    margin-bottom: 5px;">
+							<div class="fuzhai_box">
+								<div class="fuzhai_con_title">
+									<h1><span v-show="item.BussinessSubType=='其他'||item.BussinessSubType==''">{{item.BusinessType}}</span><span v-show="item.BussinessSubType!='其他'&&item.BussinessSubType!=''">{{item.BussinessSubType}}</span></h1>
+									<h2>{{item.AccountNo}}</h2>
+									<span class="dk_icon"><img src="images/daikuan.png"></span>
+									<!-- <span class="dk_zhang"><img src="images/fz_jq.png"></span>
+									<span class="fz_d"><img src="images/next.png"></span> -->
+								</div>
+								<div>
+									<div>
+										<span>贷款本金：</span>
+										<span>{{item.BussinessSum|number:2}}</span>
+									</div>
+									<div>
+										<span>贷款利率：</span>
+										<span v-show="item.BussinessSubType!='车位贷'">{{item.ActualBusinessRate}}%/年</span>
+										<span v-show="item.BussinessSubType=='车位贷'">--</span>
+									</div>
+								</div>
+								<div>
+									<div>
+										<span>未还本金：</span>
+										<span>{{item.UnRepay|number:2}}</span>
+									</div>
+									<div>
+										<span>还款方式：</span>
+										<span v-show="item.BussinessSubType!='车位贷'">{{item.ReturnType}}</span>
+										<span v-show="item.BussinessSubType=='车位贷'">--</span>
+									</div>
+								</div>
+								<div>
+									<div>
+										<span>到&nbsp;&nbsp;期&nbsp;&nbsp;日：</span>
+										<span>{{item.Maturity}}</span>
+									</div>
+									<div>
+										<span>贷款期限：</span>
+										<span v-show="item.ActualTermYear!='0'&&item.ActualTermYear!=''&&item.ActualTermYear!=null">{{item.ActualTermYear}}年</span>
+										<span v-show="item.ActualTermMonth!='0'&&item.ActualTermMonth!=''&&item.ActualTermMonth!=null">{{item.ActualTermMonth}}月</span>
+										<span v-show="item.ActualTermDay!='0'&&item.ActualTermDay!=''&&item.ActualTermDay!=null">零{{item.ActualTermDay}}日</span>
+									</div>
+								</div>
+								<p>
+									本期应还：<span>{{item.CurrentRepay|number:2}}元</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- 您暂无未结清贷款 -->
+					<div v-show="RePayList.length == 0">
+						<div class="l_norecord">
+							<ul style="padding: 30px 0;">
+								<p><img src="images/icon9.png" width="25" height="25">您暂无未结清贷款
+								</p>
+							</ul>
+						</div>
+						<div class="tips" style="margin-top: 25px;">
+							<ul>
+								<li>
+									尊敬的小草用户您好，直销银行仅提供还款账号为电子账户的贷款信息查询，若还款账号为银行卡或其他类账户，请详询各营业网点或客户经理，感谢您对直销银行的支持！
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- 已结清部分 -->
+				<div v-show="settleFlag=='NoSettle'">
+					<div v-show="FinishList" v-repeat="item in FinishList" v-click="HisQry(item)" style="    margin-bottom: 5px;">
+						<div class="fuzhai_box">
+							<div class="fuzhai_con_title">
+								<h1><span v-show="item.BussinessSubType=='其他'||item.BussinessSubType==''">{{item.BusinessType}}</span><span v-show="item.BussinessSubType!='其他'&&item.BussinessSubType!=''">{{item.BussinessSubType}}</span></h1>
+								<h2>{{item.AccountNo}}</h2>
+								<span class="dk_icon"><img src="images/daikuan.png"></span>
+								<span class="dk_zhang"><img src="images/fz_jq.png"></span>
+								<!-- <span class="fz_d"><img src="images/next.png"></span> -->
+							</div>
+							<div>
+								<div>
+									<span>贷款本金：</span>
+									<span>{{item.BussinessSum|number:2}}</span>
+								</div>
+								<div>
+									<span>贷款利率：</span>
+									<span v-show="item.BussinessSubType!='车位贷'">{{item.ActualBusinessRate}}%/年</span>
+									<span v-show="item.BussinessSubType=='车位贷'">--</span>
+								</div>
+							</div>
+							<div>
+								<div>
+									<span>到&nbsp;&nbsp;期&nbsp;&nbsp;日：</span>
+									<span>{{item.Maturity}}</span>
+								</div>
+								<div>
+									<span>还款方式：</span>
+									<span v-show="item.BussinessSubType!='车位贷'">{{item.ReturnType}}</span>
+									<span v-show="item.BussinessSubType=='车位贷'">--</span>
+								</div>
+							</div>
+							<div>
+								<div>
+									<span>结&nbsp;&nbsp;清&nbsp;&nbsp;日：</span>
+									<span>{{item.FinishDate}}</span>
+								</div>
+								<div>
+									<span>贷款期限：</span>
+									<span v-show="item.ActualTermYear!='0'&&item.ActualTermYear!=''&&item.ActualTermYear!=null">{{item.ActualTermYear}}年</span>
+									<span v-show="item.ActualTermMonth!='0'&&item.ActualTermMonth!=''&&item.ActualTermMonth!=null">{{item.ActualTermMonth}}月</span>
+									<span v-show="item.ActualTermDay!='0'&&item.ActualTermDay!=''&&item.ActualTermDay!=null">零{{item.ActualTermDay}}日</span>
+								</div>
+							</div>
+							<p>
+								<span>还款历史></span>
+							</p>
+						</div>
+					</div>
+					<!-- 您暂无已结清贷款 -->
+					<div v-show="FinishList.length == 0">
+						<div class="l_norecord">
+							<ul style="padding: 30px 0;">
+								<p><img src="images/icon9.png" width="25" height="25" />您暂无已结清贷款
+								</p>
+							</ul>
+						</div>
+						<div class="tips" style="margin-top: 25px;">
+							<ul>
+								<li>
+									尊敬的小草用户您好，直销银行仅提供还款账号为电子账户的贷款信息查询，若还款账号为银行卡或其他类账户，请详询各营业网点或客户经理，感谢您对直销银行的支持！
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--我的负债为空-->
+		<div class="con_none" style=" padding:40px 0;" v-show="liFlag=='MyFz' && ((RePayList.length==0) && (FinishList.length==0)) && myPageFlag!='WDZC'">
+			<img src="images/none.png">
+			<p>
+				您名下暂无直销银行的贷款信息
+			</p>
+			<div>
+				如需办理或有疑问请垂询客服热线&nbsp;
+				<br>
+				<a style="padding-left:20px; background:url(images/phone_icon2.png) left center no-repeat; background-size:20%;">9510-5757</a>
+			</div>
+			<div class="tips" style="margin-top: 25px;">
+				<ul>
+					<li>
+						尊敬的小草用户您好，直销银行仅提供还款账号为电子账户的贷款信息查询，若还款账号为银行卡或其他类账户，请详询各营业网点或客户经理，感谢您对直销银行的支持！
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="tangkuang_box" v-show="tips" v-click="questionShowFn()">
+			<div class="tangkuang_bg"></div>
+			<div class="tangkuang02" id="tangkuang02" style="margin-top: -144px;">
+				<span class="error_icon02"></span>
+				<div class="question">
+					<p class="b_b">
+						总负债金额为还款账号是直销银行电子账户的未还金额
+					</p>
+				</div>
+				<input type="button" value="朕知道了">
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+	div.con_zichan02.margintop.b_top {
+		margin-bottom: 50px;
+	}
+
+	div.con_zichan01bb {
+		text-align: center;
+	}
+
+	div.con_zichan01bb span:first-child {
+		font-size: 30px;
+		color: #e64036;
+		line-height: 40px;
+		display: inline-block;
+		padding-right: 10px;
+		background-size: 16%;
+		height: 40px;
+	}
+
+	div.con_zichan01bb > div.eye {
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		right: 10%;
+		display: inline-block;
+	}
+
+	div.con_zichan01bb > div.show {
+		background: url(images/eye02.png) right 16px no-repeat;
+		background-size: 26px;
+	}
+
+	div.con_zichan01bb > div.hidden {
+		background: url(images/eye01.png) right 16px no-repeat;
+		background-size: 26px;
+	}
+</style>

@@ -1,0 +1,51 @@
+<div v-lazy-load="htmls/RegularShiftTo/RegularShiftTo.js" style="padding-top: 44px;">
+	<div v-controller="RegularShiftToCtrl" v-init="init()">
+		<div class="top02 fixTop wealthTop">
+			定期转入设置<!--标题头部（开始）-->
+			<span class="back_btn01"> <img src="images/back.png" v-click="goto('app.Life')"> </span>
+			<span class="right_head" v-if="initFlag"> <img src="images/add.png" v-click="addRegular()"> </span>
+		</div><!--标题头部（结束）-->
+		<div v-show="initFlag">
+			<!--已存在定期转入：首页展示列表（开始）-->
+			<div v-repeat="row in resultData" class="con_box01">
+				<div class="b_bottom" style="clear:both;">
+					<em class="name_zl"> <em>{{row.bankname}}</em> <em class="redColor">(尾号{{row.cardNoNew}})</em> </em>
+					<span class="right_bottom"> <img src="images/editor01.png" v-click="showButton($index)"> </span>
+				</div>
+				<div class="b_bottom" style="clear:both;">
+					<em class="name"> 设置时间 </em>
+					<span class="right_bottom"> {{row.setTime}} </span>
+				</div>
+				<div class="b_bottom" style="clear:both;">
+					<em class="name"> 转入金额 </em>
+					<span class="right_bottom"> {{row.amount|number:2}}元 </span>
+				</div>
+				<div class="b_bottom" style="clear:both;">
+					<em class="name"> 转入日期 </em>
+					<span style="float: right;" v-show="row.collPeriod =='2'"> <span v-show="row.collTime =='32'" style="width: inherit;">每月最后一天</span> <span v-show="row.collTime !='32'" style="width: inherit;">每月{{row.collTime}}日</span> </span>
+					<span style="float: right;"  v-show="row.collPeriod =='1'" style="width: inherit;">每周{{$msg("CardAgrToDeposit")[row.collTime]}}</span>
+					<span style="float: right;"  v-show="row.collPeriod =='0'" style="width: inherit;">每日</span>
+				</div>
+				<div class="two_button_bottom" id="buttonFlag_{{$index}}">
+					<div class="left" v-click="deleteRegular($index)">
+						删除
+					</div>
+					<div class="right" v-click="updateRegular($index)">
+						修改
+					</div>
+				</div>
+			</div>
+		</div><!--已存在定期转入：首页展示列表（结束）-->
+		<div v-hide="initFlag">
+			<!--不存在：展示空列表（开始）-->
+			<div class="nullFrame">
+				<img src="images/menu01.png">
+				<em> 抱歉！您还没有添加定期转入设置，赶紧添加一笔吧。。。 </em>
+				<div v-click="addRegular()">
+					马上添加
+				</div>
+			</div>
+		</div><!--不存在：展示空列表（结束）-->
+	</div>
+</div>
+

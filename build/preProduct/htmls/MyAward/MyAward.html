@@ -1,0 +1,26 @@
+<div v-lazy-load="htmls/MyAward/MyAward.js">
+    <div v-controller="MyAwardCtrl" v-init="init()" style="padding-top: 44px;">
+        <div class="top02 fixTop wealthTop">中奖明细
+            <span class="back_btn01" v-click="goback()">
+            <img src="images/back.png">
+        </span>
+        </div>
+        <div v-show="List && List.length>0">
+            <ul>
+                <li class="ma-li">参与活动</li>
+                <li class="ma-li">中奖时间</li>
+                <li class="ma-li">奖品</li>
+            </ul>
+            <ul v-repeat="item in List">
+                <li class="ma-li myaward-b1">{{item.ActDesc}}</li>
+                <li class="ma-li myaward-b1 myaward-b2">{{item.LotteryTime}}</li>
+                <li class="ma-li myaward-b1 myaward-b2">{{item.Prize}}</li>
+            </ul>
+        </div>
+        <div class="l_norecord" v-show="!List || List.length == 0">
+            <ul>
+                <p><img src="images/icon9.png" width="25" height="25">未查询到相关交易记录</p>
+            </ul>
+        </div>
+    </div>
+</div>

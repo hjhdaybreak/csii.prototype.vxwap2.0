@@ -1,0 +1,1017 @@
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#mainContentBox {
+    width: 100%;
+}
+
+#shareImg {
+    display: none;
+}
+
+.fixTop {
+    background: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    overflow: hidden;
+}
+
+.loginExtra {
+    height: 100%;
+    z-index: 6;
+    display: block;
+    left: -100%;
+}
+
+.mainmenus .menu_cur {
+    /*font-size: 30px;*/
+    color: #e64036;
+}
+
+.mainBox {
+    padding-bottom: 48px;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.wealthTop {
+    height: 44px;
+    background: url(../images/top_bg.png) bottom center no-repeat;
+    background-color: #fff;
+}
+
+.wealthTopNoPic {
+    height: 44px;
+    background-color: #fff;
+}
+
+.wealthBox {
+    padding: 44px 0 60px 0;
+}
+
+input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #e5e5e5;
+}
+
+input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #e5e5e5;
+}
+
+input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #e5e5e5;
+}
+
+input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #e5e5e5;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #e5e5e5;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    color: #e5e5e5;
+}
+
+.logiin_box div input[type="text"] {
+    width: 65%;
+    border: none;
+    border-bottom: 1px solid #dadada;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.logiin_box .loginMT {
+    margin-top: 60px;
+}
+
+@media (max-height: 480px) {
+    .logiin_box .loginMT {
+        margin-top: 20px;
+    }
+    .logiin_box div {
+        width: 78%;
+        margin: 14px auto;
+        line-height: 36px;
+    }
+}
+
+input[type="password"] {
+    width: 65%;
+    border: none;
+    border-bottom: 1px solid #dadada;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.agreement {
+    width: 14px;
+    height: 14px;
+    background: url(../images/checked01.png) center center no-repeat;
+}
+
+.agreementActive {
+    width: 14px;
+    height: 14px;
+    background: url(../images/checked02.png) center center no-repeat;
+}
+
+.con_box01 .b_bottom .text01_p {
+    border: none;
+    line-height: 40px;
+    width: 64%;
+    padding-left: 8%;
+    display: block;
+    text-align: left;
+}
+
+.fixed_btn {
+    top: 20px;
+    z-index: 3;
+}
+
+.login_btn {
+    font-size: 14px;
+    color: #333;
+}
+
+.btn01_p {
+    width: 26%;
+    height: 28px;
+    margin: 6px 0;
+    border: none;
+    float: right;
+}
+
+.ma-li {
+    width: 33.3%;
+    padding: 12px 0;
+    text-align: center;
+    float: left;
+}
+
+.myaward-b1 {
+    background: #ffffff;
+}
+
+.myaward-b2 {
+    color: #eaa965;
+}
+
+.slideR_style {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.symxDateBox {
+    background-color: #f0f0f0;
+    padding: 10px 8% 6px 8%;
+    width: 84%;
+    text-align: center;
+}
+
+.bYear {
+    width: 15px;
+    height: 22px;
+    border: 1px solid #909090;
+    float: left;
+    background: url(../images/prev.png) no-repeat center center;
+    background-size: 50%;
+}
+
+.aYear {
+    width: 15px;
+    height: 22px;
+    border: 1px solid #909090;
+    float: right;
+    background: url(../images/next.png) no-repeat center center;
+    background-size: 50%;
+}
+
+.aMonth {
+    width: 15px;
+    height: 24px;
+    float: right;
+    margin-right: 6%;
+    background: url(../images/next.png) no-repeat center center;
+    background-size: 50%;
+}
+
+.bMonth {
+    width: 15px;
+    height: 24px;
+    float: left;
+    margin-left: 6%;
+    background: url(../images/prev.png) no-repeat center center;
+    background-size: 50%;
+}
+
+.symxDateBox .date {
+    height: 24px;
+    line-height: 24px;
+}
+
+.symxDateBox .date a {
+    font-size: 20px;
+    color: #15514f;
+}
+
+.symxDateBox .date .month {
+    color: #e64036;
+}
+
+.fixSelect {
+    position: fixed;
+    top: 44px;
+    z-index: 6;
+    width: 100%;
+}
+
+.inline_left {
+    display: inline-block;
+    width: 30%;
+    text-align: left;
+    color: #e64036;
+    line-height: 30px;
+}
+
+.inline_right {
+    display: inline-block;
+    width: 66%;
+    text-align: right;
+    color: #408DD9;
+    line-height: 30px;
+}
+
+.yearList,
+.monthList {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 5;
+    display: none;
+    background: #fff;
+}
+
+.yearList li,
+.monthList li {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+    font-size: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    float: left;
+}
+
+.yearList li {
+    width: 50%;
+}
+
+.monthList li {
+    width: 33.3%;
+}
+
+.downInfobox {
+    padding: 20px 5%;
+    background-color: #fff;
+}
+
+.downInfobox .leftImg {
+    float: left;
+    width: 30%;
+    height: 30%;
+}
+
+.downInfobox .rightCont {
+    float: left;
+    display: block;
+    margin-left: 4%;
+    width: 66%;
+}
+
+.downInfobox .operateBox {
+    height: 30px;
+    padding: 6px 0;
+}
+
+.downInfobox .textBox {
+    margin-top: 6px;
+}
+
+.downGuide {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 44px;
+    left: 0;
+    z-index: 5;
+    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(../images/app_down/tishi.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: top center;
+    filter: alpha(opacity=50);
+}
+
+.topAdver {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 5;
+}
+
+.topAdverHide {
+    display: none;
+}
+
+.col7BD6C2 {
+    background: #7BD6C2;
+}
+
+.co97C7FF {
+    background: #97C7FF;
+}
+
+.colF99B9B {
+    background: #F99B9B;
+}
+
+.titleFixTopDef {
+    padding-top: 44px;
+}
+
+.titleFixTop {
+    padding-top: 96px;
+}
+
+.hasTopAdver {
+    top: 52px;
+}
+
+.indexTitFixTop {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    text-align: center;
+}
+
+.indexContUp {
+    margin-top: -52px;
+}
+
+.regis_textRight {
+    text-align: right;
+}
+
+.tipMessageBox {
+    text-align: center;
+}
+
+.tipMessageBox .tipMessage {
+    display: inline-block;
+    text-align: left;
+}
+
+.flot_extra {
+    width: 91%;
+    margin: 0 4% 0 5%;
+    height: 140px;
+}
+
+.whiteColor {
+    color: #fff;
+}
+
+
+/*精彩活动---大转盘  starting*/
+
+.content {
+    margin: 0px 0 0px 0;
+}
+
+.result {
+    height: 50px;
+    line-height: 50px;
+    margin: 1px 15px 15px 15px;
+    background: #fff;
+    color: #cc0000;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px dashed #cc0000;
+    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.boxcontent {
+    margin: 1px 15px 15px 15px;
+    border-radius: 5px;
+    padding: 2px;
+    background-color: #FEF8B2;
+    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.hd_bg4_text {
+    width=100%;
+    margin: 0 auto;
+    font-size: 15px;
+    color: #cc0000;
+    line-height: 50px;
+    text-align: center;
+}
+
+.hd_bg4_text span {
+    font-size: 30px;
+    margin: 0 10px;
+    font-family: 'Impact';
+}
+
+.boxyellow {
+    background-color: #FEF8B2;
+}
+
+.boxwhite {
+    background-color: #ffffff;
+}
+
+.box {
+    border-radius: 5px;
+    font-size: 14px;
+    border: 1px dashed rgba(0, 0, 0, 0.3);
+}
+
+.box .title-green {
+    padding: 0 5px 0px 10px;
+    border-radius: 3px 3px 3px 0;
+    height: 22px;
+    margin: -1px;
+}
+
+.box .Detail {
+    padding: 15px;
+}
+
+.lotteryMain {
+    width: 100%;
+    padding: 0 0;
+}
+
+.lotteryBg {
+    width: 310px;
+    height: 310px;
+    max-width: 310px;
+    margin: 0 auto;
+    margin-top: 45px;
+    z-index: 6;
+    background: url(../images/Lottery/lotteryBg.png) center 0 no-repeat;
+    -webkit-background: cover;
+    -moz-background: cover;
+    -o-background: cover;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+#run {
+    width: 112px;
+    height: 157px;
+    position: absolute;
+    left: 32%;
+    top: 27%;
+    margin-left: 0px;
+    margin-top: 0px;
+    z-index: 7;
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+}
+
+.btn_run {
+    width: 84px;
+    height: 84px;
+    background: url(../images/Lottery/btn_start1.png) center 0 no-repeat;
+    -webkit-background: cover;
+    -moz-background: cover;
+    -o-background: cover;
+    background-size: cover;
+    border: none;
+    outline: none;
+    position: absolute;
+    left: 37%;
+    top: 39%;
+    margin-left: 0px;
+    margin-top: 0px;
+    z-index: 8;
+    cursor: pointer;
+}
+
+.outercont {
+    background: #f6dba3 url(../images/Lottery/dazhuanpan.png) center 0 no-repeat;
+    position: relative;
+}
+
+
+/*精彩活动---大转盘  ending*/
+
+
+/*忘记登录密码  starting*/
+
+.c_top {
+    margin-top: 15px;
+}
+
+.c_right {
+    float: right;
+    color: #e64036;
+    text-decoration: underline;
+    font-size: 13px;
+}
+
+
+/*忘记登录密码  ending*/
+
+.fixBottom {
+    padding-bottom: 50px;
+}
+
+
+/**第三方平台主页 begin**/
+
+.third_menu {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.third_menu ul {
+    overflow: hidden;
+}
+
+.third_menu ul li {
+    width: 25%;
+    padding: 50px 0 12px 0;
+    text-align: center;
+    float: left;
+    background-size: 25%;
+}
+
+.third_Login {
+    background: url(../images/quickMenu/login.png) center 10px no-repeat;
+}
+
+.third_Registe {
+    background: url(../images/quickMenu/registe.png) center 10px no-repeat;
+}
+
+.third_Set {
+    background: url(../images/quickMenu/set.png) center 10px no-repeat;
+}
+
+.third_MyBankCard {
+    background: url(../images/quickMenu/myCard.png) center 10px no-repeat;
+}
+
+.third_RegularShiftTo {
+    background: url(../images/quickMenu/dingqi.png) center 10px no-repeat;
+}
+
+.third_My {
+    background: url(../images/quickMenu/myAssets.png) center 10px no-repeat;
+}
+
+.third_SmartDeposit {
+    background: url(../images/quickMenu/myLiability.png) center 10px no-repeat;
+}
+
+.third_TLB_ProductSearch {
+    background: url(../images/quickMenu/TLB.png) center 10px no-repeat;
+}
+
+.third_YYY_Query {
+    background: url(../images/quickMenu/YYY.png) center 10px no-repeat;
+}
+
+.third_ZSZYDetail {
+    background: url(../images/quickMenu/ZSZY.png) center 10px no-repeat;
+}
+
+.third_BankProductQuery {
+    background: url(../images/quickMenu/bankFinance.png) center 10px no-repeat;
+}
+
+.third_LifeMain {
+    background: url(../images/quickMenu/lifePay.png) center 10px no-repeat;
+}
+
+.third_PrepaidrRecharge {
+    background: url(../images/quickMenu/phoneCharge.png) center 10px no-repeat;
+}
+
+.third_GasCardCharge {
+    background: url(../images/quickMenu/gasCharge.png) center 10px no-repeat;
+}
+
+.third_RecommendFriend {
+    background: url(../images/quickMenu/recommendFriend.png) center 10px no-repeat;
+}
+
+.third_Lottery {
+    background: url(../images/quickMenu/active.png) center 10px no-repeat;
+}
+
+.third_MyInformation {
+    background: url(../images/quickMenu/personInfo.png) center 10px no-repeat;
+}
+
+.third_MyNews {
+    background: url(../images/quickMenu/news.png) center 10px no-repeat;
+}
+
+.third_MyAward {
+    background: url(../images/quickMenu/active.png) center 10px no-repeat;
+}
+
+.third_AboutUs {
+    background: url(../images/quickMenu/aboutUs.png) center 10px no-repeat;
+}
+
+.third_ComQuestion {
+    background: url(../images/quickMenu/problems.png) center 10px no-repeat;
+}
+
+
+/**第三方平台主页 end**/
+
+
+/*修正ios input按钮颜色 */
+
+input[type=button],
+input[type=submit],
+button {
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+
+/*解决ios 无点击事件标签添加click事件不生效*/
+
+div,
+span,
+img {
+    cursor: default
+}
+
+.con_zichan03a .show {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: url(../images/zhanshou02.png) center center no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+    margin: 9px 5% 0 0;
+    float: right;
+}
+
+.hasTopAdver1 {
+    margin-top: 52px;
+}
+
+.logiin_box div input::-webkit-input-placeholder {
+    width: 65%;
+    border: none;
+    border-bottom: 1px solid #dadada;
+    line-height: 24px;
+    font-size: 11px;
+}
+
+
+/* 营销活动主页 begin*/
+
+.activity_bg {
+    width: 100%;
+    background: url(../images/activityicons/bg01.png) no-repeat top center;
+    background-size: 100% 100%;
+}
+
+.activity_00 {
+    padding: 10px 0 0 10px;
+}
+
+.activity_01 {
+    text-align: center;
+    padding: 50px 0px 50px 0px;
+}
+
+.activity_02 {
+    width: 100%;
+    text-align: center;
+    background: url(../images/activityicons/bg02.png) no-repeat top center;
+    background-size: 100% 100%;
+}
+
+.txt_01 {
+    width: 86%;
+    font-size: 10px;
+    text-align: justify;
+    line-height: 20px;
+    margin: 35px auto;
+}
+
+.txt_01 a {
+    color: #8b572a;
+    text-decoration: underline;
+}
+
+.txt_01 a:hover {
+    cursor: pointer;
+}
+
+.active_link_box {
+    width: 76%;
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.active_link_box ul {
+    overflow: hidden;
+}
+
+.active_link_box ul li {
+    width: 33%;
+    padding-top: 40px;
+    float: left;
+}
+
+.shenghuojf {
+    background: url(../images/activityicons/shenghuo.png) no-repeat top center;
+    background-size: 40% 50%;
+}
+
+.shoujichzh {
+    background: url(../images/activityicons/shouji.png) no-repeat top center;
+    background-size: 26% 50%;
+    border-left: 1px dashed #000;
+}
+
+.jiayouka {
+    background: url(../images/activityicons/jiayouka.png) no-repeat top center;
+    background-size: 32% 50%;
+    border-left: 1px dashed #000;
+}
+
+.active_btn_box {
+    padding: 20px 0;
+}
+
+.activity_03,
+.activity_04 {
+    text-align: center;
+    width: 72%;
+    padding: 24px;
+    background: #f6e08a;
+    border-radius: 8px;
+    margin: 0px auto;
+}
+
+.activity_03 div,
+.activity_04 div {
+    text-align: justify;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.txt_02 {
+    width: 82%;
+    line-height: 24px;
+    text-align: left;
+    border-radius: 10px;
+    background: #fdd36f;
+    padding: 20px;
+    margin: 30px auto;
+}
+
+
+/* 营销活动主页end */
+
+/**售罄金额**/
+.cf_ll .alreadySaled {
+    color:#979797
+}
+.fixdFlag{
+    top: 0;position: fixed;
+}
+/*风险评估*/
+.evaluat_con ul .slqriskclass{
+    line-height:20px;
+    margin-bottom:8px;
+    padding-left:26px;
+    background-size:12px 12px;
+}
+.evaluat_con ul .slqriskclass1{
+    background:url(../images/radio01.png) 10px 2px no-repeat;
+    background-size:12px 12px;
+}
+/*.evaluat_con ul .slqriskclass2{
+    background:url(../images/radio02.png) 10px 2px no-repeat;
+    background-size:12px 12px;
+}
+*/
+.idPicBox{
+    position:relative;
+    width:47%;
+    height:0;
+    font-size:0;
+    line-height:0;
+    padding:0 0 27%;
+    float: left;
+}
+.idPicBox img{
+    width: 100%;
+    height:100%;
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.idPicBox input{
+    width: 100%;
+    height:100%;
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    opacity: 0;
+}
+.marginL4{
+    margin-left: 6%;
+}
+.marginB15p{
+    margin-bottom: 15px;
+}
+.pwdCommon{
+    display: block;
+    width:70%;
+    margin: 0 15%;
+}
+.paddingtop02 {
+    padding-top: 1px;
+}
+.authResult{
+    margin: 0;
+    padding:0;
+}
+.authResult img{
+    width:100%;
+    display: block;
+    padding-bottom: 12px;
+}
+.authResult .info{
+    padding:20px 0;
+    font-size: 12px;
+    text-align: center;
+}
+.authResult .success{
+    color:#3dac38;
+}
+.authResult .authing{
+    color:#4a8cd6;
+}
+.authResult .refuse{
+    color:#f86b16;
+}
+.authResult p{
+    font-size: 12px;
+    text-align: center;
+}
+.authResult .upImgBtn{
+    width:26%;
+    margin-top:26px;
+    line-height:28px;
+    border:none;
+    background:#E64036;
+    color:#fff;
+    border-radius:8px;
+    margin: 26px 37% 0 37%;
+}
+/***第三方平台***/
+.thirdRegiste{/**注册**/
+    background: url(../images/third/register.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdLogin{/**登录**/
+    background: url(../images/third/login.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdSet{/**设置**/
+    background: url(../images/third/set.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdMyBankCard{/**我的银行卡**/
+    background: url(../images/third/myBankCard.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdRegularShiftTo{/**定期转入**/
+    background: url(../images/third/regularShiftTo.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdMy{/**我的**/
+    background: url(../images/third/my.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdSmartDeposit{/**智能存款**/
+    background: url(../images/third/smartDeposit.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdTLB_ProductSearch{/**添利宝**/
+    background: url(../images/third/TLB.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdYYY_Query{/**月月赢**/
+    background: url(../images/third/YYY.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdZSZYDetail{/**招商招益**/
+    background: url(../images/third/ZSZY.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdBankProductQueryDetail{/**银行理财**/
+    background: url(../images/third/YHLC.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdLifeMain{/**生活缴费**/
+    background: url(../images/third/lifePay.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdPhoneRecharge{/**话费流量**/
+    background: url(../images/third/phoneCharge.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdGasCardCharge{/**加油卡**/
+    background: url(../images/third/gasCharge.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdMyRecommendQry{/**推荐好友**/
+    background: url(../images/third/myRecommend.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.thirdActiveMain{/**精彩活动**/
+    background: url(../images/third/activeMain.png) center 14px no-repeat;
+    background-size: 25%;
+}
+.b_bottom{
+    border-bottom:1px solid #e5e5e5;
+}
+.bankLimitBox{
+    background-color:#fff;
+    width:90%;
+    height: auto;
+    padding: 20px 5%;
+}
+.bankLimitBox p{
+    color:#909090;
+    line-height: 20px;
+    height: 20px;
+}
+.bankLimitBox table{
+    width:100%;
+    margin:10px 0;
+    padding:0;
+    border-collapse:collapse;
+}
+.bankLimitBox .head td{
+    color:#333;
+}
+.bankLimitBox td{
+    border:1px solid #909090;
+    color:#646464;
+    font-size: 14px;
+    height:28px;
+    line-height: 28px;
+    text-align: center;
+}
+.textIndent{
+    text-indent: 2em;
+}

@@ -1,0 +1,11 @@
+<div class="top02 fixTop wealthTop">定期转入删除
+    <span class="back_btn01">
+            <img src="images/back.png"  v-click="goto('appOther.RegularShiftTo')">
+    </span>
+</div>
+<div v-lazy-load="htmls/RegularShiftTo_Delete/RegularShiftTo_Delete.js" style="padding-top: 44px;">
+    <div v-controller="RegularShiftTo_DeleteCtrl" v-init="init()">
+        <div v-page href="htmls/RegularShiftTo_Delete/RegularShiftTo_DeletePre.html"></div>
+        <div v-page href="htmls/RegularShiftTo_Delete/RegularShiftTo_DeleteRst.html"></div>
+    </div>
+</div>

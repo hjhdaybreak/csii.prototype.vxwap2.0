@@ -1,0 +1,63 @@
+<div v-lazy-load="htmls/MoneyOut/MoneyOut.js">
+    <div v-controller="MoneyOutCtrl" class="titleFixTopDef" v-init="init()">
+        <div v-page href="htmls/MoneyOut/MoneyOutPre.html"></div>
+        <div v-page href="htmls/MoneyOut/MoneyOutConf.html"></div>
+        <div v-page href="htmls/MoneyOut/MoneyOutRst.html"></div>
+        <div v-page href="htmls/MoneyOut/CardList.html"></div>
+        <div v-page href="htmls/MoneyOut/ModComQuestion.html"></div>
+        <!--反欺诈提示1 -->
+        <div class="tangkuang_box" v-show="tranfInPreAlertSF" id="tranfInPreAlert">
+            <div class="tangkuang_bg"></div>
+            <div class="tangkuang03" id="tangkuang03" style=" padding-top:0;margin-top: -80px;">
+                <div class="tk_title">温馨提示</div>
+                <p class="mima_input">
+                    您尾号{{PayerAcNo}}账户为可疑账户，谨防诈骗，请确认是否继续交易
+                </p>
+                <div>
+                    <input type="button" class="btn_09" value="取消" v-click="closeBox('box1')">
+                    <input type="button" class="btn_10" value="确定" v-click="tranfInPreAlert2Show()">
+                </div>
+            </div>
+        </div>
+        <!--反欺诈提示2 -->
+        <div class="tangkuang_box" v-show="tranfInPreAlert2SF" id="tranfInPreAlert2">
+            <div class="tangkuang_bg"></div>
+            <div class="tangkuang03" id="tangkuang03" style=" padding-top:0;margin-top: -80px;">
+                <div class="tk_title">温馨提示</div>
+                <p class="mima_input">
+                    您尾号{{PayeeAcNo}}账户为可疑账户，谨防诈骗，请确认是否继续交易
+                </p>
+                <div>
+                    <input type="button" class="btn_09" value="取消" v-click="closeBox('box2')">
+                    <input type="button" class="btn_10" value="确定" v-click="doNext()">
+                </div>
+            </div>
+        </div>
+        <div class="tangkuang_box" id="pwd_tangkuang_box" style="display:none;" >
+            <div class="tangkuang_bg"></div>
+            <div class="tangkuang03" id="tangkuang03" style="padding-top:0;margin-top: -80px;">
+                <div class="tk_title" style="padding-left: 47px;">交易密码</div>
+                <p class="mima_input">
+                    <span>
+                        <input type="text" class="pwdCommon" id="pwdCommon" placeholder="请输入6位交易密码" v-model="trsPassword" v-click="alertPwd({skType:1,type:1,elem:'#pwdCommon',maxLength:6})" readonly="readonly">
+                    </span>
+                </p>
+                <div>
+                    <input type="button" class="btn_09" value="取消" v-click="closePwd()">
+                    <input type="button" class="btn_10" value="确定" v-click="doIt()">
+                </div>
+            </div>
+        </div>
+        <div class="tangkuang_box"  v-show="bangding">
+            <div class="tangkuang_bg"></div>
+            <div class="tangkuang01" id="tangkuang01"  style="margin-bottom: 40%;">
+                    <span class="error_icon"></span>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您未添加绑定卡，请到直销银行官方网站或下载直销银行APP进行绑卡操作后再来做交易</p>
+                    <div style="width:100%;">
+                        <input type="button" style="width: 40%;" value="确认" v-click="goto('appOther.DownApp')"><input type="button" style="width: 40%;margin-left: 10%;" value="取消" v-click="cancel()">
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.numBox {
+    height: 48px;
+    line-height: 48px;
+    font-size: 43px;
+    font-weight: bold;
+    overflow: hidden;
+    margin-right: 1px;
+    color:#000;
+    float: left;
+   /* clear: both;*/
+}
+.scrollNumBox{
+    float: left;
+    text-align: center;
+}
+.zero,.one,.two,.three,.four,.five,.six,.seven,.eight,.nine{
+   height: 48px;
+   line-height: 48px;
+   font-size: 43px;
+   font-weight: bold; 
+}

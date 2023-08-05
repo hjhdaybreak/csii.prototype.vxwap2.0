@@ -1,0 +1,38 @@
+<div v-lazy-load="[_qrcode,'htmls/RecommendFriend/RecommendFriend.js']">
+	<div v-controller="RecommendFriendCtrl" v-init="init()">
+		<div class="top02">
+			推荐好友 <span class="back_btn01" v-click="gotoLife()"> <img src="images/back.png"> </span>
+		</div>
+		<div class="recommend_con01" v-click="QR_CodeShow()">
+			<img src="images/re_firend01.png" width="100%">
+			<div class="re_btn_box"><img src="images/re_firendbtn.png" width="100%">
+			</div>
+		</div>
+		<div class="recommend_con02">
+			<p>
+				被推荐人点击立即推荐，在微信中识别该二维码就可以注册哦！
+			</p>
+			<div class="recommend_ac">
+				<div class="re_ac"><img src="images/re_firend_ac.png" width="100%">
+				</div>
+				<ul>
+					<li>
+						1，推荐人通过短信、微信好友、朋友圈分享至被推荐人处。
+					</li>
+					<li>
+						2，被推荐人打开推荐内容中的网站链接，直接进行注册用户。
+					</li>
+					<li>
+						3，推荐人可以通过“我的推荐”功能查询推荐人是否成功注册。
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="tangkuang_box"  v-show="QR_Code" style="margin-top: 44px;" v-click="QR_CodeShow()">
+			<div class="tangkuang_bg"></div>
+			<div class="tangkuang02" style="margin-top: -144px;width:200px;height:200px;left:50%;margin-left: -100px;"  ui-jq="qrcode" jq-options="options" id="tangkuang02"></div>
+			<div style="color:#fff;position: absolute;
+    top: 53%;padding:0 18%;">您可以通过微信进行分享将直销银行分享至您的好友，或直接扫描该二维码打开。</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,95 @@
+{
+	"_LocalProcessFlag": "false",
+	"Account": {
+		"name": "赵一",
+		"no": "6231970506700001628",
+		"acName": "赵一",
+		"openBankId": null,
+		"openBankName": null,
+		"innerFlag": null,
+		"bankAcType": "PEBC",
+		"actype": null,
+		"acchannal": null,
+		"accountChannels": null,
+		"crFlag": null,
+		"attchCardFlag": null
+	},
+	"_SignatureEnabled": false,
+	"_ChannelId": "WAP",
+	"BdSerialNo": "00201100009950",
+	"ChannelId": "WAP",
+	"_locale": "zh_CN",
+	"LoginType": "P",
+	"_DynamicPasswordEnabled": false,
+	"TrsAmount": 1000,
+	"_dataMap": {
+		"_LocalProcessFlag": "false",
+		"Account": {
+			"name": "赵一",
+			"no": "6231970506700001628",
+			"acName": "赵一",
+			"openBankId": null,
+			"openBankName": null,
+			"innerFlag": null,
+			"bankAcType": "PEBC",
+			"actype": null,
+			"acchannal": null,
+			"accountChannels": null,
+			"crFlag": null,
+			"attchCardFlag": null
+		},
+		"_SignatureEnabled": false,
+		"_ChannelId": "WAP",
+		"BdSerialNo": "00201100009950",
+		"ChannelId": "WAP",
+		"_locale": "zh_CN",
+		"LoginType": "P",
+		"_DynamicPasswordEnabled": false,
+		"TrsAmount": 1000,
+		"_dataMap": {
+			"ChannelId": "WAP",
+			"_locale": "zh_CN",
+			"LoginType": "P",
+			"TrsAmount": 1000,
+			"BankId": "9999",
+			"Account": {
+				"name": "赵一",
+				"no": "6231970506700001628",
+				"acName": "赵一",
+				"openBankId": null,
+				"openBankName": null,
+				"innerFlag": null,
+				"bankAcType": "PEBC",
+				"actype": null,
+				"acchannal": null,
+				"accountChannels": null,
+				"crFlag": null,
+				"attchCardFlag": null
+			},
+			"BussinessSum": "1000",
+			"_ChannelId": "WAP",
+			"TrsCurrency": {
+				"code": "CNY",
+				"crflag": "C"
+			},
+			"PayType": "02",
+			"BdSerialNo": "00201100009950"
+		},
+		"BankId": "9999",
+		"_AuthenticateType": "100000",
+		"BussinessSum": "1000",
+		"TrsCurrency": {
+			"code": "CNY",
+			"crflag": "C"
+		},
+		"PayType": "02"
+	},
+	"BankId": "9999",
+	"_AuthenticateType": "100000",
+	"BussinessSum": "1000",
+	"TrsCurrency": {
+		"code": "CNY",
+		"crflag": "C"
+	},
+	"PayType": "02"
+}

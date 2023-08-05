@@ -1,0 +1,35 @@
+<div v-lazy-load="htmls/Lottery/LotteryCtrl.js">
+	<div v-controller="LotteryCtrl" v-init="init()">
+		<div class="top02"style="position: fixed;z-index: 10;top: 0px;">
+			精彩活动<span class="back_btn01" v-click="goback()"> <img src="images/back.png"> </span>
+		</div>
+		<form name="LotteryForm" novalidate>
+			<div class="outercont">
+				<div class="lotteryBg">
+					<img  id="run" src="images/Lottery/start1.png" />
+					<input class="btn_run"  type="button" v-click="clickRun();" v-disabled="isClick"/>
+				</div>
+				<div class="content">
+					<div class="hd_bg4_text" style="padding-top: 10%;">
+						<!--当网络异常时的容错处理-->
+						还有<span id="remainNum">{{RemainNum?RemainNum:0}}</span>次抽奖机会
+					</div>
+					<div class="result" style="display: none;"></div>
+					<div class="boxcontent boxyellow">
+						<div class="box">
+							<div class="title-green">活动说明：</div>
+							<div class="Detail">
+								<p>1、参与缴费充值有礼的营销活动可获赠抽奖机会，具体详见精彩活动页面。</p>
+								<p>2、抽奖获得的奖品可在“首页－精彩活动－中奖查询”中查看。</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<p style="padding-top: 1%;" v-hide="isIOS"></p>
+						<p class="hd_bg4_text" v-show="isIOS">【本活动及奖品与苹果公司无关】</p>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

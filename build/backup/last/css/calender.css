@@ -1,0 +1,30 @@
+/**收益明细日历样式***/
+.fc-toolbar{
+	display: none;
+}
+.fc-head .fc-row thead th{
+   font-size: 10px;
+   height: 40px;
+   line-height: 40px;
+   color:#909090;
+}
+.fc-row thead th,.fc-row tbody td{
+   height: 20px;
+   line-height: 20px;
+   text-align: center;
+}
+.fc-row tbody  .fc-event-container span{
+	background-color: rgb(247, 247, 247);
+	color:#E64036;
+}
+.fc-row tbody  .fc-event-container a{
+	background-color:  rgb(247, 247, 247);
+	border:0;
+}
+
+/*.fc-view-container table td,.fc-view-container table th{
+	border:0;
+}*/
+ /*.fc-view-container .fc-day-grid-container{
+   height:240px;
+}*/

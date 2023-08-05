@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN" v-app="ibsapp">
+
+<head>
+    <!-- 编码格式是utf-8 -->
+    <meta charset="utf-8">
+<!--    &lt;!&ndash; 使用chrome渲染，没有chrome使用最高版本的IE &ndash;&gt;-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+<!--    &lt;!&ndash; 屏幕逻辑宽度与等于设备宽度，初始缩放比例为1,用户不可以缩放比例,最大放大比例，最小缩放比例&ndash;&gt;-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />-->
+<!--    &lt;!&ndash; 数字不当做电话拨出去 禁止邮件自动跳转&ndash;&gt;-->
+<!--    <meta name="format-detection" content="telephone=no" />-->
+<!--    <meta name="format-detection" content="email=no" />-->
+<!--    &lt;!&ndash; seo字段 &ndash;&gt;-->
+<!--    <meta name="Keywords" content="移动银行，手机银行" />-->
+<!--    <meta name="description" content="移动银行，手机银行" />-->
+<!--    <meta name="author" content="CSII" />-->
+<!--    <link rel="shortcut icon" href="images/Favicon.ico">-->
+<!--    &lt;!&ndash; 苹果设备 &ndash;&gt;-->
+<!--    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />-->
+<!--    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />-->
+<!--    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />-->
+<!--    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />-->
+    <title>VX移动端wap版开发产品原型</title>
+</head>
+
+<body class="metro">
+<!--    <div style="display:none">-->
+<!--        <img src="images/login_big.png" />-->
+<!--    </div>-->
+    <div ui-view></div>
+<!--    &lt;!&ndash; 遮罩开始 &ndash;&gt;-->
+<!--    <div v-include="'htmls/Welcome/Welcome.html'" v-show="slideFlag"></div>-->
+<!--    &lt;!&ndash; 遮罩开始 &ndash;&gt;-->
+<!--    <div id="load_back_drop" class="httpBackend-backdrop">-->
+<!--        <div style="z-index:10;position: relative;">-->
+<!--            <div class="spinner2">-->
+<!--                <div class="dot1"></div>-->
+<!--                <div class="dot2"></div>-->
+<!--            </div>-->
+<!--            <div class="loading_text">-->
+<!--                Loading&nbsp;.&nbsp;.&nbsp;.&nbsp;请稍等&nbsp;.&nbsp;.&nbsp;.-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; 错误信息 &ndash;&gt;-->
+<!--    <div class="eee-mask" style="z-index:1000;display:none;" id="EEE">-->
+<!--        <div class="tangkuang01" id="tangkuang01" style="margin-top: -85.5px;">-->
+<!--            <span class="error_icon"></span>-->
+<!--            <div class="tipMessageBox">-->
+<!--                <p class="tipMessage" v-bind="ErrMsg"></p>-->
+<!--            </div>-->
+<!--            <input type="button" value="朕知道了" v-click="HideErrorDiv()" />-->
+<!--        </div>-->
+<!--        &lt;!&ndash; <div class="title">-->
+<!--            温馨提示-->
+<!--            </div>-->
+<!--            <div v-bind="ErrMsg" class="message"></div>-->
+<!--            <button v-click="HideErrorDiv()" v-bind="BtnText" type="button" class="btn btn-block btn-info"></button> &ndash;&gt;-->
+<!--    </div>-->
+<!--    &lt;!&ndash; 确认信息 &ndash;&gt;-->
+<!--    <div class="eee-mask" id="FFF">-->
+<!--        <div class="eee">-->
+<!--            <div class="title">-->
+<!--                温馨提示-->
+<!--            </div>-->
+<!--            <div v-bind="ConMsg" class="message"></div>-->
+<!--            <button v-click="HideConfirm(true)" v-bind="BtnText1" type="button" class="btnCon1  btn-info"></button>-->
+<!--            <button v-click="HideConfirm(false)" v-bind="BtnText2" type="button" class="btnCon2 btn-info"></button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; 会话超时  &ndash;&gt;-->
+<!--    <div class="tangkuang_box" style="display: none;" id="sessionOut">-->
+<!--        <div class="tangkuang_bg"></div>-->
+<!--        <div class="tangkuang03" id="tangkuang03" style=" padding-top:0;margin-top: -80px;">-->
+<!--            <div class="tk_title">-->
+<!--                会话超时-->
+<!--            </div>-->
+<!--            <div class=" tipMessageBox">-->
+<!--                <p class="mima_input tipMessage">-->
+<!--                    您的会话已超时，请重新登录-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <input type="button" class="btn_10" value="确定" v-click="sessionOutDo()">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;用户被踢掉&ndash;&gt;-->
+<!--    <div class="tangkuang_box" style="display: none;" id="sessionOut2">-->
+<!--        <div class="tangkuang_bg"></div>-->
+<!--        <div class="tangkuang03" id="tangkuang03" style=" padding-top:0;margin-top: -80px;">-->
+<!--            <div class="tk_title">-->
+<!--                登录异常-->
+<!--            </div>-->
+<!--            <div class=" tipMessageBox">-->
+<!--                <p class="mima_input tipMessage">-->
+<!--                    该账号已在其他地方登录，您被强制退出。如非本人操作，请及时修改登录密码。-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <input type="button" class="btn_10" value="确定" v-click="sessionOutDo2()">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;app 使用5分钟提示弹框&ndash;&gt;-->
+<!--    <div class="tangkuang_box" style="display: none;" id="fiveMinute" v-click="closeFiveMinute()">-->
+<!--        <div class="tangkuang_bg"></div>-->
+<!--        <div class="tangkuang04" id="tangkuang04" style="margin-top: -80px;">-->
+<!--            <img src="images/tangkuang_colse.png" width="30px">-->
+<!--            <div>-->
+<!--                亲爱的，根据您的使用频率，建议您下载官方APP，操作会更加快捷、方便哦-->
+<!--            </div>-->
+<!--            <input type="button" value="立即下载" v-click="closeSlideBar();goto('appOther.DownApp')">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;强制实名认证&ndash;&gt;-->
+<!--    <div class="tangkuang_box" style="display: none;" id="forceNeedAuto_id">-->
+<!--        <div class="tangkuang_bg"></div>-->
+<!--        <div class="tangkuang01" id="tangkuang01" style="margin-bottom: 40%;">-->
+<!--            <span class="error_icon"></span>-->
+<!--            <p style="text-align: center;" v-bind="ForceAuthText"></p>-->
+<!--            <div style="width:100%;">-->
+<!--                <input type="button" style="width: 40%;" v-value="ForceYesBtn" v-click="forceDoAuth('T')">-->
+<!--                <input type="button" style="width: 40%;margin-left: 10%;" value="取消" v-click="forceAuthCancelFn()">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;实名认证弹框slq&ndash;&gt;-->
+<!--    <div class="tangkuang_box" style="display: none;" id="showShiMingFlag">-->
+<!--        <div class="tangkuang_bg"></div>-->
+<!--        <div class="tangkuang01" id="tangkuang01" style="margin-bottom: 40%;">-->
+<!--            <span class="error_icon"></span>-->
+<!--            <p style="text-align: center;" id="authText" v-bind="authText"></p>-->
+<!--            <div style="width:100%;">-->
+<!--                <input type="button" style="width: 40%;" v-value="yesBtn" v-click="gotoShiMing()">-->
+<!--                <input type="button" style="width: 40%;margin-left: 10%;" value="取消" v-click="closeShiMing()">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="eee-mask" id="noPicmask" v-click="closeSlideBar()"></div>-->
+<!--    <div class="eee-mask" id="doNotClickMask" style="top:44px;"></div>-->
+    <!-- jquery引用 -->
+    <!-- jquery引用 -->
+    <script type="text/javascript" src="lib/min/jquery-1.11.1.min.js"></script>
+    <!-- VX2 -->
+    <script type="text/javascript" src="lib/min/vx2.min.js"></script>
+    <!-- 开发模式 -->
+    <script src="lib/config.preload.js"></script>
+    <!-- 浏览器访问 -->
+    <script>
+    configRemote.$inject = ['$remoteProvider'];
+
+    function configRemote($remoteProvider) {
+        /**
+         * $remote will use this name for service context
+         * 设置remote的请求路径前缀
+         */
+        $remoteProvider.setTrsContext("/local/");
+    }
+    configLog.$inject = ['$logProvider'];
+
+    function configLog($logProvider) {
+        /**
+         * 设置可否日志打印
+         */
+        $logProvider.debugEnabled(true);
+    }
+    vx.module('ibsapp').config(configRemote);
+    vx.module('ibsapp').config(configLog);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<div v-lazy-load="htmls/ComQuestion/ComQuestion.js" style="background:#fff;height:100%">
+    <div v-controller="ComQuestionCtrl" v-init="init()" style="background:#fff;height:100%" novalidate>
+        <div class="top02">
+            常见问题
+            <span class="back_btn01"> <img src="images/back.png" v-click="goback()"> </span>
+        </div>
+        <div>
+            <form name="form1">
+                <div class="main" style="padding-bottom:80px;">
+                    <div class="main-listX">
+                        <ul ui-toggle>
+                            <li  class="question questiondownClass">
+                                1.什么是添利宝？
+                            </li>
+                            <li class="answer textIndent">
+                                “添利宝”首期合作公司为大成基金，对接大成基金旗下的大成添利宝货币基金（基金代码：E类：000726\B类：000725）。
+                                <br>
+                            </li>
+                        </ul>
+                        <ul ui-toggle>
+                            <li  class="question questiondownClass">
+                                2.添利宝有哪些优势？
+                            </li>
+                            <li class="answer">
+                                （1）超低起存限额，1分钱起存；</br>
+                                （2）享受远高于活期存款利率的货币基金收益；且收益按日结转，按日支付。每天收益自动转入第二天本金，复利享受更高收益；</br>
+                                （3）购买和赎回无任何费用；</br>
+                                （4）提供实时赎回和普通赎回两种方式，方便您灵活使用资金。
+                            </li>
+                        </ul>
+                        <ul ui-toggle>
+                            <li  class="question questiondownClass">
+                                3.添利宝收益是如何分配的？
+                            </li>
+                            <li class="answer">
+                                <p>
+                                    每交易日（T）15:00前购买的添利宝，T+1交易日开始计算收益，T+2交易日收益将结转至添利宝持有额中；T日15:00后购买的添利宝将计算在下一个交易日内。
+                                </p>
+                                <table style="width: 100%;text-align: center;" border="1" cellspacing="0" cellpadding="0" bordercolor="#eee">
+                                    <tr>
+                                        <th class="tableCellClass33">购买时间</th>
+                                        <th class="tableCellClass33">计算收益</th>
+                                        <th class="tableCellClass33">查看收益</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="tableCellClass33">周一15:00之前</td>
+                                        <td class="tableCellClass33">周二</td>
+                                        <td class="tableCellClass33">周三</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tableCellClass33">周二15:00后至周三15:00之前</td>
+                                        <td class="tableCellClass33">周四</td>
+                                        <td class="tableCellClass33">周五</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tableCellClass33">周四15:00后至周五15:00之前</td>
+                                        <td class="tableCellClass33">下周一</td>
+                                        <td class="tableCellClass33">下周二</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tableCellClass33">周一15:00后至周二15:00之前</td>
+                                        <td class="tableCellClass33">周三</td>
+                                        <td class="tableCellClass33">周四</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tableCellClass33">周三15:00后至周四15:00之前</td>
+                                        <td class="tableCellClass33">周五</td>
+                                        <td class="tableCellClass33">下周一</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tableCellClass33">周五15:00后至下周一15:00之前</td>
+                                        <td class="tableCellClass33">下周二</td>
+                                        <td class="tableCellClass33">下周三</td>
+                                    </tr>
+                                </table>
+                                <p>
+                                    注：工作日内可查看收益，遇双休日、节假日顺延。
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

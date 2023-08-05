@@ -1,0 +1,77 @@
+<div class="top02 fixTop wealthTop" v-show="!flag_show">
+	手机充值记录 <span class="back_btn01" v-click="goback()"> <img src="images/back.png"> </span>
+	<span class="trad_btn01 downImg"> <img src="images/select_btn2.png" v-click="showSelect()"> </span>
+</div>
+<div class="top02 fixTop wealthTop" v-show="flag_show">
+	筛选 <span class="back_btn01" v-click="showSelect()"> <img src="images/back.png"> </span>
+
+	<span class="trad_btn01" v-click="doQueryList()">完成</span>
+</div>
+<div  class="fixSelect" v-click="closeSelectBox($event,'ChargeHisQryForPhoneForm')" id="ChargeHisQryForPhoneForm" style="display:none">
+	<!-- 选择查询条件开始 -->
+	<div class="con_box01 paddingtop01" style="padding-bottom:50px;">
+		<div>
+			<div class="cal_box">
+				<div><span>开始日期：
+					<input type="text" name="beginDate" id="beginDate" readonly="readonly" class="dateIcon1"v-model="BeginDate">
+				</span></div>
+				<div><span>截止日期：
+					<input type="text" name="endDate" id="endDate" readonly="readonly"  class="dateIcon1"v-model="EndDate">
+				</span></div>
+			</div>
+		</div>
+	</div>
+</div><!--选择查询条件结束-->
+<!--显示列表开始-->
+<div class="jf_Main">
+	<div class="jiaofei-history" v-show="List.length>0" v-repeat="item in List">
+		<div class="main-jiaofei-history-tip" >
+			{{item.Month|MonthToUpper}}月<span id="{{item.Month+'a'}}" class="glyphicon glyphicon-menu-up" v-click="toggleMon(item.Month)"></span>
+		</div>
+		<div class="main-jiaofei-history-list" id="{{item.Month+'m'}}">
+			<ul v-repeat="itemMon in item.MonthList" v-click="toDetail(itemMon)" >
+				<li class="dateX">
+					{{itemMon.PAYDATE.substring(8,10)}}日
+					<br>
+					{{itemMon.PAYDATE.substring(11,16)}}
+				</li>
+				<li class="icon-textX">
+					<!-- <span class="busi{{itemMon.BUSI_TYPE}}"></span> -->
+					<span class="phoneIcon"></span>
+				</li>
+				<li class="textX">
+					<div class="text1X" v-show="itemMon.PAYPROJ_CODE=='060304' || itemMon.PAYPROJ_CODE=='060303' || itemMon.PAYPROJ_CODE=='060302'">
+						话费充值
+					</div>
+					<div class="text1X" v-show="itemMon.PAYPROJ_CODE=='060401' || itemMon.PAYPROJ_CODE=='060402' || itemMon.PAYPROJ_CODE=='060403'">
+						流量充值
+					</div>
+					<div class="text2X">
+						{{itemMon.BILLKEY}} <span v-show="itemMon.PAYPROJ_CODE=='060304' || itemMon.PAYPROJ_CODE=='060401'">中国移动</span>
+						<span v-show="itemMon.PAYPROJ_CODE=='060303' || itemMon.PAYPROJ_CODE=='060402'">中国联通</span>
+						<span v-show="itemMon.PAYPROJ_CODE=='060302' || itemMon.PAYPROJ_CODE=='060403'">中国电信</span>
+					</div>
+				</li>
+				<li class="rightX">
+					<div class="right1X">
+						{{itemMon.PAYAMOUNT|number:2}}元
+					</div>
+					<div class="right2X">
+						{{$msg('chargeStatus')[itemMon.STATUS]}}
+					</div>
+				</li>
+				<div style="clear: both;"></div>
+			</ul>
+
+		</div>
+
+	</div>
+
+	<div class="l_norecord" v-show="List.length == 0">
+		<ul>
+			<p><img src="images/icon9.png" width="25" height="25">{{errorInfo}}
+			</p>
+		</ul>
+	</div>
+</div>
+<!--显示列表结束-->

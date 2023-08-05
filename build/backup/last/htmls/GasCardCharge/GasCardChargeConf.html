@@ -1,0 +1,81 @@
+<div class="top02 fixTop wealthTop">
+	加油卡充值 <span class="back_btn01"> <img src="images/back.png"> </span>
+</div>
+<form name="form1" v-submit="doIt()" novalidate>
+	<div class="tab03">
+		<ul>
+			<li v-class="{'tab03_cur':tabFlag==1}">
+				中石化
+			</li>
+			<li v-class="{'tab03_cur':tabFlag==2}">
+				中石油
+			</li>
+		</ul>
+	</div>
+
+	<div class="phone_box">
+
+		<div class="phone_num">
+			<div class="con_context">
+				<p>
+					{{GasCardNo}}
+				</p>
+			</div>
+			<div v-show="tabFlag==1">
+				&nbsp;<span class="zsh_pic">中石化</span>&nbsp;
+			</div>
+			<div v-show="tabFlag==2">
+				&nbsp;<span class="zsy_pic">中石油</span>&nbsp;
+			</div>
+		</div>
+
+		<div class="jf_infor" style="margin-top:0; border-top:none;">
+			<p>
+				<span>充值金额</span>
+				<span>{{PayItemQryList[currentIndex].filed4}}元</span>
+			</p>
+			<p>
+				<span>售价</span>
+				<span>{{PayItemQryList[currentIndex].payamount}}元</span>
+			</p>
+			<p>
+				<span>短信验证码</span>
+				<input type="text" placeholder="请输入验证码" class="text02" v-model="_pTokenName" required>
+				<input type="button" ui-timebtn='{"time":60}' v-click="sendMsg()" value="获取验证码" class="btn01" />
+			</p>
+		</div>
+
+	</div>
+
+	<div class="btn02_box">
+		<input type="submit" id="button2" class="btn02" value="确定">
+	</div>
+</form>
+
+<!-- 交易密码输入提示框  -->
+<div class="tangkuang_box" v-show="submitPassInput">
+	<div class="tangkuang_bg"></div>
+	<div class="tangkuang03" id="tangkuang03" style="top: 30%;">
+		<div class="tk_title">
+			付费详情
+		</div>
+		<p>
+			<span>充值金额：</span>
+			<span>{{PayItemQryList[currentIndex].filed4}}元</span>
+		</p>
+		<p>
+			<span>售价</span>
+			<span>{{PayItemQryList[currentIndex].payamount}}元</span>
+		</p>
+		<p class="mima_input">
+			<span>交易密码：</span>
+			<span>
+				<input type="password" id="trsPwd" placeholder="请输入6位交易密码" v-model="passwdIn"/>
+			</span>
+		</p>
+		<div>
+			<input type="button" class="btn_09" value="取消" v-click="cancelPassIn()">
+			<input type="button" class="btn_10" value="确定" v-click="okPassIn()">
+		</div>
+	</div>
+</div>

@@ -1,0 +1,34 @@
+<div v-lazy-load="htmls/Life/Life.js">
+    <div v-controller="LifeCtrl" v-init="init()" class="fixBottom" v-class='{"titleFixTop":showTopAdver,"titleFixTopDef":!showTopAdver}'>
+        <div class="top02 fixTop wealthTop" v-class='{"hasTopAdver":showTopAdver}'>生&nbsp;活
+            <span class="back_btn01" v-click="showLogin()">
+              <img src="images/my02.png"   v-show="loginedF">
+            </span>
+            <span class="back_btn01" style="top:0">
+            <span  style="display:inline-block; width:40px ;font-size: 14px;color: #333;"v-show="!loginedF" v-click="showLogin()">登录 </span>
+            </span>
+            <span class=" pro_btn01" v-click="goto('appOther.MyNews')"> 
+            <img src="images/new01.png" style="width:93%"/>
+        </span>
+        </div>
+        <div class="menu_kj">
+            <div class="pro_title pro_title04">生活娱乐</div>
+            <ul>
+                <li class="menu_kj04" v-click="goto('appOther.LifeMain',{'prePageUrl' : 'app.Life'})">生活缴费</li>
+                <li class="menu_kj05" v-click="goPhoneRechargeFn();">手机充值</li>
+                <li class="menu_kj06" v-click="goGasCardChargeFn();">加油卡充值</li>
+                <li class="menu_kj07 b_top" v-click="goto('appOther.ActiveMain')">精彩活动</li>
+                <li class="menu_kj08 b_top" v-click="goRecommandFn()">推荐好友</li>
+                <li class="menu_kj12 b_top" v-click="TurnTo('appOther.MyRecommendQry')">我的推荐</li>
+            </ul>
+        </div>
+        <div class="menu_kj margintop b_top">
+            <div class="pro_title pro_title05">金融生活</div>
+            <ul>
+                <li class="menu_kj09" v-click="TurnTo('appOther.RepayInfoQry')">贷款查询</li>
+                <li class="menu_kj10" v-click="TurnTo('appOther.RegularShiftTo')">定期转入</li>
+                <li class="menu_kj11" style="color:#e5e5e5">敬请期待</li>
+            </ul>
+        </div>
+    </div>
+</div>
